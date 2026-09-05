@@ -1,0 +1,2 @@
+# The scripted run (python run_eval.py) needs NOTHING beyond the Python 3.9+ standard library.
+# The live path (BACKEND=live) uses urllib from the standard library as well: no packages.

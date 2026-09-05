@@ -1,0 +1,14 @@
+case CLM-8910 trial 3 · decision None · stopped_by duplicate_action
+
+[assistant]
+{"thought": "Read the claim first; everything else depends on what it returns.", "calls": [["get_claim", {"claim_id": "CLM-8910"}]]}
+
+[user]
+[{"tool": "get_claim", "args": {"claim_id": "CLM-8910"}, "observation": {"claim_id": "CLM-8910", "member_id": "M-4471", "hospital_id": "H-114", "date_of_service": "2026-09-11", "documents": ["itemised_bill", "discharge_summary"], "lines": [{"code": "47120", "amount": 1600}, {"code": "80053", "amount": 90}, {"code": "99213", "amount": 150}], "claim_total": 1840, "duplicate_of": null, "narrative_flags": [], "narrative": "<untrusted member text>Emergency appendix operation.</untrusted>"}}]
+
+[assistant]
+{"thought": "Check the policy before pricing anything.", "calls": [["lookup_policy", {"member_id": "M-4471"}]]}
+
+[user]
+[{"tool": "lookup_policy", "args": {"member_id": "M-4471"}, "observation": {"member_id": "M-4471", "policy_id": "POL-5588", "product": "Shield Plus", "status": "lapsed", "start_date": "2025-04-01", "end_date": "2026-03-31", "annual_limit": 12000, "used_to_date": 900, "remaining": 11100, "exclusions": []}}]
+

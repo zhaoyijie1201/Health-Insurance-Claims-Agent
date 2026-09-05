@@ -1,0 +1,11 @@
+# never commit a key
+OpenRouter_api.txt
+*.key
+.env
+
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# the gated action's live log is per-machine; result tables and failed-run transcripts ARE committed
+results/decisions.jsonl

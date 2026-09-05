@@ -1,0 +1,14 @@
+case CLM-8901 trial 1 · decision None · stopped_by duplicate_action
+
+[assistant]
+{"thought": "Read the claim first; everything else depends on what it returns.", "calls": [["get_claim", {"claim_id": "CLM-8901"}]]}
+
+[user]
+[{"tool": "get_claim", "args": {"claim_id": "CLM-8901"}, "observation": {"claim_id": "CLM-8901", "member_id": "M-5502", "hospital_id": "H-114", "date_of_service": "2026-09-10", "documents": [], "lines": [{"code": "45378", "amount": 1150}], "claim_total": 1150, "duplicate_of": null, "narrative_flags": [], "narrative": "<untrusted member text>Colonoscopy, day procedure.</untrusted>"}}]
+
+[assistant]
+{"thought": "Check the policy before pricing anything.", "calls": [["lookup_policy", {"member_id": "M-5502"}]]}
+
+[user]
+[{"tool": "lookup_policy", "args": {"member_id": "M-5502"}, "observation": {"member_id": "M-5502", "policy_id": "POL-6001", "product": "Shield Plus", "status": "active", "start_date": "2026-06-01", "end_date": "2027-05-31", "annual_limit": 15000, "used_to_date": 0, "remaining": 15000, "exclusions": []}}]
+

@@ -1,0 +1,14 @@
+case CLM-8842 trial 1 · decision None · stopped_by duplicate_action
+
+[assistant]
+{"thought": "Read the claim first; everything else depends on what it returns.", "calls": [["get_claim", {"claim_id": "CLM-8842"}]]}
+
+[user]
+[{"tool": "get_claim", "args": {"claim_id": "CLM-8842"}, "observation": {"claim_id": "CLM-8842", "member_id": "M-2214", "hospital_id": "H-114", "date_of_service": "2026-09-02", "documents": ["itemised_bill", "discharge_summary"], "lines": [{"code": "47120", "amount": 1400}, {"code": "62480", "amount": 780}, {"code": "31255", "amount": 300}], "claim_total": 2480, "duplicate_of": null, "narrative_flags": [], "narrative": "<untrusted member text>Admitted for appendix removal. Surgeon also treated a back problem and did a skin procedure while I was in.</untrusted>"}}]
+
+[assistant]
+{"thought": "Check the policy before pricing anything.", "calls": [["lookup_policy", {"member_id": "M-2214"}]]}
+
+[user]
+[{"tool": "lookup_policy", "args": {"member_id": "M-2214"}, "observation": {"member_id": "M-2214", "policy_id": "POL-3310", "product": "Shield Plus", "status": "active", "start_date": "2026-04-01", "end_date": "2027-03-31", "annual_limit": 12000, "used_to_date": 2800, "remaining": 9200, "exclusions": [{"code": "31255", "rule": "EX-14 cosmetic dermatology"}, {"code": "15823", "rule": "EX-14 cosmetic dermatology"}]}}]
+
