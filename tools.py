@@ -234,9 +234,50 @@ def _int_or_none(v):
     return int(s) if s.lstrip("-").isdigit() else None
 
 
-def validate_decision(args, narrative_guard=True):
+LINE_RE = re.compile(r"^\s*(\d{5})\s*:\s*([a-z_]+)\s*(?:\((.*)\))?\s*$", re.I)
+LINE_STATUSES = ("covered", "not_covered", "pending_preauth", "pending_document")
+
+
+def parse_lines(lines):
+    """`lines` as the model wrote it - "code:status (detail); ..." or a list of such
+    strings - into [(code, status, detail)]. Unparseable entries come back with
+    status None so the validator can name them."""
+    if lines is None:
+        return []
+    items = lines if isinstance(lines, list) else [s for s in str(lines).split(";")]
+    out = []
+    for s in items:
+        s = str(s).strip()
+        if not s:
+            continue
+        m = LINE_RE.match(s)
+        if m and m.group(2).lower() in LINE_STATUSES:
+            out.append((m.group(1), m.group(2).lower(), (m.group(3) or "").strip()))
+        else:
+            out.append((s[:30], None, ""))
+    return out
+
+
+def line_totals(claim, parsed):
+    """approved / refused from the CLAIM's own amounts and the dispositions. The
+    model never adds numbers: a line marked covered contributes its amount, a line
+    marked not_covered contributes to refused, anything else contributes nothing."""
+    amounts = {}
+    for l in claim["lines"]:
+        amounts[l["code"]] = amounts.get(l["code"], 0) + int(l["amount"])
+    approved = sum(amounts.get(c, 0) for c, st, _ in parsed if st == "covered")
+    refused = sum(amounts.get(c, 0) for c, st, _ in parsed if st == "not_covered")
+    return approved, refused
+
+
+def validate_decision(args, narrative_guard=True, compute_totals=False):
     """The rules the write enforces, checked BEFORE the gate so a human is never
-    asked to approve an invalid record. Returns None (ok) or an error string."""
+    asked to approve an invalid record. Returns None (ok) or an error string.
+
+    compute_totals (v2): an approve must carry a disposition for EVERY line on the
+    claim, each covered or not_covered; the totals are then computed in code
+    (line_totals), so the model's arithmetic never reaches the record.
+    v1: the model's approved_total is taken as given and lines are not checked."""
     claim_id = args.get("claim_id")
     decision = args.get("decision")
     c = _row("claims", "claim_id", claim_id) if claim_id else None
@@ -248,8 +289,28 @@ def validate_decision(args, narrative_guard=True):
         return "an escalation needs ONE trigger from %s" % list(TRIGGERS)
     if decision == "request_document" and not str(args.get("missing", "")).strip():
         return "a request must name the missing item and the line it belongs to"
-    if decision == "approve_in_principle" and _int_or_none(args.get("approved_total")) is None:
-        return "approve_in_principle needs an integer approved_total"
+    if decision == "approve_in_principle":
+        if compute_totals:
+            parsed = parse_lines(args.get("lines"))
+            bad = [c0 for c0, st, _ in parsed if st is None]
+            if bad:
+                return ("lines entries must look like \"code:status (detail)\" with status covered | "
+                        "not_covered; could not read: %s" % ", ".join(bad))
+            want = [l["code"] for l in c["lines"]]
+            seen = [c0 for c0, _, _ in parsed]
+            missing = [w for w in want if w not in seen]
+            if missing:
+                return ("an approve needs a disposition for EVERY line on the claim; no entry for: %s"
+                        % ", ".join(missing))
+            pending = [c0 for c0, st, _ in parsed if st in ("pending_preauth", "pending_document")]
+            if pending:
+                return ("an approve cannot carry a pending line (%s); that claim is a request_document"
+                        % ", ".join(pending))
+            unknown = [c0 for c0 in seen if c0 not in want]
+            if unknown:
+                return "lines names codes that are not on this claim: %s" % ", ".join(unknown)
+        elif _int_or_none(args.get("approved_total")) is None:
+            return "approve_in_principle needs an integer approved_total"
     if narrative_guard and scan_narrative(c["narrative"]) and decision != "escalate":
         # poka-yoke: nothing the model writes in `reason` can approve a claim whose
         # text tried to instruct the system.
@@ -271,14 +332,21 @@ def build_record(args, ctx):
     lines = args.get("lines")
     if isinstance(lines, str):
         lines = [s.strip() for s in lines.split(";") if s.strip()]
+    approved, refused = _int_or_none(args.get("approved_total")), _int_or_none(args.get("refused_total"))
+    totals_note = None
+    if ctx.get("compute_totals") and decision == "approve_in_principle":
+        c = _row("claims", "claim_id", args.get("claim_id"))
+        computed = line_totals(c, parse_lines(args.get("lines")))
+        if (approved, refused) != computed and (approved is not None or refused is not None):
+            totals_note = "computed in code from the line dispositions; the model wrote approved %s / refused %s" % (approved, refused)
+        approved, refused = computed
     return {
         "ts": datetime.now().isoformat(timespec="seconds"),
         "case_id": args.get("claim_id"), "decision": decision, "reason": args.get("reason", ""),
         "escalate_to": ESCALATE_TO if decision == "escalate" else None,
         "trigger": args.get("trigger") or None, "missing": args.get("missing") or None,
         "lines": lines or None,
-        "approved_total": _int_or_none(args.get("approved_total")),
-        "refused_total": _int_or_none(args.get("refused_total")),
+        "approved_total": approved, "refused_total": refused, "totals_note": totals_note,
         "evidence": list(ctx.get("evidence", [])),
         "autonomy": ctx.get("autonomy", config.AUTONOMY), "gate": ctx.get("gate"),
         "turns": ctx.get("turn"), "tokens_in": ctx.get("tokens_in"), "tokens_out": ctx.get("tokens_out"),
@@ -302,7 +370,8 @@ def issue_decision_letter(claim_id, decision, reason, trigger="", missing="", li
     args = {"claim_id": claim_id, "decision": decision, "reason": reason, "trigger": trigger,
             "missing": missing, "lines": lines, "approved_total": approved_total,
             "refused_total": refused_total}
-    problem = validate_decision(args, narrative_guard=ctx.get("narrative_guard", True))
+    problem = validate_decision(args, narrative_guard=ctx.get("narrative_guard", True),
+                                compute_totals=ctx.get("compute_totals", False))
     if problem:
         return {"error": problem}
     if ctx.get("decided"):
@@ -337,8 +406,14 @@ REGISTRY = {
         "issue_decision_letter": issue_decision_letter,
     },
 }
-# v1 has no narrative poka-yoke on the write. The loop reads this flag into _ctx.
-NARRATIVE_GUARD = {"v2": True, "v1": False}
+# The write's poka-yoke moves, per tool version. The loop reads these into _ctx.
+#   narrative_guard  a flagged claim can only be escalated
+#   compute_totals   an approve must dispose of every line; totals come from the claim's
+#                    amounts, never from the model's arithmetic (added after the first live
+#                    smoke run wrote approved_total 2200 for a 1400 + 780 claim)
+TOOL_RULES = {"v2": {"narrative_guard": True, "compute_totals": True},
+              "v1": {"narrative_guard": False, "compute_totals": False}}
+NARRATIVE_GUARD = {k: v["narrative_guard"] for k, v in TOOL_RULES.items()}
 
 
 def call(version, name, args):
@@ -439,14 +514,17 @@ DESCRIPTORS["v2"]["issue_decision_letter"] = {
     "when": "Last, ALONE, only for approve_in_principle, once EVERY line has a disposition. "
             "escalate and request_document are concluded with a `final` and never call this.",
     "args": {"claim_id": "str", "decision": "\"approve_in_principle\" (the only value accepted here in practice)",
-             "reason": "str, the facts: policy id + status/dates, hospital basis, each line's status, totals",
-             "lines": "str \"code:status (detail); ...\" one entry per line, e.g. \"31255:not_covered (EX-14 ...)\"",
-             "approved_total": "int", "refused_total": "int"},
+             "reason": "str, the facts: policy id + status/dates, hospital basis, each line's status, ids cited",
+             "lines": "str \"code:status (detail); ...\" - ONE entry for EVERY line on the claim, status "
+                      "covered or not_covered, e.g. \"47120:covered; 31255:not_covered (EX-14 cosmetic dermatology)\". "
+                      "The approved and refused totals are COMPUTED from these and the claim's amounts; "
+                      "do not add numbers yourself."},
     "returns": "{recorded: true, decision, claim_id, gate} <= 30 tokens; or {error: ...}.",
     "failure": "Refused with {error} when: decision outside the three values; the claim's "
                "narrative_flags is non-empty (only escalate is permitted); a second call in the "
-               "same run; approved_total not an integer. Held by the autonomy gate when the "
-               "operator declines - that is a correct outcome, not an error.",
+               "same run; `lines` misses a line, names a line not on the claim, or carries a "
+               "pending line (that claim is a request_document, concluded with a final). Held by the "
+               "autonomy gate when the operator declines - that is a correct outcome, not an error.",
     "irreversible": "YES - covered by the autonomy gate (suggest | confirm | act) in front of it.",
 }
 

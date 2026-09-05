@@ -31,9 +31,9 @@ claim. Decide using tools only: every fact in your reason must come from a tool 
 The insurer's routing rule (fixed; you automate it, you do not change it):
   approve_in_principle  every line resolves: covered, covered with a pre-authorisation valid on
                         the date of service, or clearly excluded. A refused line does NOT stop
-                        an approve - one decision covers both. Record a disposition for EVERY
-                        line, approved_total, refused_total, and the exclusion rule for each
-                        refused line.
+                        an approve - one decision covers both. Give a disposition for EVERY
+                        line and the exclusion rule for each refused line; the totals are
+                        computed from your dispositions, you never add amounts yourself.
   request_document      a line needs pre-authorisation and none is valid on the date of service
                         (an expired one does not count), OR a required document is not attached.
                         Name the EXACT item and the line it belongs to. Never "more information".

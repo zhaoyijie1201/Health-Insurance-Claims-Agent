@@ -15,4 +15,4 @@ The fix is in the tool interface: `get_claim` computes `narrative_flags` in code
 
 The prompt was the wrong place: RULES already says the narrative is untrusted, in v1 and v2 alike, and the credulous agent ignored it. Loop control was the wrong place: the step cap, budget and de-duplication see turns and spend, never content; the credulous run is short, cheap and unrepeated.
 
-Cost of the fix: the v2 tool block is 1494 tokens against 595 for v1, re-sent every turn (D6 lever 1), and get_claim returns ~106.5 tokens against ~72.0 (lever 3). That is the price of a refusal that cannot be talked out of firing.
+Cost of the fix: the v2 tool block is 1550 tokens against 595 for v1, re-sent every turn (D6 lever 1), and get_claim returns ~106.5 tokens against ~72.0 (lever 3). That is the price of a refusal that cannot be talked out of firing.

@@ -12,7 +12,7 @@
 | `guardrails.py` | 90 | **护栏层** `Guardrails`。step cap、budget ceiling、去重、autonomy 门；每次触发都记入 `fired` |
 | `harness.py` | 230 | **评估框架**。`code_check()` 对答案键做代码检查；`run_set()` 按负例三次 trial 跑集合，写 `results/eval_<label>.{json,md}`，失败运行的 transcript 存到 `results/transcripts/` |
 | `run_eval.py` | 100 | 命令行入口。**评分者跑的就是它** |
-| `run_guardrails.py` | 200 | D3(b) 护栏清单 11 条 + 1 条对照，写 `results/guardrails.md` |
+| `run_guardrails.py` | 200 | D3(b) 护栏清单 13 条 + 1 条对照，写 `results/guardrails.md` |
 | `demo_loop_failure.py` | 110 | D7 失败 1：循环失败，四项报告 + 前后表，写 `results/d7_loop_failure.md` |
 | `demo_tool_failure.py` | 90 | D7 失败 2：工具接口失败（narrative 注入），写 `results/d7_tool_failure.md` |
 | `judge.py` | 170 | D4 判断检查。读结果文件里的判断队列，用 `docs/JUDGE_PROMPT.md` 让一个点名的第二模型（或 `--human` 的人）逐条裁定 must_record，写 `results/judge_<label>.{json,md}` |

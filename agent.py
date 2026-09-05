@@ -74,8 +74,8 @@ def run_case(case_id, policy="careful", version="v2", mode=None, approve=None, v
     turns = model_calls = tokens_in = tokens_out = 0
     stopped_by, record = None, None
     ctx = {"evidence": evidence, "autonomy": autonomy, "write": write, "backend": be.name,
-           "model": model_label, "decided": False, "record": None, "writes": 0,
-           "narrative_guard": tools.NARRATIVE_GUARD[version]}
+           "model": model_label, "decided": False, "record": None, "writes": 0}
+    ctx.update(tools.TOOL_RULES[version])
 
     def usd():
         return tokens_in / 1e6 * price_in + tokens_out / 1e6 * price_out
@@ -146,7 +146,7 @@ def run_case(case_id, policy="careful", version="v2", mode=None, approve=None, v
                 guards.check_duplicate(name, args)
                 if name == tools.GATED_ACTION:
                     # validation BEFORE the gate: a human is never asked to approve an invalid record
-                    problem = tools.validate_decision(args, ctx["narrative_guard"])
+                    problem = tools.validate_decision(args, ctx["narrative_guard"], ctx["compute_totals"])
                     if problem:
                         result = {"error": problem}
                     elif ctx["decided"]:
