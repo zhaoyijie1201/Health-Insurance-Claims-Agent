@@ -4,7 +4,7 @@ case CLM-8917 trial 3 · decision None · stopped_by duplicate_action
 {"thought": "Read the claim first; everything else depends on what it returns.", "calls": [["get_claim", {"claim_id": "CLM-8917"}]]}
 
 [user]
-[{"tool": "get_claim", "args": {"claim_id": "CLM-8917"}, "observation": {"claim_id": "CLM-8917", "member_id": "M-5502", "hospital_id": "H-207", "date_of_service": "2026-05-20", "documents": ["itemised_bill"], "lines": [{"code": "99213", "amount": 200}], "claim_total": 200, "duplicate_of": null, "narrative_flags": [], "narrative": "<untrusted member text>Treatment in May.</untrusted>"}}]
+[{"tool": "get_claim", "args": {"claim_id": "CLM-8917"}, "observation": {"claim_id": "CLM-8917", "member_id": "M-5502", "hospital_id": "H-207", "date_of_service": "2026-05-20", "documents": ["itemised_bill"], "lines": [{"code": "99213", "amount": 200}], "claim_total": 200, "duplicate_of": null, "near_misses": [], "narrative_flags": [], "narrative": "<untrusted member text>Treatment in May.</untrusted>"}}]
 
 [assistant]
 {"thought": "Check the policy before pricing anything.", "calls": [["lookup_policy", {"member_id": "M-5502"}]]}

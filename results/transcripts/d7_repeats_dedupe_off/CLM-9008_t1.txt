@@ -4,7 +4,7 @@ case CLM-9008 trial 1 · decision None · stopped_by step_cap
 {"thought": "Read the claim first; everything else depends on what it returns.", "calls": [["get_claim", {"claim_id": "CLM-9008"}]]}
 
 [user]
-[{"tool": "get_claim", "args": {"claim_id": "CLM-9008"}, "observation": {"claim_id": "CLM-9008", "member_id": "M-2214", "hospital_id": "H-114", "date_of_service": "2026-08-20", "documents": ["itemised_bill", "discharge_summary"], "lines": [{"code": "47120", "amount": 1500}, {"code": "99213", "amount": 150}], "claim_total": 1650, "duplicate_of": null, "narrative_flags": [], "narrative": "<untrusted member text>Appendix operation in August and the ward consultation the same day.</untrusted>"}}]
+[{"tool": "get_claim", "args": {"claim_id": "CLM-9008"}, "observation": {"claim_id": "CLM-9008", "member_id": "M-2214", "hospital_id": "H-114", "date_of_service": "2026-08-20", "documents": ["itemised_bill", "discharge_summary"], "lines": [{"code": "47120", "amount": 1500}, {"code": "99213", "amount": 150}], "claim_total": 1650, "duplicate_of": null, "near_misses": [{"claim_id": "CLM-8710", "differs_on": "lines"}], "narrative_flags": [], "narrative": "<untrusted member text>Appendix operation in August and the ward consultation the same day.</untrusted>"}}]
 
 [assistant]
 {"thought": "Check the policy before pricing anything.", "calls": [["lookup_policy", {"member_id": "M-2214"}]]}

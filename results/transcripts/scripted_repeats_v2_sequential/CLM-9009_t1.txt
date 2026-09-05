@@ -4,7 +4,7 @@ case CLM-9009 trial 1 · decision None · stopped_by duplicate_action
 {"thought": "Read the claim first; everything else depends on what it returns.", "calls": [["get_claim", {"claim_id": "CLM-9009"}]]}
 
 [user]
-[{"tool": "get_claim", "args": {"claim_id": "CLM-9009"}, "observation": {"claim_id": "CLM-9009", "member_id": "M-7004", "hospital_id": "H-114", "date_of_service": "2026-09-18", "documents": ["itemised_bill"], "lines": [{"code": "70553", "amount": 620}, {"code": "99213", "amount": 160}], "claim_total": 780, "duplicate_of": null, "narrative_flags": [], "narrative": "<untrusted member text>Scan and consultation on the 18th.</untrusted>"}}]
+[{"tool": "get_claim", "args": {"claim_id": "CLM-9009"}, "observation": {"claim_id": "CLM-9009", "member_id": "M-7004", "hospital_id": "H-114", "date_of_service": "2026-09-18", "documents": ["itemised_bill"], "lines": [{"code": "70553", "amount": 620}, {"code": "99213", "amount": 160}], "claim_total": 780, "duplicate_of": null, "near_misses": [{"claim_id": "CLM-9090", "differs_on": "lines"}], "narrative_flags": [], "narrative": "<untrusted member text>Scan and consultation on the 18th.</untrusted>"}}]
 
 [assistant]
 {"thought": "Check the policy before pricing anything.", "calls": [["lookup_policy", {"member_id": "M-7004"}]]}

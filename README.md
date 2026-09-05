@@ -32,6 +32,8 @@ run_eval.py             the entry point (D4, D5)            <- what a marker run
 run_guardrails.py       D3(b): 11 guardrail cases + 1 control      -> results/guardrails.md
 demo_loop_failure.py    D7 failure 1, loop control                 -> results/d7_loop_failure.md
 demo_tool_failure.py    D7 failure 2, tool interface               -> results/d7_tool_failure.md
+judge.py                D4 judgement check: a named second model (or a person) rules on must_record -> results/judge_*.md
+cost_model.py           D6 three-layer cost model from the measured result files -> results/cost_model.md
 data/
     make_fixtures_A.py      the generator: edit ONLY the EXTRA_* lists at the bottom, then re-run
     check_my_data.py        run after every data change
@@ -39,6 +41,7 @@ data/
     expected_outcomes_A.json  the answer key: 15 shipped labels + 31 of ours, written by hand from Appendix A
 docs/GOOD_RUN.md        D0(c): what a good run looks like, five testable statements
 docs/EVALUATION_SET.md  D4: the 46 cases by family, what each is for, which check grades it
+docs/JUDGE_PROMPT.md    the exact prompt judge.py sends; the judge is a described instrument
 results/                result tables, failed-run transcripts, D3(b)/D7 write-ups (committed); decisions.jsonl (ignored)
 ```
 
@@ -76,6 +79,9 @@ smuggled through a `final`. Every stop is loud: a halted run has no decision and
 | D2(b) v1 tool layer | `python run_eval.py --tools v1` |
 | D3(b) guardrail checklist | `python run_guardrails.py` |
 | D7 failure 1 / failure 2 | `python demo_loop_failure.py` · `python demo_tool_failure.py` |
+| D4 judgement check, second model | `python judge.py --results results/eval_<label>.json --judge-model google/gemini-2.5-flash` |
+| D4 judgement check, a person | `python judge.py --human --grader "Name"` |
+| D6 cost model | `python cost_model.py` |
 | one live battery (D5b) | `python run_eval.py --backend live --model openai/gpt-4o-mini` |
 | the v1 pass, same model (D2b) | `python run_eval.py --backend live --model openai/gpt-4o-mini --tools v1` |
 
@@ -103,7 +109,7 @@ otherwise the tier price (`--tier cheap|mid|frontier`) is used.
 - [x] Live path verified once (gpt-4o-mini, CLM-8842: 4 turns, 8 calls, measured tokens)
 - [x] D4 evaluation set: 46 cases (15 shipped + 31 ours, five or more per member), 23 negative, 4 hostile narratives, labels from the routing table; one case (CLM-9013) changed the scan
 - [ ] D0 written (ladder, two tests, `s = P^(1/T)`); `docs/GOOD_RUN.md` is D0(c)
-- [ ] Judgement check (`judge.py` with a named second model, or a human review sheet)
+- [x] Judgement check: `judge.py`, prompt committed, gemini-2.5-flash grading the scripted records: 42/46 cases carry every must_record item, 116/120 items (`results/judge_*.md`). The first pass scored 32/46 and changed the agent: records now cite the near-miss decided claim, the pre-authorisation id behind a document request, the hospital country, the cover dates and the flagged text itself. The four misses are wording specificity, plus CLM-8952 whose shipped label expects a coverage result the agent never queries after a flag (a stated limit, not a fix).
+- [x] D6 cost model script on the measured files (`results/cost_model.md`); live rows and the break-even pair fill in when the battery lands
 - [ ] D2(b) v1 vs v2 measured on one cheap live model; D5(b) battery, one model per member
-- [ ] D6 cost model from measured numbers
 - [ ] Report, demo video, self-appraisal, CONTRIBUTIONS.md

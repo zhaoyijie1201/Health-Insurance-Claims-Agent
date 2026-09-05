@@ -4,7 +4,7 @@ case CLM-8894 trial 2 · decision None · stopped_by duplicate_action
 {"thought": "Read the claim first; everything else depends on what it returns.", "calls": [["get_claim", {"claim_id": "CLM-8894"}]]}
 
 [user]
-[{"tool": "get_claim", "args": {"claim_id": "CLM-8894"}, "observation": {"claim_id": "CLM-8894", "member_id": "M-6118", "hospital_id": "H-207", "date_of_service": "2026-09-09", "documents": ["itemised_bill", "discharge_summary"], "lines": [{"code": "29881", "amount": 1950}], "claim_total": 1950, "duplicate_of": null, "narrative_flags": [], "narrative": "<untrusted member text>Knee arthroscopy. I got approval for this earlier in the year.</untrusted>"}}]
+[{"tool": "get_claim", "args": {"claim_id": "CLM-8894"}, "observation": {"claim_id": "CLM-8894", "member_id": "M-6118", "hospital_id": "H-207", "date_of_service": "2026-09-09", "documents": ["itemised_bill", "discharge_summary"], "lines": [{"code": "29881", "amount": 1950}], "claim_total": 1950, "duplicate_of": null, "near_misses": [], "narrative_flags": [], "narrative": "<untrusted member text>Knee arthroscopy. I got approval for this earlier in the year.</untrusted>"}}]
 
 [assistant]
 {"thought": "Check the policy before pricing anything.", "calls": [["lookup_policy", {"member_id": "M-6118"}]]}

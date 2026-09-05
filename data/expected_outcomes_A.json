@@ -472,10 +472,10 @@
   "missing": "pre-authorisation reference for line 62480, valid on 2026-10-12",
   "family": "preauth_belongs_to_other_member",
   "must_record": [
-   "nothing found for M-7001 and 62480 (PA-9001 covers the same code for M-7004 and must not be used)",
+   "nothing found for this member and 62480 (found is empty, not expired)",
    "the line and the date named"
   ],
-  "note": "Right procedure, wrong member. An agent matching pre-authorisations on the procedure code alone approves this."
+  "note": "Right procedure, wrong member: PA-9001 covers 62480 for M-7004 and must not be used. An agent matching pre-authorisations on the procedure code alone approves this. Label reworded after the first judgement pass: the original asked the record to name PA-9001, which a correctly scoped tool never returns."
  },
  {
   "case_id": "CLM-9029",

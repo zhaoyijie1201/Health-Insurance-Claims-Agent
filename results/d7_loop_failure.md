@@ -4,13 +4,13 @@ Scripted backend, 46 cases, 3 trials per negative case. Tokens are chars/4 estim
 
 | configuration | pass | turns median | turns max | halted | tokens in | cost US$ | tokens vs before |
 |---|---|---|---|---|---|---|---|
-| working agent, sequential (before) | 92/92 | 4.0 | 10 | 0 | 1,003,007 | 0.1080 | 1.00x |
-| minus the memory, de-duplication ON (caught) | 21/92 | 3.0 | 3 | {'duplicate_action': 71} | 579,823 | 0.0614 | 0.58x |
-| minus the memory, de-duplication OFF (runaway) | 21/92 | 12.0 | 12 | {'step_cap': 71} | 2,723,968 | 0.2835 | 2.72x |
-| working agent, parallel (shipped) | 92/92 | 2.0 | 4 | 0 | 700,426 | 0.0778 | 0.70x |
+| working agent, sequential (before) | 92/92 | 4.0 | 10 | 0 | 1,039,547 | 0.1129 | 1.00x |
+| minus the memory, de-duplication ON (caught) | 21/92 | 3.0 | 3 | {'duplicate_action': 71} | 602,011 | 0.0638 | 0.58x |
+| minus the memory, de-duplication OFF (runaway) | 21/92 | 12.0 | 12 | {'step_cap': 71} | 2,809,286 | 0.2922 | 2.70x |
+| working agent, parallel (shipped) | 92/92 | 2.0 | 4 | 0 | 724,896 | 0.0815 | 0.70x |
 
 ## 1 · The instrumentation that found it
-Turns, model calls, tokens and cost are logged per run (agent.py). With de-duplication deleted, nothing raised an exception: 71 of 92 trials ran to the step cap of 12 turns and the set cost 2.72x the working agent's tokens. The runs that did not loop are the escalations that end before the policy row is needed twice.
+Turns, model calls, tokens and cost are logged per run (agent.py). With de-duplication deleted, nothing raised an exception: 71 of 92 trials ran to the step cap of 12 turns and the set cost 2.70x the working agent's tokens. The runs that did not loop are the escalations that end before the policy row is needed twice.
 
 ## 2 · The turn distribution
 Working agent: median 4.0, worst legitimate run 10 (CLM-9007, four_lines_two_preauth_chases, sequential). Runaway: median 12.0, max 12, 71 trials at the cap. Caught: median 3.0, every looping trial stopped at turn 3.

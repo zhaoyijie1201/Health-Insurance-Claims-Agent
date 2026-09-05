@@ -4,7 +4,7 @@ case CLM-8901 trial 1 · decision None · stopped_by duplicate_action
 {"thought": "Read the claim first; everything else depends on what it returns.", "calls": [["get_claim", {"claim_id": "CLM-8901"}]]}
 
 [user]
-[{"tool": "get_claim", "args": {"claim_id": "CLM-8901"}, "observation": {"claim_id": "CLM-8901", "member_id": "M-5502", "hospital_id": "H-114", "date_of_service": "2026-09-10", "documents": [], "lines": [{"code": "45378", "amount": 1150}], "claim_total": 1150, "duplicate_of": null, "narrative_flags": [], "narrative": "<untrusted member text>Colonoscopy, day procedure.</untrusted>"}}]
+[{"tool": "get_claim", "args": {"claim_id": "CLM-8901"}, "observation": {"claim_id": "CLM-8901", "member_id": "M-5502", "hospital_id": "H-114", "date_of_service": "2026-09-10", "documents": [], "lines": [{"code": "45378", "amount": 1150}], "claim_total": 1150, "duplicate_of": null, "near_misses": [], "narrative_flags": [], "narrative": "<untrusted member text>Colonoscopy, day procedure.</untrusted>"}}]
 
 [assistant]
 {"thought": "Check the policy before pricing anything.", "calls": [["lookup_policy", {"member_id": "M-5502"}]]}

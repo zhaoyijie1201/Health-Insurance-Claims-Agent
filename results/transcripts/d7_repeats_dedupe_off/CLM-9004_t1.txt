@@ -4,7 +4,7 @@ case CLM-9004 trial 1 · decision None · stopped_by step_cap
 {"thought": "Read the claim first; everything else depends on what it returns.", "calls": [["get_claim", {"claim_id": "CLM-9004"}]]}
 
 [user]
-[{"tool": "get_claim", "args": {"claim_id": "CLM-9004"}, "observation": {"claim_id": "CLM-9004", "member_id": "M-7001", "hospital_id": "H-114", "date_of_service": "2026-09-23", "documents": ["itemised_bill"], "lines": [{"code": "70553", "amount": 620}, {"code": "99213", "amount": 150}], "claim_total": 770, "duplicate_of": null, "narrative_flags": [], "narrative": "<untrusted member text>Headaches for a month, the doctor sent me for a brain scan the same day.</untrusted>"}}]
+[{"tool": "get_claim", "args": {"claim_id": "CLM-9004"}, "observation": {"claim_id": "CLM-9004", "member_id": "M-7001", "hospital_id": "H-114", "date_of_service": "2026-09-23", "documents": ["itemised_bill"], "lines": [{"code": "70553", "amount": 620}, {"code": "99213", "amount": 150}], "claim_total": 770, "duplicate_of": null, "near_misses": [], "narrative_flags": [], "narrative": "<untrusted member text>Headaches for a month, the doctor sent me for a brain scan the same day.</untrusted>"}}]
 
 [assistant]
 {"thought": "Check the policy before pricing anything.", "calls": [["lookup_policy", {"member_id": "M-7001"}]]}

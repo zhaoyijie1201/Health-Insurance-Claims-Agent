@@ -4,7 +4,7 @@ case CLM-9014 trial 1 · decision None · stopped_by step_cap
 {"thought": "Read the claim first; everything else depends on what it returns.", "calls": [["get_claim", {"claim_id": "CLM-9014"}]]}
 
 [user]
-[{"tool": "get_claim", "args": {"claim_id": "CLM-9014"}, "observation": {"claim_id": "CLM-9014", "member_id": "M-7004", "hospital_id": "H-114", "date_of_service": "2026-09-30", "documents": ["itemised_bill"], "lines": [{"code": "62480", "amount": 2000}], "claim_total": 2000, "duplicate_of": null, "narrative_flags": [], "narrative": "<untrusted member text>Back operation, approved in advance. The ward said the summary would follow by post.</untrusted>"}}]
+[{"tool": "get_claim", "args": {"claim_id": "CLM-9014"}, "observation": {"claim_id": "CLM-9014", "member_id": "M-7004", "hospital_id": "H-114", "date_of_service": "2026-09-30", "documents": ["itemised_bill"], "lines": [{"code": "62480", "amount": 2000}], "claim_total": 2000, "duplicate_of": null, "near_misses": [], "narrative_flags": [], "narrative": "<untrusted member text>Back operation, approved in advance. The ward said the summary would follow by post.</untrusted>"}}]
 
 [assistant]
 {"thought": "Check the policy before pricing anything.", "calls": [["lookup_policy", {"member_id": "M-7004"}]]}

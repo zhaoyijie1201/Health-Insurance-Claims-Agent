@@ -4,7 +4,7 @@ case CLM-9027 trial 1 · decision None · stopped_by duplicate_action
 {"thought": "Read the claim first; everything else depends on what it returns.", "calls": [["get_claim", {"claim_id": "CLM-9027"}]]}
 
 [user]
-[{"tool": "get_claim", "args": {"claim_id": "CLM-9027"}, "observation": {"claim_id": "CLM-9027", "member_id": "M-7003", "hospital_id": "H-207", "date_of_service": "2026-10-11", "documents": ["itemised_bill"], "lines": [{"code": "15823", "amount": 900}], "claim_total": 900, "duplicate_of": null, "narrative_flags": [], "narrative": "<untrusted member text>Eyelid lift, day surgery.</untrusted>"}}]
+[{"tool": "get_claim", "args": {"claim_id": "CLM-9027"}, "observation": {"claim_id": "CLM-9027", "member_id": "M-7003", "hospital_id": "H-207", "date_of_service": "2026-10-11", "documents": ["itemised_bill"], "lines": [{"code": "15823", "amount": 900}], "claim_total": 900, "duplicate_of": null, "near_misses": [], "narrative_flags": [], "narrative": "<untrusted member text>Eyelid lift, day surgery.</untrusted>"}}]
 
 [assistant]
 {"thought": "Check the policy before pricing anything.", "calls": [["lookup_policy", {"member_id": "M-7003"}]]}

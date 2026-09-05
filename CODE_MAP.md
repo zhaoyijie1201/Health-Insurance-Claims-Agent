@@ -15,6 +15,8 @@
 | `run_guardrails.py` | 200 | D3(b) 护栏清单 11 条 + 1 条对照，写 `results/guardrails.md` |
 | `demo_loop_failure.py` | 110 | D7 失败 1：循环失败，四项报告 + 前后表，写 `results/d7_loop_failure.md` |
 | `demo_tool_failure.py` | 90 | D7 失败 2：工具接口失败（narrative 注入），写 `results/d7_tool_failure.md` |
+| `judge.py` | 170 | D4 判断检查。读结果文件里的判断队列，用 `docs/JUDGE_PROMPT.md` 让一个点名的第二模型（或 `--human` 的人）逐条裁定 must_record，写 `results/judge_<label>.{json,md}` |
+| `cost_model.py` | 200 | D6 成本模型。读所有 `results/eval_*.json`，算三层成本、敏感度、盈亏平衡、四个杠杆前后表、三个上限，写 `results/cost_model.md` |
 
 ## 读代码的建议顺序
 
@@ -56,6 +58,8 @@ turns 只数调工具的轮；结尾的 `final` 计入 `model_calls` 和 token�
 | D2(b) v1 工具层 | `python run_eval.py --tools v1` |
 | D3(b) 护栏清单 | `python run_guardrails.py` |
 | D7 失败 1 / 失败 2 | `python demo_loop_failure.py` / `python demo_tool_failure.py` |
+| D4 判断检查 | `python judge.py`（默认 gemini-2.5-flash 裁定 careful v2 的结果）|
+| D6 成本模型 | `python cost_model.py` |
 | 一个 live 电池（D5b） | `python run_eval.py --backend live --model openai/gpt-4o-mini` |
 | v1 对照（D2b，同一模型） | `python run_eval.py --backend live --model openai/gpt-4o-mini --tools v1` |
 
@@ -71,4 +75,4 @@ turns 只数调工具的轮；结尾的 `final` 计入 `model_calls` 和 token�
 | credulous v1 / v2 | 80/92 / 92/92 | | | v2 写操作 BLOCKED 后转 escalate |
 
 token 数是 scripted 的 chars/4 估算，结构和 live 账单一样（前缀每轮重发）；live 路径改用 API 返回的 usage。
-案例集的构成见 `docs/EVALUATION_SET.md`。
+案例集的构成见 `docs/EVALUATION_SET.md`。判断检查（gemini-2.5-flash 裁定 must_record）42/46 条全中、116/120 项，见 `results/judge_scripted_careful_v2_parallel.md`；成本模型见 `results/cost_model.md`。

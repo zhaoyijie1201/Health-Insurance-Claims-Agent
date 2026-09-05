@@ -4,7 +4,7 @@ case CLM-9015 trial 2 · decision None · stopped_by duplicate_action
 {"thought": "Read the claim first; everything else depends on what it returns.", "calls": [["get_claim", {"claim_id": "CLM-9015"}]]}
 
 [user]
-[{"tool": "get_claim", "args": {"claim_id": "CLM-9015"}, "observation": {"claim_id": "CLM-9015", "member_id": "M-7004", "hospital_id": "H-207", "date_of_service": "2026-10-02", "documents": ["itemised_bill", "discharge_summary"], "lines": [{"code": "27447", "amount": 8000}, {"code": "62480", "amount": 2000}], "claim_total": 10000, "duplicate_of": null, "narrative_flags": [], "narrative": "<untrusted member text>Knee replacement and the back fusion in one admission.</untrusted>"}}]
+[{"tool": "get_claim", "args": {"claim_id": "CLM-9015"}, "observation": {"claim_id": "CLM-9015", "member_id": "M-7004", "hospital_id": "H-207", "date_of_service": "2026-10-02", "documents": ["itemised_bill", "discharge_summary"], "lines": [{"code": "27447", "amount": 8000}, {"code": "62480", "amount": 2000}], "claim_total": 10000, "duplicate_of": null, "near_misses": [], "narrative_flags": [], "narrative": "<untrusted member text>Knee replacement and the back fusion in one admission.</untrusted>"}}]
 
 [assistant]
 {"thought": "Check the policy before pricing anything.", "calls": [["lookup_policy", {"member_id": "M-7004"}]]}

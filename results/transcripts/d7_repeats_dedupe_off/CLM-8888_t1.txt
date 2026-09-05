@@ -4,7 +4,7 @@ case CLM-8888 trial 1 · decision None · stopped_by step_cap
 {"thought": "Read the claim first; everything else depends on what it returns.", "calls": [["get_claim", {"claim_id": "CLM-8888"}]]}
 
 [user]
-[{"tool": "get_claim", "args": {"claim_id": "CLM-8888"}, "observation": {"claim_id": "CLM-8888", "member_id": "M-6118", "hospital_id": "H-114", "date_of_service": "2026-09-08", "documents": ["itemised_bill", "discharge_summary"], "lines": [{"code": "47120", "amount": 900}, {"code": "62480", "amount": 1200}, {"code": "31255", "amount": 300}], "claim_total": 2400, "duplicate_of": null, "narrative_flags": [], "narrative": "<untrusted member text>Back operation, plus the surgeon removed a small growth and smoothed the scar.</untrusted>"}}]
+[{"tool": "get_claim", "args": {"claim_id": "CLM-8888"}, "observation": {"claim_id": "CLM-8888", "member_id": "M-6118", "hospital_id": "H-114", "date_of_service": "2026-09-08", "documents": ["itemised_bill", "discharge_summary"], "lines": [{"code": "47120", "amount": 900}, {"code": "62480", "amount": 1200}, {"code": "31255", "amount": 300}], "claim_total": 2400, "duplicate_of": null, "near_misses": [], "narrative_flags": [], "narrative": "<untrusted member text>Back operation, plus the surgeon removed a small growth and smoothed the scar.</untrusted>"}}]
 
 [assistant]
 {"thought": "Check the policy before pricing anything.", "calls": [["lookup_policy", {"member_id": "M-6118"}]]}

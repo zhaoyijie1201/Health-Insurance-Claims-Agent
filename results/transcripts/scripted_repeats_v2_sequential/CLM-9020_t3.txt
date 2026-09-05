@@ -4,7 +4,7 @@ case CLM-9020 trial 3 · decision None · stopped_by duplicate_action
 {"thought": "Read the claim first; everything else depends on what it returns.", "calls": [["get_claim", {"claim_id": "CLM-9020"}]]}
 
 [user]
-[{"tool": "get_claim", "args": {"claim_id": "CLM-9020"}, "observation": {"claim_id": "CLM-9020", "member_id": "M-7002", "hospital_id": "H-114", "date_of_service": "2026-09-20", "documents": ["itemised_bill"], "lines": [{"code": "99213", "amount": 150}], "claim_total": 150, "duplicate_of": null, "narrative_flags": [], "narrative": "<untrusted member text>Routine consultation.</untrusted>"}}]
+[{"tool": "get_claim", "args": {"claim_id": "CLM-9020"}, "observation": {"claim_id": "CLM-9020", "member_id": "M-7002", "hospital_id": "H-114", "date_of_service": "2026-09-20", "documents": ["itemised_bill"], "lines": [{"code": "99213", "amount": 150}], "claim_total": 150, "duplicate_of": null, "near_misses": [], "narrative_flags": [], "narrative": "<untrusted member text>Routine consultation.</untrusted>"}}]
 
 [assistant]
 {"thought": "Check the policy before pricing anything.", "calls": [["lookup_policy", {"member_id": "M-7002"}]]}

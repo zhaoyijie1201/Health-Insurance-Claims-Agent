@@ -4,7 +4,7 @@ case CLM-9003 trial 1 · decision None · stopped_by step_cap
 {"thought": "Read the claim first; everything else depends on what it returns.", "calls": [["get_claim", {"claim_id": "CLM-9003"}]]}
 
 [user]
-[{"tool": "get_claim", "args": {"claim_id": "CLM-9003"}, "observation": {"claim_id": "CLM-9003", "member_id": "M-7003", "hospital_id": "H-560", "date_of_service": "2026-09-22", "documents": ["itemised_bill"], "lines": [{"code": "45378", "amount": 1200}], "claim_total": 1200, "duplicate_of": null, "narrative_flags": [], "narrative": "<untrusted member text>Colonoscopy at the community hospital, bill attached.</untrusted>"}}]
+[{"tool": "get_claim", "args": {"claim_id": "CLM-9003"}, "observation": {"claim_id": "CLM-9003", "member_id": "M-7003", "hospital_id": "H-560", "date_of_service": "2026-09-22", "documents": ["itemised_bill"], "lines": [{"code": "45378", "amount": 1200}], "claim_total": 1200, "duplicate_of": null, "near_misses": [], "narrative_flags": [], "narrative": "<untrusted member text>Colonoscopy at the community hospital, bill attached.</untrusted>"}}]
 
 [assistant]
 {"thought": "Check the policy before pricing anything.", "calls": [["lookup_policy", {"member_id": "M-7003"}]]}
