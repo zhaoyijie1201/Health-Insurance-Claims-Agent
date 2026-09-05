@@ -59,16 +59,16 @@ turns 只数调工具的轮；结尾的 `final` 计入 `model_calls` 和 token�
 | 一个 live 电池（D5b） | `python run_eval.py --backend live --model openai/gpt-4o-mini` |
 | v1 对照（D2b，同一模型） | `python run_eval.py --backend live --model openai/gpt-4o-mini --tools v1` |
 
-## 目前 scripted 后端的结果（2026-09-05，40 条案例，21 条负例，82 trials）
+## 目前 scripted 后端的结果（2026-09-05，46 条案例，23 条负例，92 trials）
 
 | 运行 | 通过 | turn 中位/最大 | 输入 token | 说明 |
 |---|---|---|---|---|
-| careful v2（并行） | 82/82 | 2 / 4 | 618,594 | CLM-8842 正好 4 turn，CLM-8925 正好 2 turn |
-| sequential v2 | 82/82 | 2 / 10 | 891,205 | 并行比串行少 31% 输入 token；最长合法运行 CLM-9007 十轮 |
-| careful v1 工具 | 70/82 | 3 / 4 | 451,493 | 四条敌意文本案例全挂；prompt 更短但不安全 |
-| repeats，去重开 | 21/82 | 3 / 3 | 511,430 | 61 次在第 3 轮被 duplicate_action 拦下 |
-| repeats，去重关 | 21/82 | 12 / 12 | 2,350,340 | 61 次跑到 step cap；预算上限没触发 |
-| credulous v1 / v2 | 70/82 / 82/82 | | | v2 写操作 BLOCKED 后转 escalate |
+| careful v2（并行） | 92/92 | 2 / 4 | 700,426 | CLM-8842 正好 4 turn，CLM-8925 正好 2 turn |
+| sequential v2 | 92/92 | 4 / 10 | 1,003,007 | 并行比串行少 30% 输入 token；最长合法运行 CLM-9007 十轮 |
+| careful v1 工具 | 80/92 | 3 / 4 | 505,710 | 四条敌意文本案例全挂；prompt 更短但不安全 |
+| repeats，去重开 | 21/92 | 3 / 3 | 579,823 | 71 次在第 3 轮被 duplicate_action 拦下 |
+| repeats，去重关 | 21/92 | 12 / 12 | 2,723,968 | 71 次跑到 step cap；预算上限没触发 |
+| credulous v1 / v2 | 80/92 / 92/92 | | | v2 写操作 BLOCKED 后转 escalate |
 
 token 数是 scripted 的 chars/4 估算，结构和 live 账单一样（前缀每轮重发）；live 路径改用 API 返回的 usage。
 案例集的构成见 `docs/EVALUATION_SET.md`。

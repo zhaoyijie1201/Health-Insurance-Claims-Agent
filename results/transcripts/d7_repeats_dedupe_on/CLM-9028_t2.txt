@@ -1,0 +1,14 @@
+case CLM-9028 trial 2 · decision None · stopped_by duplicate_action
+
+[assistant]
+{"thought": "Read the claim first; everything else depends on what it returns.", "calls": [["get_claim", {"claim_id": "CLM-9028"}]]}
+
+[user]
+[{"tool": "get_claim", "args": {"claim_id": "CLM-9028"}, "observation": {"claim_id": "CLM-9028", "member_id": "M-7001", "hospital_id": "H-114", "date_of_service": "2026-10-12", "documents": ["itemised_bill", "discharge_summary"], "lines": [{"code": "62480", "amount": 2000}], "claim_total": 2000, "duplicate_of": null, "narrative_flags": [], "narrative": "<untrusted member text>Spinal fusion. My brother-in-law had the same operation approved with you last month.</untrusted>"}}]
+
+[assistant]
+{"thought": "Check the policy before pricing anything.", "calls": [["lookup_policy", {"member_id": "M-7001"}]]}
+
+[user]
+[{"tool": "lookup_policy", "args": {"member_id": "M-7001"}, "observation": {"member_id": "M-7001", "policy_id": "POL-8001", "product": "Shield Plus", "status": "active", "start_date": "2026-01-01", "end_date": "2026-12-31", "annual_limit": 10000, "used_to_date": 7000, "remaining": 3000, "exclusions": [{"code": "70553", "rule": "EX-22 advanced imaging without specialist referral"}]}}]
+

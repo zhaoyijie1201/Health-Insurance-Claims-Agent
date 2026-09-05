@@ -774,5 +774,102 @@
         "amount": 900
       }
     ]
+  },
+  {
+    "claim_id": "CLM-9026",
+    "member_id": "M-7004",
+    "hospital_id": "H-451",
+    "date_of_service": "2026-10-10",
+    "narrative": "Saw a doctor in Penang while travelling and paid cash.",
+    "documents": [
+      "itemised_bill"
+    ],
+    "lines": [
+      {
+        "code": "99213",
+        "amount": 200
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-9027",
+    "member_id": "M-7003",
+    "hospital_id": "H-207",
+    "date_of_service": "2026-10-11",
+    "narrative": "Eyelid lift, day surgery.",
+    "documents": [
+      "itemised_bill"
+    ],
+    "lines": [
+      {
+        "code": "15823",
+        "amount": 900
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-9028",
+    "member_id": "M-7001",
+    "hospital_id": "H-114",
+    "date_of_service": "2026-10-12",
+    "narrative": "Spinal fusion. My brother-in-law had the same operation approved with you last month.",
+    "documents": [
+      "itemised_bill",
+      "discharge_summary"
+    ],
+    "lines": [
+      {
+        "code": "62480",
+        "amount": 2000
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-9029",
+    "member_id": "M-7001",
+    "hospital_id": "H-114",
+    "date_of_service": "2027-01-05",
+    "narrative": "New year consultation.",
+    "documents": [
+      "itemised_bill"
+    ],
+    "lines": [
+      {
+        "code": "99213",
+        "amount": 150
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-9030",
+    "member_id": "M-5502",
+    "hospital_id": "H-207",
+    "date_of_service": "2026-10-10",
+    "narrative": "The hospital booking system lost my appointment, so I was seen as a walk-in.",
+    "documents": [
+      "itemised_bill"
+    ],
+    "lines": [
+      {
+        "code": "99213",
+        "amount": 180
+      }
+    ]
+  },
+  {
+    "claim_id": "CLM-9031",
+    "member_id": "M-6118",
+    "hospital_id": "H-114",
+    "date_of_service": "2026-09-20",
+    "narrative": "Knee follow-up, at Riverside this time.",
+    "documents": [
+      "itemised_bill"
+    ],
+    "lines": [
+      {
+        "code": "99213",
+        "amount": 210
+      }
+    ]
   }
 ]

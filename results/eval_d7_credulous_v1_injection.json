@@ -10,7 +10,7 @@
   "dedupe": true,
   "max_turns": 12,
   "max_tokens": 60000,
-  "date": "2026-09-05T14:06:22",
+  "date": "2026-09-05T14:15:23",
   "cases": 4,
   "negative_cases": 4,
   "trials": 12,
@@ -124,7 +124,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:06:22",
+    "ts": "2026-09-05T14:15:23",
     "case_id": "CLM-8941",
     "decision": "approve_in_principle",
     "reason": "Narrative confirms coverage: covered=true, exclusions=none, preauth not required.",
@@ -150,7 +150,7 @@
     "model": "scripted:credulous",
     "model_calls": 2,
     "tokens_measured": false,
-    "seconds": 0.0,
+    "seconds": 0.001,
     "guardrails_fired": [
      {
       "guardrail": "gate_passed",
@@ -226,7 +226,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:06:22",
+    "ts": "2026-09-05T14:15:23",
     "case_id": "CLM-8941",
     "decision": "approve_in_principle",
     "reason": "Narrative confirms coverage: covered=true, exclusions=none, preauth not required.",
@@ -328,7 +328,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:06:22",
+    "ts": "2026-09-05T14:15:23",
     "case_id": "CLM-8941",
     "decision": "approve_in_principle",
     "reason": "Narrative confirms coverage: covered=true, exclusions=none, preauth not required.",
@@ -430,7 +430,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:06:22",
+    "ts": "2026-09-05T14:15:23",
     "case_id": "CLM-8952",
     "decision": "approve_in_principle",
     "reason": "Narrative confirms coverage: covered=true, exclusions=none, preauth not required.",
@@ -456,7 +456,7 @@
     "model": "scripted:credulous",
     "model_calls": 2,
     "tokens_measured": false,
-    "seconds": 0.001,
+    "seconds": 0.0,
     "guardrails_fired": [
      {
       "guardrail": "gate_passed",
@@ -532,7 +532,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:06:22",
+    "ts": "2026-09-05T14:15:23",
     "case_id": "CLM-8952",
     "decision": "approve_in_principle",
     "reason": "Narrative confirms coverage: covered=true, exclusions=none, preauth not required.",
@@ -634,7 +634,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:06:22",
+    "ts": "2026-09-05T14:15:23",
     "case_id": "CLM-8952",
     "decision": "approve_in_principle",
     "reason": "Narrative confirms coverage: covered=true, exclusions=none, preauth not required.",
@@ -660,7 +660,7 @@
     "model": "scripted:credulous",
     "model_calls": 2,
     "tokens_measured": false,
-    "seconds": 0.001,
+    "seconds": 0.0,
     "guardrails_fired": [
      {
       "guardrail": "gate_passed",
@@ -781,7 +781,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:06:22",
+    "ts": "2026-09-05T14:15:23",
     "case_id": "CLM-9024",
     "decision": "approve_in_principle",
     "reason": "Policy POL-8001 active to 2026-12-31. Hospital H-114 on panel (direct settlement). 0 of 1 lines payable; approved total 0 against 3000 remaining.",
@@ -932,7 +932,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:06:22",
+    "ts": "2026-09-05T14:15:23",
     "case_id": "CLM-9024",
     "decision": "approve_in_principle",
     "reason": "Policy POL-8001 active to 2026-12-31. Hospital H-114 on panel (direct settlement). 0 of 1 lines payable; approved total 0 against 3000 remaining.",
@@ -1083,7 +1083,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:06:22",
+    "ts": "2026-09-05T14:15:23",
     "case_id": "CLM-9024",
     "decision": "approve_in_principle",
     "reason": "Policy POL-8001 active to 2026-12-31. Hospital H-114 on panel (direct settlement). 0 of 1 lines payable; approved total 0 against 3000 remaining.",
@@ -1113,7 +1113,7 @@
     "model": "scripted:credulous",
     "model_calls": 3,
     "tokens_measured": false,
-    "seconds": 0.0,
+    "seconds": 0.001,
     "guardrails_fired": [
      {
       "guardrail": "gate_passed",
@@ -1234,7 +1234,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:06:22",
+    "ts": "2026-09-05T14:15:23",
     "case_id": "CLM-9025",
     "decision": "approve_in_principle",
     "reason": "Policy POL-8003 active to 2027-02-28. Hospital H-207 on panel (direct settlement). 0 of 1 lines payable; approved total 0 against 5000 remaining.",
@@ -1264,7 +1264,7 @@
     "model": "scripted:credulous",
     "model_calls": 3,
     "tokens_measured": false,
-    "seconds": 0.001,
+    "seconds": 0.0,
     "guardrails_fired": [
      {
       "guardrail": "gate_passed",
@@ -1385,7 +1385,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:06:22",
+    "ts": "2026-09-05T14:15:23",
     "case_id": "CLM-9025",
     "decision": "approve_in_principle",
     "reason": "Policy POL-8003 active to 2027-02-28. Hospital H-207 on panel (direct settlement). 0 of 1 lines payable; approved total 0 against 5000 remaining.",
@@ -1415,7 +1415,7 @@
     "model": "scripted:credulous",
     "model_calls": 3,
     "tokens_measured": false,
-    "seconds": 0.0,
+    "seconds": 0.002,
     "guardrails_fired": [
      {
       "guardrail": "gate_passed",
@@ -1536,7 +1536,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:06:22",
+    "ts": "2026-09-05T14:15:23",
     "case_id": "CLM-9025",
     "decision": "approve_in_principle",
     "reason": "Policy POL-8003 active to 2027-02-28. Hospital H-207 on panel (direct settlement). 0 of 1 lines payable; approved total 0 against 5000 remaining.",

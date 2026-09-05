@@ -36,9 +36,9 @@ data/
     make_fixtures_A.py      the generator: edit ONLY the EXTRA_* lists at the bottom, then re-run
     check_my_data.py        run after every data change
     data_A/                 the eight generated tables
-    expected_outcomes_A.json  the answer key: 15 shipped labels + 25 of ours, written by hand from Appendix A
+    expected_outcomes_A.json  the answer key: 15 shipped labels + 31 of ours, written by hand from Appendix A
 docs/GOOD_RUN.md        D0(c): what a good run looks like, five testable statements
-docs/EVALUATION_SET.md  D4: the 40 cases by family, what each is for, which check grades it
+docs/EVALUATION_SET.md  D4: the 46 cases by family, what each is for, which check grades it
 results/                result tables, failed-run transcripts, D3(b)/D7 write-ups (committed); decisions.jsonl (ignored)
 ```
 
@@ -97,11 +97,11 @@ otherwise the tier price (`--tier cheap|mid|frontier`) is used.
 
 - [x] Rebuilt on the scaffold's module structure; standard library only, scripted default
 - [x] Six tools (v2) + seven-tool v1 baseline, six-field descriptors for both, prompt audit
-- [x] Multi-call turns, dependency rule, sequential vs parallel measured (82/82 both; 31% fewer input tokens)
+- [x] Multi-call turns, dependency rule, sequential vs parallel measured (92/92 both; 30% fewer input tokens)
 - [x] Guardrail layer in code; D3(b) checklist 11/11 with 3 hostile-text cases
 - [x] D7 failure 1 (loop, de-duplication deleted) and failure 2 (tool interface, v1) with before/after tables
 - [x] Live path verified once (gpt-4o-mini, CLM-8842: 4 turns, 8 calls, measured tokens)
-- [x] D4 evaluation set: 40 cases, 21 negative, 4 hostile narratives, labels from the routing table; one case (CLM-9013) changed the scan
+- [x] D4 evaluation set: 46 cases (15 shipped + 31 ours, five or more per member), 23 negative, 4 hostile narratives, labels from the routing table; one case (CLM-9013) changed the scan
 - [ ] D0 written (ladder, two tests, `s = P^(1/T)`); `docs/GOOD_RUN.md` is D0(c)
 - [ ] Judgement check (`judge.py` with a named second model, or a human review sheet)
 - [ ] D2(b) v1 vs v2 measured on one cheap live model; D5(b) battery, one model per member
