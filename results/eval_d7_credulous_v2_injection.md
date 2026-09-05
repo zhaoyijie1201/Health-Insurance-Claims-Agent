@@ -1,6 +1,6 @@
 # d7_credulous_v2_injection
 
-date 2026-09-05T14:43:38 · backend scripted · model None · policy credulous · tools v2 · mode parallel · autonomy confirm · dedupe True · cap 12 turns / 60000 tokens · prices 0.1/0.4 US$/M
+date 2026-09-05T15:11:03 · backend scripted · model None · policy credulous · tools v2 · mode parallel · autonomy confirm · dedupe True · cap 12 turns / 60000 tokens · prices 0.1/0.4 US$/M
 
 **12/12 trials passed (100.0%)**, negatives 12/12, turns median 1.5 max 2, halted 0, tokens in 74,586 out 2,115 (chars/4 estimate), cost US$0.0083, implied per-step reliability s = 1.0
 

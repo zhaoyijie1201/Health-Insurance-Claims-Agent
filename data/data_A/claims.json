@@ -293,22 +293,6 @@
     ]
   },
   {
-    "claim_id": "CLM-9001",
-    "member_id": "M-5502",
-    "hospital_id": "H-114",
-    "date_of_service": "2026-09-17",
-    "narrative": "Follow-up consultation after the fall in September.",
-    "documents": [
-      "itemised_bill"
-    ],
-    "lines": [
-      {
-        "code": "99213",
-        "amount": 150
-      }
-    ]
-  },
-  {
     "claim_id": "CLM-9002",
     "member_id": "M-7004",
     "hospital_id": "H-207",

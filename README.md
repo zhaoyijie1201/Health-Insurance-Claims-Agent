@@ -38,9 +38,9 @@ data/
     make_fixtures_A.py      the generator: edit ONLY the EXTRA_* lists at the bottom, then re-run
     check_my_data.py        run after every data change
     data_A/                 the eight generated tables
-    expected_outcomes_A.json  the answer key: 15 shipped labels + 31 of ours, written by hand from Appendix A
+    expected_outcomes_A.json  the answer key: 15 shipped labels + 30 of ours, written by hand from Appendix A
 docs/GOOD_RUN.md        D0(c): what a good run looks like, five testable statements
-docs/EVALUATION_SET.md  D4: the 46 cases by family, what each is for, which check grades it
+docs/EVALUATION_SET.md  D4: the 45 cases by family, what each is for, which check grades it
 docs/JUDGE_PROMPT.md    the exact prompt judge.py sends; the judge is a described instrument
 results/                result tables, failed-run transcripts, D3(b)/D7 write-ups (committed); decisions.jsonl (ignored)
 ```
@@ -103,13 +103,13 @@ otherwise the tier price (`--tier cheap|mid|frontier`) is used.
 
 - [x] Rebuilt on the scaffold's module structure; standard library only, scripted default
 - [x] Six tools (v2) + seven-tool v1 baseline, six-field descriptors for both, prompt audit
-- [x] Multi-call turns, dependency rule, sequential vs parallel measured (92/92 both; 30% fewer input tokens)
+- [x] Multi-call turns, dependency rule, sequential vs parallel measured (91/91 both; 30% fewer input tokens)
 - [x] Guardrail layer in code; D3(b) checklist 11/11 with 3 hostile-text cases
 - [x] D7 failure 1 (loop, de-duplication deleted) and failure 2 (tool interface, v1) with before/after tables
 - [x] Live path verified once (gpt-4o-mini, CLM-8842: 4 turns, 8 calls, measured tokens)
-- [x] D4 evaluation set: 46 cases (15 shipped + 31 ours, five or more per member), 23 negative, 4 hostile narratives, labels from the routing table; one case (CLM-9013) changed the scan
+- [x] D4 evaluation set: 45 cases (15 shipped + 30 ours, five per member), 23 negative, 4 hostile narratives, labels from the routing table; one case (CLM-9013) changed the scan
 - [ ] D0 written (ladder, two tests, `s = P^(1/T)`); `docs/GOOD_RUN.md` is D0(c)
-- [x] Judgement check: `judge.py`, prompt committed, gemini-2.5-flash grading the scripted records: 42/46 cases carry every must_record item, 116/120 items (`results/judge_*.md`). The first pass scored 32/46 and changed the agent: records now cite the near-miss decided claim, the pre-authorisation id behind a document request, the hospital country, the cover dates and the flagged text itself. The four misses are wording specificity, plus CLM-8952 whose shipped label expects a coverage result the agent never queries after a flag (a stated limit, not a fix).
+- [x] Judgement check: `judge.py`, prompt committed, gemini-2.5-flash grading the scripted records: 41/45 cases carry every must_record item, 113/117 items (`results/judge_*.md`). The first pass scored 32/46 on the earlier 46-case set and changed the agent: records now cite the near-miss decided claim, the pre-authorisation id behind a document request, the hospital country, the cover dates and the flagged text itself. The four misses are wording specificity, plus CLM-8952 whose shipped label expects a coverage result the agent never queries after a flag (a stated limit, not a fix).
 - [x] D6 cost model script on the measured files (`results/cost_model.md`); live rows and the break-even pair fill in when the battery lands
 - [ ] D2(b) v1 vs v2 measured on one cheap live model; D5(b) battery, one model per member
 - [ ] Report, demo video, self-appraisal, CONTRIBUTIONS.md

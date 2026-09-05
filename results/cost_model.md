@@ -6,13 +6,13 @@ Volume 8000 claims/month. Failure cost US$7.60 per escalated claim (claims asses
 
 | configuration | backend / model | tools | mode | trials | pass rate | tokens in/run | tokens out/run | price in/out | layer 1 variable | layer 2 fallback | per task | monthly |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
-| scripted_careful_v2_parallel | scripted:careful | v2 | parallel | 92 | 100.0% | 7,879 (est.) | 245 | 0.10 / 0.40 | 0.00089 | 0.0000 | **0.0009** | 207 |
-| scripted_credulous_v2_parallel | scripted:credulous | v2 | parallel | 92 | 100.0% | 8,056 (est.) | 249 | 0.10 / 0.40 | 0.00091 | 0.0000 | **0.0009** | 207 |
-| scripted_sequential_v2_sequential | scripted:sequential | v2 | sequential | 92 | 100.0% | 11,299 (est.) | 242 | 0.10 / 0.40 | 0.00123 | 0.0000 | **0.0012** | 210 |
-| scripted_credulous_v1_parallel | scripted:credulous | v1 | parallel | 92 | 87.0% | 5,498 (est.) | 298 | 0.10 / 0.40 | 0.00067 | 0.9910 | **0.9917** | 8,134 |
-| scripted_careful_v1_parallel | scripted:careful | v1 | parallel | 92 | 87.0% | 5,625 (est.) | 310 | 0.10 / 0.40 | 0.00069 | 0.9910 | **0.9917** | 8,134 |
-| scripted_repeats_v2_sequential | scripted:repeats | v2 | sequential | 92 | 22.8% | 6,544 (est.) | 98 | 0.10 / 0.40 | 0.00069 | 5.8649 | **5.8656** | 47,125 |
-| scripted_repeats_nodedupe_v2_sequential | scripted:repeats | v2 | sequential | 92 | 22.8% | 30,536 (est.) | 306 | 0.10 / 0.40 | 0.00318 | 5.8649 | **5.8681** | 47,145 |
+| scripted_careful_v2_parallel | scripted:careful | v2 | parallel | 91 | 100.0% | 7,883 (est.) | 245 | 0.10 / 0.40 | 0.00089 | 0.0000 | **0.0009** | 207 |
+| scripted_credulous_v2_parallel | scripted:credulous | v2 | parallel | 91 | 100.0% | 8,061 (est.) | 249 | 0.10 / 0.40 | 0.00091 | 0.0000 | **0.0009** | 207 |
+| scripted_sequential_v2_sequential | scripted:sequential | v2 | sequential | 91 | 100.0% | 11,289 (est.) | 242 | 0.10 / 0.40 | 0.00123 | 0.0000 | **0.0012** | 210 |
+| scripted_credulous_v1_parallel | scripted:credulous | v1 | parallel | 91 | 86.8% | 5,504 (est.) | 298 | 0.10 / 0.40 | 0.00067 | 1.0024 | **1.0031** | 8,225 |
+| scripted_careful_v1_parallel | scripted:careful | v1 | parallel | 91 | 86.8% | 5,633 (est.) | 310 | 0.10 / 0.40 | 0.00069 | 1.0024 | **1.0031** | 8,225 |
+| scripted_repeats_v2_sequential | scripted:repeats | v2 | sequential | 91 | 23.1% | 6,538 (est.) | 98 | 0.10 / 0.40 | 0.00069 | 5.8459 | **5.8466** | 46,973 |
+| scripted_repeats_nodedupe_v2_sequential | scripted:repeats | v2 | sequential | 91 | 23.1% | 30,459 (est.) | 306 | 0.10 / 0.40 | 0.00317 | 5.8459 | **5.8491** | 46,993 |
 
 Layer 2 is the layer every naive model omits. On the shipped configuration at 100% scripted pass rate it is zero; at a live pass rate of 90% it is US$0.76 per task, which is 857 times the token bill of a cheap-tier run (US$0.0009). The token price only matters once the failures are cheap.
 
@@ -42,11 +42,11 @@ No live battery in results/ yet, so the shipped agent's measured token shape is 
 | lever | what it attacks | where built | before | after | what moved |
 |---|---|---|---|---|---|
 | 1 · tool block size | B, linear in turns | D2(a)/(b): the tool set and its descriptors | v1: 7 tools, 595 tokens | v2: 6 tools, 1,494 tokens | v2 is LARGER: the six-field descriptors with size bounds and failure semantics cost 899 tokens per turn, paid for by lever 4 |
-| 2 · turn count T | the quadratic term | D2(c): parallel calls | sequential: median 4.0, max 10, 11,299 tokens in/run | parallel: median 2.0, max 4, 7,879 tokens in/run | 30% fewer input tokens, same pass rate (92/92 both) |
-| 3 · observation size D | compounds: re-sent every later turn | D2(b): what get_claim returns | v1 get_claim 71.9 tokens/call (raw row) | v2 get_claim 106.4 tokens/call (+ duplicate_of, narrative_flags, claim_total) | bigger by design: two facts computed in code replace a tool call and a model judgement |
-| 4 · success rate | layer 2, the biggest layer | D4 + the v2 tool layer | v1: 87.0% -> per successful task US$0.9917 | v2: 100.0% -> US$0.0009 | the whole v2 token premium (US$0.00020/task) buys back US$0.9910/task of failures |
+| 2 · turn count T | the quadratic term | D2(c): parallel calls | sequential: median 4, max 10, 11,289 tokens in/run | parallel: median 2, max 4, 7,883 tokens in/run | 30% fewer input tokens, same pass rate (91/91 both) |
+| 3 · observation size D | compounds: re-sent every later turn | D2(b): what get_claim returns | v1 get_claim 72.0 tokens/call (raw row) | v2 get_claim 106.5 tokens/call (+ duplicate_of, narrative_flags, claim_total) | bigger by design: two facts computed in code replace a tool call and a model judgement |
+| 4 · success rate | layer 2, the biggest layer | D4 + the v2 tool layer | v1: 86.8% -> per successful task US$1.0031 | v2: 100.0% -> US$0.0009 | the whole v2 token premium (US$0.00020/task) buys back US$1.0024/task of failures |
 
-Which dominated: lever 4. On the scripted set the v1 tool layer loses 12/92 of trials to hostile narratives and every one of those is a US$7.60 escalation; the v2 descriptors cost more tokens per turn and buy that back many times over. Lever 2 is the largest token saving and it moved nothing in correctness, which is what D2(c) asks to show.
+Which dominated: lever 4. On the scripted set the v1 tool layer loses 12/91 of trials to hostile narratives and every one of those is a US$7.60 escalation; the v2 descriptors cost more tokens per turn and buy that back many times over. Lever 2 is the largest token saving and it moved nothing in correctness, which is what D2(c) asks to show.
 
 ## 5 · The three caps that ship
 

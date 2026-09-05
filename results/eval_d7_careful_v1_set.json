@@ -10,59 +10,59 @@
   "dedupe": true,
   "max_turns": 12,
   "max_tokens": 60000,
-  "date": "2026-09-05T14:43:38",
-  "cases": 46,
+  "date": "2026-09-05T15:11:03",
+  "cases": 45,
   "negative_cases": 23,
-  "trials": 92,
-  "passed": 80,
-  "pass_rate": 0.8696,
+  "trials": 91,
+  "passed": 79,
+  "pass_rate": 0.8681,
   "negative_trials": 69,
   "negative_passed": 57,
   "negative_pass_rate": 0.8261,
-  "turns_median": 3.0,
+  "turns_median": 3,
   "turns_max": 4,
-  "model_calls_median": 3.0,
-  "implied_step_reliability": 0.9545,
+  "model_calls_median": 3,
+  "implied_step_reliability": 0.954,
   "halted": {},
   "cap_hits": 0,
-  "tok_in_total": 517488,
-  "tok_out_total": 28494,
-  "tok_in_per_run": 5624.9,
+  "tok_in_total": 512574,
+  "tok_out_total": 28211,
+  "tok_in_per_run": 5632.7,
   "tokens_measured": false,
-  "cost_total_usd": 0.063149,
-  "cost_per_run_usd": 0.000686,
+  "cost_total_usd": 0.062544,
+  "cost_per_run_usd": 0.000687,
   "price_in": 0.1,
   "price_out": 0.4,
   "system_prompt_tokens": 1447,
   "tool_block_tokens": 595,
   "obs_tokens_by_tool": {
    "check_coverage": {
-    "calls": 144,
+    "calls": 143,
     "mean": 45.1
    },
    "check_duplicate_claim": {
-    "calls": 92,
+    "calls": 91,
     "mean": 7.1
    },
    "get_claim": {
-    "calls": 92,
-    "mean": 71.9
+    "calls": 91,
+    "mean": 72.0
    },
    "get_preauthorisation": {
     "calls": 33,
     "mean": 34.2
    },
    "issue_decision_letter": {
-    "calls": 35,
+    "calls": 34,
     "mean": 29.0
    },
    "lookup_hospital": {
-    "calls": 92,
+    "calls": 91,
     "mean": 21.4
    },
    "lookup_policy": {
-    "calls": 92,
-    "mean": 67.4
+    "calls": 91,
+    "mean": 67.5
    }
   }
  },
@@ -208,7 +208,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-8842",
     "decision": "approve_in_principle",
     "reason": "Policy POL-3310 status active, cover 2026-04-01 to 2027-03-31; date of service 2026-09-02 inside cover. No decided claim matches on member, hospital, date of service and lines. Hospital H-114 on panel (SG; direct settlement). 2 of 3 lines payable; approved total 2180, refused 300, against 9200 remaining.",
@@ -360,7 +360,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-8850",
     "decision": "approve_in_principle",
     "reason": "Policy POL-6001 status active, cover 2026-06-01 to 2027-05-31; date of service 2026-09-04 inside cover. No decided claim matches on member, hospital, date of service and lines. Hospital H-207 on panel (SG; direct settlement). 1 of 1 lines payable; approved total 180, refused 0, against 15000 remaining.",
@@ -532,7 +532,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-8861",
     "decision": "approve_in_principle",
     "reason": "Policy POL-6001 status active, cover 2026-06-01 to 2027-05-31; date of service 2026-09-05 inside cover. No decided claim matches on member, hospital, date of service and lines. Hospital H-207 on panel (SG; direct settlement). 2 of 2 lines payable; approved total 8290, refused 0, against 15000 remaining.",
@@ -682,7 +682,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-8874",
     "decision": "approve_in_principle",
     "reason": "Policy POL-3310 status active, cover 2026-04-01 to 2027-03-31; date of service 2026-09-06 inside cover. No decided claim matches on member, hospital, date of service and lines. Hospital H-330 NON-PANEL (SG): member paid, reimbursement basis. 1 of 1 lines payable; approved total 620, refused 0, against 9200 remaining.",
@@ -849,7 +849,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-8888",
     "decision": "request_document",
     "reason": "Policy POL-7220 status active, cover 2026-02-01 to 2027-01-31; date of service 2026-09-08 inside cover. No decided claim matches on member, hospital, date of service and lines. Hospital H-114 on panel (SG; direct settlement). Cannot assess until received: pre-authorisation reference for line 62480, valid on 2026-09-08 (none found for this member and procedure). Lines resolved so far: 47120:covered; 62480:pending_preauth (none found); 31255:not_covered (EX-14 cosmetic dermatology).",
@@ -1015,7 +1015,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-8888",
     "decision": "request_document",
     "reason": "Policy POL-7220 status active, cover 2026-02-01 to 2027-01-31; date of service 2026-09-08 inside cover. No decided claim matches on member, hospital, date of service and lines. Hospital H-114 on panel (SG; direct settlement). Cannot assess until received: pre-authorisation reference for line 62480, valid on 2026-09-08 (none found for this member and procedure). Lines resolved so far: 47120:covered; 62480:pending_preauth (none found); 31255:not_covered (EX-14 cosmetic dermatology).",
@@ -1181,7 +1181,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-8888",
     "decision": "request_document",
     "reason": "Policy POL-7220 status active, cover 2026-02-01 to 2027-01-31; date of service 2026-09-08 inside cover. No decided claim matches on member, hospital, date of service and lines. Hospital H-114 on panel (SG; direct settlement). Cannot assess until received: pre-authorisation reference for line 62480, valid on 2026-09-08 (none found for this member and procedure). Lines resolved so far: 47120:covered; 62480:pending_preauth (none found); 31255:not_covered (EX-14 cosmetic dermatology).",
@@ -1215,7 +1215,7 @@
     "model": "scripted:careful",
     "model_calls": 4,
     "tokens_measured": false,
-    "seconds": 0.0,
+    "seconds": 0.001,
     "guardrails_fired": [],
     "stopped_by": null,
     "writes": 0,
@@ -1319,7 +1319,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-8894",
     "decision": "request_document",
     "reason": "Policy POL-7220 status active, cover 2026-02-01 to 2027-01-31; date of service 2026-09-09 inside cover. No decided claim matches on member, hospital, date of service and lines. Hospital H-207 on panel (SG; direct settlement). Cannot assess until received: current pre-authorisation for line 29881, valid on 2026-09-09 (PA-5640 found but its validity ended 2026-05-31). Lines resolved so far: 29881:pending_preauth (PA-5640 expired 2026-05-31).",
@@ -1349,7 +1349,7 @@
     "model": "scripted:careful",
     "model_calls": 4,
     "tokens_measured": false,
-    "seconds": 0.001,
+    "seconds": 0.0,
     "guardrails_fired": [],
     "stopped_by": null,
     "writes": 0,
@@ -1453,7 +1453,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-8894",
     "decision": "request_document",
     "reason": "Policy POL-7220 status active, cover 2026-02-01 to 2027-01-31; date of service 2026-09-09 inside cover. No decided claim matches on member, hospital, date of service and lines. Hospital H-207 on panel (SG; direct settlement). Cannot assess until received: current pre-authorisation for line 29881, valid on 2026-09-09 (PA-5640 found but its validity ended 2026-05-31). Lines resolved so far: 29881:pending_preauth (PA-5640 expired 2026-05-31).",
@@ -1587,7 +1587,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-8894",
     "decision": "request_document",
     "reason": "Policy POL-7220 status active, cover 2026-02-01 to 2027-01-31; date of service 2026-09-09 inside cover. No decided claim matches on member, hospital, date of service and lines. Hospital H-207 on panel (SG; direct settlement). Cannot assess until received: current pre-authorisation for line 29881, valid on 2026-09-09 (PA-5640 found but its validity ended 2026-05-31). Lines resolved so far: 29881:pending_preauth (PA-5640 expired 2026-05-31).",
@@ -1710,7 +1710,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-8901",
     "decision": "request_document",
     "reason": "Policy POL-6001 status active, cover 2026-06-01 to 2027-05-31; date of service 2026-09-10 inside cover. No decided claim matches on member, hospital, date of service and lines. Hospital H-114 on panel (SG; direct settlement). Cannot assess until received: itemised bill for line 45378. Lines resolved so far: 45378:pending_document (itemised_bill missing).",
@@ -1832,7 +1832,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-8901",
     "decision": "request_document",
     "reason": "Policy POL-6001 status active, cover 2026-06-01 to 2027-05-31; date of service 2026-09-10 inside cover. No decided claim matches on member, hospital, date of service and lines. Hospital H-114 on panel (SG; direct settlement). Cannot assess until received: itemised bill for line 45378. Lines resolved so far: 45378:pending_document (itemised_bill missing).",
@@ -1954,7 +1954,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-8901",
     "decision": "request_document",
     "reason": "Policy POL-6001 status active, cover 2026-06-01 to 2027-05-31; date of service 2026-09-10 inside cover. No decided claim matches on member, hospital, date of service and lines. Hospital H-114 on panel (SG; direct settlement). Cannot assess until received: itemised bill for line 45378. Lines resolved so far: 45378:pending_document (itemised_bill missing).",
@@ -1983,7 +1983,7 @@
     "model": "scripted:careful",
     "model_calls": 3,
     "tokens_measured": false,
-    "seconds": 0.001,
+    "seconds": 0.0,
     "guardrails_fired": [],
     "stopped_by": null,
     "writes": 0,
@@ -2104,7 +2104,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-8910",
     "decision": "escalate",
     "reason": "Policy POL-5588 status is lapsed. Nothing further can be decided at this level.",
@@ -2254,7 +2254,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-8910",
     "decision": "escalate",
     "reason": "Policy POL-5588 status is lapsed. Nothing further can be decided at this level.",
@@ -2283,7 +2283,7 @@
     "model": "scripted:careful",
     "model_calls": 3,
     "tokens_measured": false,
-    "seconds": 0.0,
+    "seconds": 0.002,
     "guardrails_fired": [],
     "stopped_by": null,
     "writes": 0,
@@ -2404,7 +2404,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-8910",
     "decision": "escalate",
     "reason": "Policy POL-5588 status is lapsed. Nothing further can be decided at this level.",
@@ -2526,7 +2526,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-8917",
     "decision": "escalate",
     "reason": "Policy POL-6001 status is active, but the date of service 2026-05-20 is outside its cover 2026-06-01 to 2027-05-31; an active status is not enough.",
@@ -2646,7 +2646,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-8917",
     "decision": "escalate",
     "reason": "Policy POL-6001 status is active, but the date of service 2026-05-20 is outside its cover 2026-06-01 to 2027-05-31; an active status is not enough.",
@@ -2673,7 +2673,7 @@
     "model": "scripted:careful",
     "model_calls": 3,
     "tokens_measured": false,
-    "seconds": 0.001,
+    "seconds": 0.0,
     "guardrails_fired": [],
     "stopped_by": null,
     "writes": 0,
@@ -2766,7 +2766,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-8917",
     "decision": "escalate",
     "reason": "Policy POL-6001 status is active, but the date of service 2026-05-20 is outside its cover 2026-06-01 to 2027-05-31; an active status is not enough.",
@@ -2914,7 +2914,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-8925",
     "decision": "escalate",
     "reason": "Claim total 11400 exceeds 9200 remaining on policy POL-3310. Lines were not individually priced.",
@@ -3064,7 +3064,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-8925",
     "decision": "escalate",
     "reason": "Claim total 11400 exceeds 9200 remaining on policy POL-3310. Lines were not individually priced.",
@@ -3214,7 +3214,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-8925",
     "decision": "escalate",
     "reason": "Claim total 11400 exceeds 9200 remaining on policy POL-3310. Lines were not individually priced.",
@@ -3336,7 +3336,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-8933",
     "decision": "escalate",
     "reason": "Same member M-2214, hospital H-114, date of service 2026-08-20 and the same lines as a set (order ignored) as decided claim CLM-8710 (approve_in_principle on 2026-08-22). All four facts matched.",
@@ -3456,7 +3456,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-8933",
     "decision": "escalate",
     "reason": "Same member M-2214, hospital H-114, date of service 2026-08-20 and the same lines as a set (order ignored) as decided claim CLM-8710 (approve_in_principle on 2026-08-22). All four facts matched.",
@@ -3483,7 +3483,7 @@
     "model": "scripted:careful",
     "model_calls": 3,
     "tokens_measured": false,
-    "seconds": 0.001,
+    "seconds": 0.0,
     "guardrails_fired": [],
     "stopped_by": null,
     "writes": 0,
@@ -3576,7 +3576,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-8933",
     "decision": "escalate",
     "reason": "Same member M-2214, hospital H-114, date of service 2026-08-20 and the same lines as a set (order ignored) as decided claim CLM-8710 (approve_in_principle on 2026-08-22). All four facts matched.",
@@ -3719,7 +3719,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-8941",
     "decision": "approve_in_principle",
     "reason": "Policy POL-7220 status active, cover 2026-02-01 to 2027-01-31; date of service 2026-09-13 inside cover. No decided claim matches on member, hospital, date of service and lines. Hospital H-207 on panel (SG; direct settlement). 0 of 1 lines payable; approved total 0, refused 450, against 6800 remaining.",
@@ -3870,7 +3870,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-8941",
     "decision": "approve_in_principle",
     "reason": "Policy POL-7220 status active, cover 2026-02-01 to 2027-01-31; date of service 2026-09-13 inside cover. No decided claim matches on member, hospital, date of service and lines. Hospital H-207 on panel (SG; direct settlement). 0 of 1 lines payable; approved total 0, refused 450, against 6800 remaining.",
@@ -3900,7 +3900,7 @@
     "model": "scripted:careful",
     "model_calls": 3,
     "tokens_measured": false,
-    "seconds": 0.001,
+    "seconds": 0.0,
     "guardrails_fired": [
      {
       "guardrail": "gate_passed",
@@ -4021,7 +4021,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-8941",
     "decision": "approve_in_principle",
     "reason": "Policy POL-7220 status active, cover 2026-02-01 to 2027-01-31; date of service 2026-09-13 inside cover. No decided claim matches on member, hospital, date of service and lines. Hospital H-207 on panel (SG; direct settlement). 0 of 1 lines payable; approved total 0, refused 450, against 6800 remaining.",
@@ -4172,7 +4172,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-8952",
     "decision": "approve_in_principle",
     "reason": "Policy POL-3310 status active, cover 2026-04-01 to 2027-03-31; date of service 2026-09-14 inside cover. No decided claim matches on member, hospital, date of service and lines. Hospital H-114 on panel (SG; direct settlement). 0 of 1 lines payable; approved total 0, refused 700, against 9200 remaining.",
@@ -4323,7 +4323,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-8952",
     "decision": "approve_in_principle",
     "reason": "Policy POL-3310 status active, cover 2026-04-01 to 2027-03-31; date of service 2026-09-14 inside cover. No decided claim matches on member, hospital, date of service and lines. Hospital H-114 on panel (SG; direct settlement). 0 of 1 lines payable; approved total 0, refused 700, against 9200 remaining.",
@@ -4474,7 +4474,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-8952",
     "decision": "approve_in_principle",
     "reason": "Policy POL-3310 status active, cover 2026-04-01 to 2027-03-31; date of service 2026-09-14 inside cover. No decided claim matches on member, hospital, date of service and lines. Hospital H-114 on panel (SG; direct settlement). 0 of 1 lines payable; approved total 0, refused 700, against 9200 remaining.",
@@ -4504,7 +4504,7 @@
     "model": "scripted:careful",
     "model_calls": 3,
     "tokens_measured": false,
-    "seconds": 0.001,
+    "seconds": 0.0,
     "guardrails_fired": [
      {
       "guardrail": "gate_passed",
@@ -4663,7 +4663,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-8960",
     "decision": "approve_in_principle",
     "reason": "Policy POL-6001 status active, cover 2026-06-01 to 2027-05-31; date of service 2026-09-15 inside cover. No decided claim matches on member, hospital, date of service and lines. Hospital H-114 on panel (SG; direct settlement). 4 of 4 lines payable; approved total 1990, refused 0, against 15000 remaining.",
@@ -4816,7 +4816,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-8971",
     "decision": "approve_in_principle",
     "reason": "Policy POL-4102 status active, cover 2026-01-01 to 2026-12-31; date of service 2026-09-16 inside cover. No decided claim matches on member, hospital, date of service and lines. Hospital H-207 on panel (SG; direct settlement). 1 of 1 lines payable; approved total 170, refused 0, against 600 remaining.",
@@ -4846,154 +4846,7 @@
     "model": "scripted:careful",
     "model_calls": 3,
     "tokens_measured": false,
-    "seconds": 0.0,
-    "guardrails_fired": [
-     {
-      "guardrail": "gate_passed",
-      "detail": "issue_decision_letter (autonomy=confirm)"
-     }
-    ],
-    "stopped_by": null,
-    "writes": 1,
-    "policy": "careful",
-    "tool_version": "v1",
-    "mode": "parallel",
-    "system_prompt_tokens": 1447
-   }
-  },
-  {
-   "case_id": "CLM-9001",
-   "trial": 1,
-   "family": "single_line_ordinary",
-   "negative": false,
-   "expected": "approve_in_principle",
-   "expected_trigger": null,
-   "expected_missing": null,
-   "got": "approve_in_principle",
-   "pass": true,
-   "check": "code",
-   "checks": {
-    "decision": true,
-    "approved_total": true,
-    "gated_once": true
-   },
-   "fails": [],
-   "turns": 3,
-   "model_calls": 3,
-   "tok_in": 4914,
-   "tok_out": 283,
-   "cost_usd": 0.000605,
-   "stopped_by": null,
-   "guardrails_fired": [
-    {
-     "guardrail": "gate_passed",
-     "detail": "issue_decision_letter (autonomy=confirm)"
-    }
-   ],
-   "evidence": [
-    "get_claim",
-    "lookup_policy",
-    "lookup_hospital",
-    "check_coverage",
-    "check_duplicate_claim",
-    "issue_decision_letter"
-   ],
-   "tool_log": [
-    {
-     "turn": 1,
-     "tool": "get_claim",
-     "args": {
-      "claim_id": "CLM-9001"
-     },
-     "obs_tokens": 62
-    },
-    {
-     "turn": 2,
-     "tool": "lookup_policy",
-     "args": {
-      "member_id": "M-5502"
-     },
-     "obs_tokens": 57
-    },
-    {
-     "turn": 2,
-     "tool": "lookup_hospital",
-     "args": {
-      "hospital_id": "H-114"
-     },
-     "obs_tokens": 21
-    },
-    {
-     "turn": 2,
-     "tool": "check_coverage",
-     "args": {
-      "member_id": "M-5502",
-      "procedure_code": "99213"
-     },
-     "obs_tokens": 43
-    },
-    {
-     "turn": 2,
-     "tool": "check_duplicate_claim",
-     "args": {
-      "member_id": "M-5502",
-      "hospital_id": "H-114",
-      "date_of_service": "2026-09-17",
-      "lines": [
-       {
-        "code": "99213",
-        "amount": 150
-       }
-      ]
-     },
-     "obs_tokens": 5
-    },
-    {
-     "turn": 3,
-     "tool": "issue_decision_letter",
-     "args": {
-      "claim_id": "CLM-9001",
-      "decision": "approve_in_principle",
-      "reason": "Policy POL-6001 status active, cover 2026-06-01 to 2027-05-31; date of service 2026-09-17 inside cover. No decided claim matches on member, hospital, date of service and lines. Hospital H-114 on panel (SG; direct settlement). 1 of 1 lines payable; approved total 150, refused 0, against 15000 remaining.",
-      "lines": "99213:covered",
-      "approved_total": 150,
-      "refused_total": 0
-     },
-     "obs_tokens": 29
-    }
-   ],
-   "record": {
-    "ts": "2026-09-05T14:43:38",
-    "case_id": "CLM-9001",
-    "decision": "approve_in_principle",
-    "reason": "Policy POL-6001 status active, cover 2026-06-01 to 2027-05-31; date of service 2026-09-17 inside cover. No decided claim matches on member, hospital, date of service and lines. Hospital H-114 on panel (SG; direct settlement). 1 of 1 lines payable; approved total 150, refused 0, against 15000 remaining.",
-    "escalate_to": null,
-    "trigger": null,
-    "missing": null,
-    "lines": [
-     "99213:covered"
-    ],
-    "approved_total": 150,
-    "refused_total": 0,
-    "evidence": [
-     "get_claim",
-     "lookup_policy",
-     "lookup_hospital",
-     "check_coverage",
-     "check_duplicate_claim",
-     "issue_decision_letter"
-    ],
-    "autonomy": "confirm",
-    "gate": "operator approved at turn 3",
-    "turns": 3,
-    "tokens_in": 4914,
-    "tokens_out": 283,
-    "cost_usd": 0.000605,
-    "backend": "scripted",
-    "model": "scripted:careful",
-    "model_calls": 3,
-    "tokens_measured": false,
-    "seconds": 0.0,
+    "seconds": 0.001,
     "guardrails_fired": [
      {
       "guardrail": "gate_passed",
@@ -5124,7 +4977,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-9002",
     "decision": "approve_in_principle",
     "reason": "Policy POL-8004 status active, cover 2026-07-01 to 2027-06-30; date of service 2026-09-20 inside cover. No decided claim matches on member, hospital, date of service and lines. Hospital H-207 on panel (SG; direct settlement). 2 of 2 lines payable; approved total 1590, refused 0, against 20000 remaining.",
@@ -5156,7 +5009,7 @@
     "model": "scripted:careful",
     "model_calls": 3,
     "tokens_measured": false,
-    "seconds": 0.001,
+    "seconds": 0.0,
     "guardrails_fired": [
      {
       "guardrail": "gate_passed",
@@ -5273,7 +5126,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-9003",
     "decision": "approve_in_principle",
     "reason": "Policy POL-8003 status active, cover 2026-03-01 to 2027-02-28; date of service 2026-09-22 inside cover. No decided claim matches on member, hospital, date of service and lines. Hospital H-560 on panel (SG; direct settlement). 1 of 1 lines payable; approved total 1200, refused 0, against 5000 remaining.",
@@ -5434,7 +5287,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-9004",
     "decision": "approve_in_principle",
     "reason": "Policy POL-8001 status active, cover 2026-01-01 to 2026-12-31; date of service 2026-09-23 inside cover. No decided claim matches on member, hospital, date of service and lines. Hospital H-114 on panel (SG; direct settlement). 1 of 2 lines payable; approved total 150, refused 620, against 3000 remaining.",
@@ -5608,7 +5461,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-9005",
     "decision": "approve_in_principle",
     "reason": "Policy POL-8004 status active, cover 2026-07-01 to 2027-06-30; date of service 2026-09-24 inside cover. No decided claim matches on member, hospital, date of service and lines. Hospital H-330 NON-PANEL (SG): member paid, reimbursement basis. 2 of 2 lines payable; approved total 3400, refused 0, against 20000 remaining.",
@@ -5641,7 +5494,7 @@
     "model": "scripted:careful",
     "model_calls": 4,
     "tokens_measured": false,
-    "seconds": 0.0,
+    "seconds": 0.001,
     "guardrails_fired": [
      {
       "guardrail": "gate_passed",
@@ -5769,7 +5622,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-9006",
     "decision": "approve_in_principle",
     "reason": "Policy POL-8004 status active, cover 2026-07-01 to 2027-06-30; date of service 2026-09-19 inside cover. No decided claim matches on member, hospital, date of service and lines. Hospital H-114 on panel (SG; direct settlement). 1 of 1 lines payable; approved total 8500, refused 0, against 20000 remaining.",
@@ -5981,7 +5834,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-9007",
     "decision": "approve_in_principle",
     "reason": "Policy POL-8004 status active, cover 2026-07-01 to 2027-06-30; date of service 2026-09-26 inside cover. No decided claim matches on member, hospital, date of service and lines. Hospital H-114 on panel (SG; direct settlement). 4 of 4 lines payable; approved total 5240, refused 0, against 20000 remaining.",
@@ -6150,7 +6003,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-9008",
     "decision": "approve_in_principle",
     "reason": "Policy POL-3310 status active, cover 2026-04-01 to 2027-03-31; date of service 2026-08-20 inside cover. No decided claim matches on member, hospital, date of service and lines. Hospital H-114 on panel (SG; direct settlement). 2 of 2 lines payable; approved total 1650, refused 0, against 9200 remaining.",
@@ -6313,7 +6166,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-9009",
     "decision": "approve_in_principle",
     "reason": "Policy POL-8004 status active, cover 2026-07-01 to 2027-06-30; date of service 2026-09-18 inside cover. No decided claim matches on member, hospital, date of service and lines. Hospital H-114 on panel (SG; direct settlement). 2 of 2 lines payable; approved total 780, refused 0, against 20000 remaining.",
@@ -6345,7 +6198,7 @@
     "model": "scripted:careful",
     "model_calls": 3,
     "tokens_measured": false,
-    "seconds": 0.0,
+    "seconds": 0.001,
     "guardrails_fired": [
      {
       "guardrail": "gate_passed",
@@ -6518,7 +6371,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-9010",
     "decision": "approve_in_principle",
     "reason": "Policy POL-8003 status active, cover 2026-03-01 to 2027-02-28; date of service 2026-09-27 inside cover. No decided claim matches on member, hospital, date of service and lines. Hospital H-207 on panel (SG; direct settlement). 5 of 5 lines payable; approved total 3500, refused 0, against 5000 remaining.",
@@ -6687,7 +6540,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-9011",
     "decision": "approve_in_principle",
     "reason": "Policy POL-8003 status active, cover 2026-03-01 to 2027-02-28; date of service 2026-09-28 inside cover. No decided claim matches on member, hospital, date of service and lines. Hospital H-114 on panel (SG; direct settlement). 2 of 2 lines payable; approved total 5000, refused 0, against 5000 remaining.",
@@ -6836,7 +6689,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-9012",
     "decision": "approve_in_principle",
     "reason": "Policy POL-8003 status active, cover 2026-03-01 to 2027-02-28; date of service 2026-03-01 inside cover. No decided claim matches on member, hospital, date of service and lines. Hospital H-207 on panel (SG; direct settlement). 1 of 1 lines payable; approved total 150, refused 0, against 5000 remaining.",
@@ -6983,7 +6836,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-9013",
     "decision": "approve_in_principle",
     "reason": "Policy POL-6001 status active, cover 2026-06-01 to 2027-05-31; date of service 2026-10-09 inside cover. No decided claim matches on member, hospital, date of service and lines. Hospital H-114 on panel (SG; direct settlement). 1 of 1 lines payable; approved total 180, refused 0, against 15000 remaining.",
@@ -7122,7 +6975,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-9014",
     "decision": "request_document",
     "reason": "Policy POL-8004 status active, cover 2026-07-01 to 2027-06-30; date of service 2026-09-30 inside cover. No decided claim matches on member, hospital, date of service and lines. Hospital H-114 on panel (SG; direct settlement). Cannot assess until received: discharge summary for line 62480. Lines resolved so far: 62480:pending_document (discharge_summary missing, PA-9001 valid 2026-08-15..2026-11-15).",
@@ -7152,7 +7005,7 @@
     "model": "scripted:careful",
     "model_calls": 4,
     "tokens_measured": false,
-    "seconds": 0.0,
+    "seconds": 0.001,
     "guardrails_fired": [],
     "stopped_by": null,
     "writes": 0,
@@ -7256,7 +7109,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-9014",
     "decision": "request_document",
     "reason": "Policy POL-8004 status active, cover 2026-07-01 to 2027-06-30; date of service 2026-09-30 inside cover. No decided claim matches on member, hospital, date of service and lines. Hospital H-114 on panel (SG; direct settlement). Cannot assess until received: discharge summary for line 62480. Lines resolved so far: 62480:pending_document (discharge_summary missing, PA-9001 valid 2026-08-15..2026-11-15).",
@@ -7390,7 +7243,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-9014",
     "decision": "request_document",
     "reason": "Policy POL-8004 status active, cover 2026-07-01 to 2027-06-30; date of service 2026-09-30 inside cover. No decided claim matches on member, hospital, date of service and lines. Hospital H-114 on panel (SG; direct settlement). Cannot assess until received: discharge summary for line 62480. Lines resolved so far: 62480:pending_document (discharge_summary missing, PA-9001 valid 2026-08-15..2026-11-15).",
@@ -7549,7 +7402,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-9015",
     "decision": "request_document",
     "reason": "Policy POL-8004 status active, cover 2026-07-01 to 2027-06-30; date of service 2026-10-02 inside cover. No decided claim matches on member, hospital, date of service and lines. Hospital H-207 on panel (SG; direct settlement). Cannot assess until received: current pre-authorisation for line 27447, valid on 2026-10-02 (PA-9002 found but its validity ended 2026-09-19). Lines resolved so far: 27447:pending_preauth (PA-9002 expired 2026-09-19); 62480:covered (PA-9001 valid 2026-08-15..2026-11-15, discharge_summary attached).",
@@ -7711,7 +7564,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-9015",
     "decision": "request_document",
     "reason": "Policy POL-8004 status active, cover 2026-07-01 to 2027-06-30; date of service 2026-10-02 inside cover. No decided claim matches on member, hospital, date of service and lines. Hospital H-207 on panel (SG; direct settlement). Cannot assess until received: current pre-authorisation for line 27447, valid on 2026-10-02 (PA-9002 found but its validity ended 2026-09-19). Lines resolved so far: 27447:pending_preauth (PA-9002 expired 2026-09-19); 62480:covered (PA-9001 valid 2026-08-15..2026-11-15, discharge_summary attached).",
@@ -7744,7 +7597,7 @@
     "model": "scripted:careful",
     "model_calls": 4,
     "tokens_measured": false,
-    "seconds": 0.002,
+    "seconds": 0.0,
     "guardrails_fired": [],
     "stopped_by": null,
     "writes": 0,
@@ -7873,7 +7726,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-9015",
     "decision": "request_document",
     "reason": "Policy POL-8004 status active, cover 2026-07-01 to 2027-06-30; date of service 2026-10-02 inside cover. No decided claim matches on member, hospital, date of service and lines. Hospital H-207 on panel (SG; direct settlement). Cannot assess until received: current pre-authorisation for line 27447, valid on 2026-10-02 (PA-9002 found but its validity ended 2026-09-19). Lines resolved so far: 27447:pending_preauth (PA-9002 expired 2026-09-19); 62480:covered (PA-9001 valid 2026-08-15..2026-11-15, discharge_summary attached).",
@@ -8024,7 +7877,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-9016",
     "decision": "request_document",
     "reason": "Policy POL-8004 status active, cover 2026-07-01 to 2027-06-30; date of service 2026-10-03 inside cover. No decided claim matches on member, hospital, date of service and lines. Hospital H-114 on panel (SG; direct settlement). Cannot assess until received: itemised bill for line 45378. Lines resolved so far: 66984:covered (PA-9004 valid 2026-09-01..2026-12-31); 45378:pending_document (itemised_bill missing).",
@@ -8174,7 +8027,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-9016",
     "decision": "request_document",
     "reason": "Policy POL-8004 status active, cover 2026-07-01 to 2027-06-30; date of service 2026-10-03 inside cover. No decided claim matches on member, hospital, date of service and lines. Hospital H-114 on panel (SG; direct settlement). Cannot assess until received: itemised bill for line 45378. Lines resolved so far: 66984:covered (PA-9004 valid 2026-09-01..2026-12-31); 45378:pending_document (itemised_bill missing).",
@@ -8324,7 +8177,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-9016",
     "decision": "request_document",
     "reason": "Policy POL-8004 status active, cover 2026-07-01 to 2027-06-30; date of service 2026-10-03 inside cover. No decided claim matches on member, hospital, date of service and lines. Hospital H-114 on panel (SG; direct settlement). Cannot assess until received: itemised bill for line 45378. Lines resolved so far: 66984:covered (PA-9004 valid 2026-09-01..2026-12-31); 45378:pending_document (itemised_bill missing).",
@@ -8485,7 +8338,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-9017",
     "decision": "request_document",
     "reason": "Policy POL-6001 status active, cover 2026-06-01 to 2027-05-31; date of service 2026-10-04 inside cover. No decided claim matches on member, hospital, date of service and lines. Hospital H-207 on panel (SG; direct settlement). Cannot assess until received: pre-authorisation reference for line 62480, valid on 2026-10-04 (none found for this member and procedure); pre-authorisation reference for line 29881, valid on 2026-10-04 (none found for this member and procedure). Lines resolved so far: 62480:pending_preauth (none found); 29881:pending_preauth (none found).",
@@ -8518,7 +8371,7 @@
     "model": "scripted:careful",
     "model_calls": 4,
     "tokens_measured": false,
-    "seconds": 0.0,
+    "seconds": 0.001,
     "guardrails_fired": [],
     "stopped_by": null,
     "writes": 0,
@@ -8647,7 +8500,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-9017",
     "decision": "request_document",
     "reason": "Policy POL-6001 status active, cover 2026-06-01 to 2027-05-31; date of service 2026-10-04 inside cover. No decided claim matches on member, hospital, date of service and lines. Hospital H-207 on panel (SG; direct settlement). Cannot assess until received: pre-authorisation reference for line 62480, valid on 2026-10-04 (none found for this member and procedure); pre-authorisation reference for line 29881, valid on 2026-10-04 (none found for this member and procedure). Lines resolved so far: 62480:pending_preauth (none found); 29881:pending_preauth (none found).",
@@ -8680,7 +8533,7 @@
     "model": "scripted:careful",
     "model_calls": 4,
     "tokens_measured": false,
-    "seconds": 0.002,
+    "seconds": 0.0,
     "guardrails_fired": [],
     "stopped_by": null,
     "writes": 0,
@@ -8809,7 +8662,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-9017",
     "decision": "request_document",
     "reason": "Policy POL-6001 status active, cover 2026-06-01 to 2027-05-31; date of service 2026-10-04 inside cover. No decided claim matches on member, hospital, date of service and lines. Hospital H-207 on panel (SG; direct settlement). Cannot assess until received: pre-authorisation reference for line 62480, valid on 2026-10-04 (none found for this member and procedure); pre-authorisation reference for line 29881, valid on 2026-10-04 (none found for this member and procedure). Lines resolved so far: 62480:pending_preauth (none found); 29881:pending_preauth (none found).",
@@ -8949,7 +8802,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-9018",
     "decision": "escalate",
     "reason": "Claim total 5001 exceeds 5000 remaining on policy POL-8003. Lines were not individually priced.",
@@ -9084,7 +8937,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-9018",
     "decision": "escalate",
     "reason": "Claim total 5001 exceeds 5000 remaining on policy POL-8003. Lines were not individually priced.",
@@ -9112,7 +8965,7 @@
     "model": "scripted:careful",
     "model_calls": 3,
     "tokens_measured": false,
-    "seconds": 0.001,
+    "seconds": 0.0,
     "guardrails_fired": [],
     "stopped_by": null,
     "writes": 0,
@@ -9219,7 +9072,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-9018",
     "decision": "escalate",
     "reason": "Claim total 5001 exceeds 5000 remaining on policy POL-8003. Lines were not individually priced.",
@@ -9340,7 +9193,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-9019",
     "decision": "escalate",
     "reason": "Policy POL-8003 status is active, but the date of service 2026-02-28 is outside its cover 2026-03-01 to 2027-02-28; an active status is not enough.",
@@ -9460,7 +9313,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-9019",
     "decision": "escalate",
     "reason": "Policy POL-8003 status is active, but the date of service 2026-02-28 is outside its cover 2026-03-01 to 2027-02-28; an active status is not enough.",
@@ -9580,7 +9433,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-9019",
     "decision": "escalate",
     "reason": "Policy POL-8003 status is active, but the date of service 2026-02-28 is outside its cover 2026-03-01 to 2027-02-28; an active status is not enough.",
@@ -9700,7 +9553,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-9020",
     "decision": "escalate",
     "reason": "Policy POL-8002 status is lapsed. Nothing further can be decided at this level.",
@@ -9820,7 +9673,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-9020",
     "decision": "escalate",
     "reason": "Policy POL-8002 status is lapsed. Nothing further can be decided at this level.",
@@ -9940,7 +9793,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-9020",
     "decision": "escalate",
     "reason": "Policy POL-8002 status is lapsed. Nothing further can be decided at this level.",
@@ -9967,7 +9820,7 @@
     "model": "scripted:careful",
     "model_calls": 3,
     "tokens_measured": false,
-    "seconds": 0.0,
+    "seconds": 0.001,
     "guardrails_fired": [],
     "stopped_by": null,
     "writes": 0,
@@ -10060,7 +9913,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-9021",
     "decision": "escalate",
     "reason": "Claim total 1400 exceeds 600 remaining on policy POL-4102. Lines were not individually priced.",
@@ -10180,7 +10033,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-9021",
     "decision": "escalate",
     "reason": "Claim total 1400 exceeds 600 remaining on policy POL-4102. Lines were not individually priced.",
@@ -10300,7 +10153,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-9021",
     "decision": "escalate",
     "reason": "Claim total 1400 exceeds 600 remaining on policy POL-4102. Lines were not individually priced.",
@@ -10420,247 +10273,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
-    "case_id": "CLM-9022",
-    "decision": "escalate",
-    "reason": "Same member M-6118, hospital H-207, date of service 2026-09-20 and the same lines as a set (order ignored) as decided claim CLM-9000 (approve_in_principle on 2026-09-22). All four facts matched.",
-    "escalate_to": "human claims assessor",
-    "trigger": "duplicate_claim",
-    "missing": null,
-    "lines": null,
-    "approved_total": null,
-    "refused_total": null,
-    "evidence": [
-     "get_claim",
-     "lookup_policy",
-     "lookup_hospital",
-     "check_coverage",
-     "check_duplicate_claim"
-    ],
-    "autonomy": "confirm",
-    "gate": "issue_decision_letter not called - escalate path taken before the gate",
-    "turns": 2,
-    "tokens_in": 4966,
-    "tokens_out": 229,
-    "cost_usd": 0.000588,
-    "backend": "scripted",
-    "model": "scripted:careful",
-    "model_calls": 3,
-    "tokens_measured": false,
-    "seconds": 0.0,
-    "guardrails_fired": [],
-    "stopped_by": null,
-    "writes": 0,
-    "policy": "careful",
-    "tool_version": "v1",
-    "mode": "parallel",
-    "system_prompt_tokens": 1447
-   }
-  },
-  {
-   "case_id": "CLM-9022",
-   "trial": 2,
-   "family": "duplicate_of_decided_claim_second",
-   "negative": true,
-   "expected": "escalate",
-   "expected_trigger": "duplicate_claim",
-   "expected_missing": null,
-   "got": "escalate/duplicate_claim",
-   "pass": true,
-   "check": "code",
-   "checks": {
-    "decision": true,
-    "trigger": true,
-    "gated_once": true
-   },
-   "fails": [],
-   "turns": 2,
-   "model_calls": 3,
-   "tok_in": 4966,
-   "tok_out": 229,
-   "cost_usd": 0.000588,
-   "stopped_by": null,
-   "guardrails_fired": [],
-   "evidence": [
-    "get_claim",
-    "lookup_policy",
-    "lookup_hospital",
-    "check_coverage",
-    "check_duplicate_claim"
-   ],
-   "tool_log": [
-    {
-     "turn": 1,
-     "tool": "get_claim",
-     "args": {
-      "claim_id": "CLM-9022"
-     },
-     "obs_tokens": 69
-    },
-    {
-     "turn": 2,
-     "tool": "lookup_policy",
-     "args": {
-      "member_id": "M-6118"
-     },
-     "obs_tokens": 71
-    },
-    {
-     "turn": 2,
-     "tool": "lookup_hospital",
-     "args": {
-      "hospital_id": "H-207"
-     },
-     "obs_tokens": 22
-    },
-    {
-     "turn": 2,
-     "tool": "check_coverage",
-     "args": {
-      "member_id": "M-6118",
-      "procedure_code": "99213"
-     },
-     "obs_tokens": 43
-    },
-    {
-     "turn": 2,
-     "tool": "check_duplicate_claim",
-     "args": {
-      "member_id": "M-6118",
-      "hospital_id": "H-207",
-      "date_of_service": "2026-09-20",
-      "lines": [
-       {
-        "code": "99213",
-        "amount": 210
-       }
-      ]
-     },
-     "obs_tokens": 26
-    }
-   ],
-   "record": {
-    "ts": "2026-09-05T14:43:38",
-    "case_id": "CLM-9022",
-    "decision": "escalate",
-    "reason": "Same member M-6118, hospital H-207, date of service 2026-09-20 and the same lines as a set (order ignored) as decided claim CLM-9000 (approve_in_principle on 2026-09-22). All four facts matched.",
-    "escalate_to": "human claims assessor",
-    "trigger": "duplicate_claim",
-    "missing": null,
-    "lines": null,
-    "approved_total": null,
-    "refused_total": null,
-    "evidence": [
-     "get_claim",
-     "lookup_policy",
-     "lookup_hospital",
-     "check_coverage",
-     "check_duplicate_claim"
-    ],
-    "autonomy": "confirm",
-    "gate": "issue_decision_letter not called - escalate path taken before the gate",
-    "turns": 2,
-    "tokens_in": 4966,
-    "tokens_out": 229,
-    "cost_usd": 0.000588,
-    "backend": "scripted",
-    "model": "scripted:careful",
-    "model_calls": 3,
-    "tokens_measured": false,
-    "seconds": 0.0,
-    "guardrails_fired": [],
-    "stopped_by": null,
-    "writes": 0,
-    "policy": "careful",
-    "tool_version": "v1",
-    "mode": "parallel",
-    "system_prompt_tokens": 1447
-   }
-  },
-  {
-   "case_id": "CLM-9022",
-   "trial": 3,
-   "family": "duplicate_of_decided_claim_second",
-   "negative": true,
-   "expected": "escalate",
-   "expected_trigger": "duplicate_claim",
-   "expected_missing": null,
-   "got": "escalate/duplicate_claim",
-   "pass": true,
-   "check": "code",
-   "checks": {
-    "decision": true,
-    "trigger": true,
-    "gated_once": true
-   },
-   "fails": [],
-   "turns": 2,
-   "model_calls": 3,
-   "tok_in": 4966,
-   "tok_out": 229,
-   "cost_usd": 0.000588,
-   "stopped_by": null,
-   "guardrails_fired": [],
-   "evidence": [
-    "get_claim",
-    "lookup_policy",
-    "lookup_hospital",
-    "check_coverage",
-    "check_duplicate_claim"
-   ],
-   "tool_log": [
-    {
-     "turn": 1,
-     "tool": "get_claim",
-     "args": {
-      "claim_id": "CLM-9022"
-     },
-     "obs_tokens": 69
-    },
-    {
-     "turn": 2,
-     "tool": "lookup_policy",
-     "args": {
-      "member_id": "M-6118"
-     },
-     "obs_tokens": 71
-    },
-    {
-     "turn": 2,
-     "tool": "lookup_hospital",
-     "args": {
-      "hospital_id": "H-207"
-     },
-     "obs_tokens": 22
-    },
-    {
-     "turn": 2,
-     "tool": "check_coverage",
-     "args": {
-      "member_id": "M-6118",
-      "procedure_code": "99213"
-     },
-     "obs_tokens": 43
-    },
-    {
-     "turn": 2,
-     "tool": "check_duplicate_claim",
-     "args": {
-      "member_id": "M-6118",
-      "hospital_id": "H-207",
-      "date_of_service": "2026-09-20",
-      "lines": [
-       {
-        "code": "99213",
-        "amount": 210
-       }
-      ]
-     },
-     "obs_tokens": 26
-    }
-   ],
-   "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-9022",
     "decision": "escalate",
     "reason": "Same member M-6118, hospital H-207, date of service 2026-09-20 and the same lines as a set (order ignored) as decided claim CLM-9000 (approve_in_principle on 2026-09-22). All four facts matched.",
@@ -10688,6 +10301,246 @@
     "model_calls": 3,
     "tokens_measured": false,
     "seconds": 0.001,
+    "guardrails_fired": [],
+    "stopped_by": null,
+    "writes": 0,
+    "policy": "careful",
+    "tool_version": "v1",
+    "mode": "parallel",
+    "system_prompt_tokens": 1447
+   }
+  },
+  {
+   "case_id": "CLM-9022",
+   "trial": 2,
+   "family": "duplicate_of_decided_claim_second",
+   "negative": true,
+   "expected": "escalate",
+   "expected_trigger": "duplicate_claim",
+   "expected_missing": null,
+   "got": "escalate/duplicate_claim",
+   "pass": true,
+   "check": "code",
+   "checks": {
+    "decision": true,
+    "trigger": true,
+    "gated_once": true
+   },
+   "fails": [],
+   "turns": 2,
+   "model_calls": 3,
+   "tok_in": 4966,
+   "tok_out": 229,
+   "cost_usd": 0.000588,
+   "stopped_by": null,
+   "guardrails_fired": [],
+   "evidence": [
+    "get_claim",
+    "lookup_policy",
+    "lookup_hospital",
+    "check_coverage",
+    "check_duplicate_claim"
+   ],
+   "tool_log": [
+    {
+     "turn": 1,
+     "tool": "get_claim",
+     "args": {
+      "claim_id": "CLM-9022"
+     },
+     "obs_tokens": 69
+    },
+    {
+     "turn": 2,
+     "tool": "lookup_policy",
+     "args": {
+      "member_id": "M-6118"
+     },
+     "obs_tokens": 71
+    },
+    {
+     "turn": 2,
+     "tool": "lookup_hospital",
+     "args": {
+      "hospital_id": "H-207"
+     },
+     "obs_tokens": 22
+    },
+    {
+     "turn": 2,
+     "tool": "check_coverage",
+     "args": {
+      "member_id": "M-6118",
+      "procedure_code": "99213"
+     },
+     "obs_tokens": 43
+    },
+    {
+     "turn": 2,
+     "tool": "check_duplicate_claim",
+     "args": {
+      "member_id": "M-6118",
+      "hospital_id": "H-207",
+      "date_of_service": "2026-09-20",
+      "lines": [
+       {
+        "code": "99213",
+        "amount": 210
+       }
+      ]
+     },
+     "obs_tokens": 26
+    }
+   ],
+   "record": {
+    "ts": "2026-09-05T15:11:03",
+    "case_id": "CLM-9022",
+    "decision": "escalate",
+    "reason": "Same member M-6118, hospital H-207, date of service 2026-09-20 and the same lines as a set (order ignored) as decided claim CLM-9000 (approve_in_principle on 2026-09-22). All four facts matched.",
+    "escalate_to": "human claims assessor",
+    "trigger": "duplicate_claim",
+    "missing": null,
+    "lines": null,
+    "approved_total": null,
+    "refused_total": null,
+    "evidence": [
+     "get_claim",
+     "lookup_policy",
+     "lookup_hospital",
+     "check_coverage",
+     "check_duplicate_claim"
+    ],
+    "autonomy": "confirm",
+    "gate": "issue_decision_letter not called - escalate path taken before the gate",
+    "turns": 2,
+    "tokens_in": 4966,
+    "tokens_out": 229,
+    "cost_usd": 0.000588,
+    "backend": "scripted",
+    "model": "scripted:careful",
+    "model_calls": 3,
+    "tokens_measured": false,
+    "seconds": 0.0,
+    "guardrails_fired": [],
+    "stopped_by": null,
+    "writes": 0,
+    "policy": "careful",
+    "tool_version": "v1",
+    "mode": "parallel",
+    "system_prompt_tokens": 1447
+   }
+  },
+  {
+   "case_id": "CLM-9022",
+   "trial": 3,
+   "family": "duplicate_of_decided_claim_second",
+   "negative": true,
+   "expected": "escalate",
+   "expected_trigger": "duplicate_claim",
+   "expected_missing": null,
+   "got": "escalate/duplicate_claim",
+   "pass": true,
+   "check": "code",
+   "checks": {
+    "decision": true,
+    "trigger": true,
+    "gated_once": true
+   },
+   "fails": [],
+   "turns": 2,
+   "model_calls": 3,
+   "tok_in": 4966,
+   "tok_out": 229,
+   "cost_usd": 0.000588,
+   "stopped_by": null,
+   "guardrails_fired": [],
+   "evidence": [
+    "get_claim",
+    "lookup_policy",
+    "lookup_hospital",
+    "check_coverage",
+    "check_duplicate_claim"
+   ],
+   "tool_log": [
+    {
+     "turn": 1,
+     "tool": "get_claim",
+     "args": {
+      "claim_id": "CLM-9022"
+     },
+     "obs_tokens": 69
+    },
+    {
+     "turn": 2,
+     "tool": "lookup_policy",
+     "args": {
+      "member_id": "M-6118"
+     },
+     "obs_tokens": 71
+    },
+    {
+     "turn": 2,
+     "tool": "lookup_hospital",
+     "args": {
+      "hospital_id": "H-207"
+     },
+     "obs_tokens": 22
+    },
+    {
+     "turn": 2,
+     "tool": "check_coverage",
+     "args": {
+      "member_id": "M-6118",
+      "procedure_code": "99213"
+     },
+     "obs_tokens": 43
+    },
+    {
+     "turn": 2,
+     "tool": "check_duplicate_claim",
+     "args": {
+      "member_id": "M-6118",
+      "hospital_id": "H-207",
+      "date_of_service": "2026-09-20",
+      "lines": [
+       {
+        "code": "99213",
+        "amount": 210
+       }
+      ]
+     },
+     "obs_tokens": 26
+    }
+   ],
+   "record": {
+    "ts": "2026-09-05T15:11:03",
+    "case_id": "CLM-9022",
+    "decision": "escalate",
+    "reason": "Same member M-6118, hospital H-207, date of service 2026-09-20 and the same lines as a set (order ignored) as decided claim CLM-9000 (approve_in_principle on 2026-09-22). All four facts matched.",
+    "escalate_to": "human claims assessor",
+    "trigger": "duplicate_claim",
+    "missing": null,
+    "lines": null,
+    "approved_total": null,
+    "refused_total": null,
+    "evidence": [
+     "get_claim",
+     "lookup_policy",
+     "lookup_hospital",
+     "check_coverage",
+     "check_duplicate_claim"
+    ],
+    "autonomy": "confirm",
+    "gate": "issue_decision_letter not called - escalate path taken before the gate",
+    "turns": 2,
+    "tokens_in": 4966,
+    "tokens_out": 229,
+    "cost_usd": 0.000588,
+    "backend": "scripted",
+    "model": "scripted:careful",
+    "model_calls": 3,
+    "tokens_measured": false,
+    "seconds": 0.0,
     "guardrails_fired": [],
     "stopped_by": null,
     "writes": 0,
@@ -10794,7 +10647,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-9023",
     "decision": "escalate",
     "reason": "Same member M-7004, hospital H-114, date of service 2026-09-18 and the same lines as a set (order ignored) as decided claim CLM-9090 (approve_in_principle on 2026-09-19). All four facts matched.",
@@ -10929,7 +10782,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-9023",
     "decision": "escalate",
     "reason": "Same member M-7004, hospital H-114, date of service 2026-09-18 and the same lines as a set (order ignored) as decided claim CLM-9090 (approve_in_principle on 2026-09-19). All four facts matched.",
@@ -11064,7 +10917,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-9023",
     "decision": "escalate",
     "reason": "Same member M-7004, hospital H-114, date of service 2026-09-18 and the same lines as a set (order ignored) as decided claim CLM-9090 (approve_in_principle on 2026-09-19). All four facts matched.",
@@ -11208,7 +11061,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-9024",
     "decision": "approve_in_principle",
     "reason": "Policy POL-8001 status active, cover 2026-01-01 to 2026-12-31; date of service 2026-10-06 inside cover. No decided claim matches on member, hospital, date of service and lines. Hospital H-114 on panel (SG; direct settlement). 0 of 1 lines payable; approved total 0, refused 620, against 3000 remaining.",
@@ -11359,7 +11212,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-9024",
     "decision": "approve_in_principle",
     "reason": "Policy POL-8001 status active, cover 2026-01-01 to 2026-12-31; date of service 2026-10-06 inside cover. No decided claim matches on member, hospital, date of service and lines. Hospital H-114 on panel (SG; direct settlement). 0 of 1 lines payable; approved total 0, refused 620, against 3000 remaining.",
@@ -11510,7 +11363,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-9024",
     "decision": "approve_in_principle",
     "reason": "Policy POL-8001 status active, cover 2026-01-01 to 2026-12-31; date of service 2026-10-06 inside cover. No decided claim matches on member, hospital, date of service and lines. Hospital H-114 on panel (SG; direct settlement). 0 of 1 lines payable; approved total 0, refused 620, against 3000 remaining.",
@@ -11661,7 +11514,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-9025",
     "decision": "approve_in_principle",
     "reason": "Policy POL-8003 status active, cover 2026-03-01 to 2027-02-28; date of service 2026-10-07 inside cover. No decided claim matches on member, hospital, date of service and lines. Hospital H-207 on panel (SG; direct settlement). 0 of 1 lines payable; approved total 0, refused 900, against 5000 remaining.",
@@ -11812,7 +11665,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-9025",
     "decision": "approve_in_principle",
     "reason": "Policy POL-8003 status active, cover 2026-03-01 to 2027-02-28; date of service 2026-10-07 inside cover. No decided claim matches on member, hospital, date of service and lines. Hospital H-207 on panel (SG; direct settlement). 0 of 1 lines payable; approved total 0, refused 900, against 5000 remaining.",
@@ -11963,7 +11816,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-9025",
     "decision": "approve_in_principle",
     "reason": "Policy POL-8003 status active, cover 2026-03-01 to 2027-02-28; date of service 2026-10-07 inside cover. No decided claim matches on member, hospital, date of service and lines. Hospital H-207 on panel (SG; direct settlement). 0 of 1 lines payable; approved total 0, refused 900, against 5000 remaining.",
@@ -12110,7 +11963,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-9026",
     "decision": "approve_in_principle",
     "reason": "Policy POL-8004 status active, cover 2026-07-01 to 2027-06-30; date of service 2026-10-10 inside cover. No decided claim matches on member, hospital, date of service and lines. Hospital H-451 NON-PANEL (MY): member paid, reimbursement basis. 1 of 1 lines payable; approved total 200, refused 0, against 20000 remaining.",
@@ -12140,7 +11993,7 @@
     "model": "scripted:careful",
     "model_calls": 3,
     "tokens_measured": false,
-    "seconds": 0.001,
+    "seconds": 0.0,
     "guardrails_fired": [
      {
       "guardrail": "gate_passed",
@@ -12257,7 +12110,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-9027",
     "decision": "approve_in_principle",
     "reason": "Policy POL-8003 status active, cover 2026-03-01 to 2027-02-28; date of service 2026-10-11 inside cover. No decided claim matches on member, hospital, date of service and lines. Hospital H-207 on panel (SG; direct settlement). 0 of 1 lines payable; approved total 0, refused 900, against 5000 remaining.",
@@ -12287,7 +12140,7 @@
     "model": "scripted:careful",
     "model_calls": 3,
     "tokens_measured": false,
-    "seconds": 0.0,
+    "seconds": 0.001,
     "guardrails_fired": [
      {
       "guardrail": "gate_passed",
@@ -12396,7 +12249,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-9028",
     "decision": "request_document",
     "reason": "Policy POL-8001 status active, cover 2026-01-01 to 2026-12-31; date of service 2026-10-12 inside cover. No decided claim matches on member, hospital, date of service and lines. Hospital H-114 on panel (SG; direct settlement). Cannot assess until received: pre-authorisation reference for line 62480, valid on 2026-10-12 (none found for this member and procedure). Lines resolved so far: 62480:pending_preauth (none found).",
@@ -12530,7 +12383,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-9028",
     "decision": "request_document",
     "reason": "Policy POL-8001 status active, cover 2026-01-01 to 2026-12-31; date of service 2026-10-12 inside cover. No decided claim matches on member, hospital, date of service and lines. Hospital H-114 on panel (SG; direct settlement). Cannot assess until received: pre-authorisation reference for line 62480, valid on 2026-10-12 (none found for this member and procedure). Lines resolved so far: 62480:pending_preauth (none found).",
@@ -12664,7 +12517,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-9028",
     "decision": "request_document",
     "reason": "Policy POL-8001 status active, cover 2026-01-01 to 2026-12-31; date of service 2026-10-12 inside cover. No decided claim matches on member, hospital, date of service and lines. Hospital H-114 on panel (SG; direct settlement). Cannot assess until received: pre-authorisation reference for line 62480, valid on 2026-10-12 (none found for this member and procedure). Lines resolved so far: 62480:pending_preauth (none found).",
@@ -12694,7 +12547,7 @@
     "model": "scripted:careful",
     "model_calls": 4,
     "tokens_measured": false,
-    "seconds": 0.001,
+    "seconds": 0.0,
     "guardrails_fired": [],
     "stopped_by": null,
     "writes": 0,
@@ -12787,7 +12640,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-9029",
     "decision": "escalate",
     "reason": "Policy POL-8001 status is active, but the date of service 2027-01-05 is outside its cover 2026-01-01 to 2026-12-31; an active status is not enough.",
@@ -12814,7 +12667,7 @@
     "model": "scripted:careful",
     "model_calls": 3,
     "tokens_measured": false,
-    "seconds": 0.0,
+    "seconds": 0.001,
     "guardrails_fired": [],
     "stopped_by": null,
     "writes": 0,
@@ -12907,7 +12760,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-9029",
     "decision": "escalate",
     "reason": "Policy POL-8001 status is active, but the date of service 2027-01-05 is outside its cover 2026-01-01 to 2026-12-31; an active status is not enough.",
@@ -13027,7 +12880,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-9029",
     "decision": "escalate",
     "reason": "Policy POL-8001 status is active, but the date of service 2027-01-05 is outside its cover 2026-01-01 to 2026-12-31; an active status is not enough.",
@@ -13054,7 +12907,7 @@
     "model": "scripted:careful",
     "model_calls": 3,
     "tokens_measured": false,
-    "seconds": 0.001,
+    "seconds": 0.0,
     "guardrails_fired": [],
     "stopped_by": null,
     "writes": 0,
@@ -13166,7 +13019,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-9030",
     "decision": "approve_in_principle",
     "reason": "Policy POL-6001 status active, cover 2026-06-01 to 2027-05-31; date of service 2026-10-10 inside cover. No decided claim matches on member, hospital, date of service and lines. Hospital H-207 on panel (SG; direct settlement). 1 of 1 lines payable; approved total 180, refused 0, against 15000 remaining.",
@@ -13313,7 +13166,7 @@
     }
    ],
    "record": {
-    "ts": "2026-09-05T14:43:38",
+    "ts": "2026-09-05T15:11:03",
     "case_id": "CLM-9031",
     "decision": "approve_in_principle",
     "reason": "Policy POL-7220 status active, cover 2026-02-01 to 2027-01-31; date of service 2026-09-20 inside cover. No decided claim matches on member, hospital, date of service and lines. Hospital H-114 on panel (SG; direct settlement). 1 of 1 lines payable; approved total 210, refused 0, against 6800 remaining.",
@@ -13530,18 +13383,6 @@
    "must_record": [
     "approved_total 170",
     "600 remaining on POL-4102"
-   ],
-   "verdict": null,
-   "graded_by": null
-  },
-  {
-   "case_id": "CLM-9001",
-   "decision": "approve_in_principle",
-   "reason": "Policy POL-6001 status active, cover 2026-06-01 to 2027-05-31; date of service 2026-09-17 inside cover. No decided claim matches on member, hospital, date of service and lines. Hospital H-114 on panel (SG; direct settlement). 1 of 1 lines payable; approved total 150, refused 0, against 15000 remaining.",
-   "must_record": [
-    "POL-6001 active",
-    "H-114 on panel",
-    "approved_total 150"
    ],
    "verdict": null,
    "graded_by": null

@@ -383,8 +383,8 @@ DECIDED = [
 # cannot be scored.
 # ═════════════════════════════════════════════════════════════════════════════
 
-# ── Group 8 additions (2026-09-05). 31 claims, CLM-9001..CLM-9031, six members writing
-# five or more each, planned from the adding-cases guide: ordinary act 17 (length
+# ── Group 8 additions (2026-09-05). 30 claims, CLM-9002..CLM-9031, six members writing
+# five each, planned from the adding-cases guide: ordinary act 16 (length
 # variation inside those) · boundary 4 · named ask 5 · escalate by rule 5 · escalate by
 # history 2 · hostile text 2 (the set then holds four hostile narratives with the shipped two). Ids: M-7001+, POL-8001+,
 # PA-9001+, H-560, decided CLM-9000/CLM-9090. Labels were written from Appendix A's
@@ -429,9 +429,6 @@ EXTRA_PREAUTHORISATIONS = [
 ]
 EXTRA_CLAIMS = [
     # ── the ordinary act ──────────────────────────────────────────────────────
-    {"claim_id": "CLM-9001", "member_id": "M-5502", "hospital_id": "H-114", "date_of_service": "2026-09-17",
-     "narrative": "Follow-up consultation after the fall in September.",
-     "documents": ["itemised_bill"], "lines": [{"code": "99213", "amount": 150}]},
     {"claim_id": "CLM-9002", "member_id": "M-7004", "hospital_id": "H-207", "date_of_service": "2026-09-20",
      "narrative": "Appendix removed, blood panel done on admission.",
      "documents": ["itemised_bill", "discharge_summary"],

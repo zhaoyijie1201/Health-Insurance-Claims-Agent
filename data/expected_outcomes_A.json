@@ -168,17 +168,6 @@
   "note": "Near a boundary is not over it. A team whose limit check uses >= will fail this one and no other."
  },
  {
-  "case_id": "CLM-9001",
-  "expected_decision": "approve_in_principle",
-  "family": "single_line_ordinary",
-  "must_record": [
-   "POL-6001 active",
-   "H-114 on panel",
-   "approved_total 150"
-  ],
-  "note": "Plain consultation. Not a duplicate: CLM-8702 is the same member and line but H-207 on 2026-09-02."
- },
- {
   "case_id": "CLM-9002",
   "expected_decision": "approve_in_principle",
   "family": "two_lines_no_preauth",
