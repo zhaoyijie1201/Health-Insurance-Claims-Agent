@@ -42,6 +42,7 @@ data/
 docs/GOOD_RUN.md        D0(c): what a good run looks like, five testable statements
 docs/EVALUATION_SET.md  D4: the 45 cases by family, what each is for, which check grades it
 docs/JUDGE_PROMPT.md    the exact prompt judge.py sends; the judge is a described instrument
+docs/CASES.md           every case in full: the claim, the facts the tools find, the label and why it is there
 results/                result tables, failed-run transcripts, D3(b)/D7 write-ups (committed); decisions.jsonl (ignored)
 ```
 

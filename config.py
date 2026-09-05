@@ -86,9 +86,15 @@ def data_root():
 # Section 7 tiers. Per-model list prices go in MODEL_PRICES; re-check them on
 # openrouter.ai/models before quoting a number in the report.
 PRICES = {"cheap": (0.10, 0.40), "mid": (1.00, 5.00), "frontier": (5.00, 25.00)}
+# The D5(b) battery: six models, six families, three tiers. List prices read from the
+# OpenRouter models endpoint on 2026-09-05, US$ per million tokens (prompt, completion).
 MODEL_PRICES = {
-    "openai/gpt-4o-mini": (0.15, 0.60),
-    # "google/gemini-2.5-flash": (..., ...),   fill in from the vendor page, with the date
+    "openai/gpt-4o-mini": (0.15, 0.60),                    # cheap    · also carries the v1 pass (D2b)
+    "google/gemini-2.5-flash-lite": (0.10, 0.40),          # cheap    · no thinking by default
+    "meta-llama/llama-3.3-70b-instruct": (0.10, 0.32),     # cheap    · open weights
+    "deepseek/deepseek-chat-v3-0324": (0.25, 1.00),        # cheap/mid
+    "mistralai/mistral-medium-3-5": (1.50, 7.50),          # mid
+    "anthropic/claude-sonnet-4.5": (3.00, 15.00),          # frontier · negative cases only (section 7)
 }
 PRICE_TIER = os.environ.get("A2_PRICE_TIER", "cheap")
 
