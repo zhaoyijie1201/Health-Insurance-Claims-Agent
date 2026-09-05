@@ -1,0 +1,14 @@
+case CLM-9004 trial 1 · decision None · stopped_by duplicate_action
+
+[assistant]
+{"thought": "Read the claim first; everything else depends on what it returns.", "calls": [["get_claim", {"claim_id": "CLM-9004"}]]}
+
+[user]
+[{"tool": "get_claim", "args": {"claim_id": "CLM-9004"}, "observation": {"claim_id": "CLM-9004", "member_id": "M-7001", "hospital_id": "H-114", "date_of_service": "2026-09-23", "documents": ["itemised_bill"], "lines": [{"code": "70553", "amount": 620}, {"code": "99213", "amount": 150}], "claim_total": 770, "duplicate_of": null, "narrative_flags": [], "narrative": "<untrusted member text>Headaches for a month, the doctor sent me for a brain scan the same day.</untrusted>"}}]
+
+[assistant]
+{"thought": "Check the policy before pricing anything.", "calls": [["lookup_policy", {"member_id": "M-7001"}]]}
+
+[user]
+[{"tool": "lookup_policy", "args": {"member_id": "M-7001"}, "observation": {"member_id": "M-7001", "policy_id": "POL-8001", "product": "Shield Plus", "status": "active", "start_date": "2026-01-01", "end_date": "2026-12-31", "annual_limit": 10000, "used_to_date": 7000, "remaining": 3000, "exclusions": [{"code": "70553", "rule": "EX-22 advanced imaging without specialist referral"}]}}]
+

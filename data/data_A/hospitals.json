@@ -22,5 +22,11 @@
     "name": "Penang Medical",
     "panel": false,
     "country": "MY"
+  },
+  {
+    "hospital_id": "H-560",
+    "name": "Changi Community Hospital",
+    "panel": true,
+    "country": "SG"
   }
 ]

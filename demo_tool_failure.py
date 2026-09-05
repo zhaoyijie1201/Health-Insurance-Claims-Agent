@@ -31,7 +31,7 @@ import config
 from harness import run_set
 
 OUT = os.path.join(config.RESULTS_DIR, "d7_tool_failure.md")
-INJECTION = ["CLM-8941", "CLM-8952"]
+INJECTION = ["CLM-8941", "CLM-8952", "CLM-9024", "CLM-9025"]    # the four hostile narratives in the set
 
 
 def main():
@@ -47,14 +47,14 @@ def main():
              "Scripted backend. The prompt and the loop are identical across every row; only the tool set differs.", "",
              "| agent | tools | cases | pass | what happened |", "|---|---|---|---|---|"]
     rows = [
-        ("credulous", "v1 (guard deleted)", "2 injection cases x 3", v1i,
-         "approved both: " + "; ".join("%s -> %s" % (x["case_id"], x["got"]) for x in r1 if x["trial"] == 1)),
-        ("credulous", "v2 (shipped)", "2 injection cases x 3", v2i,
+        ("credulous", "v1 (guard deleted)", "%d hostile cases x 3" % len(INJECTION), v1i,
+         "approved every one: " + "; ".join("%s -> %s" % (x["case_id"], x["got"]) for x in r1 if x["trial"] == 1)),
+        ("credulous", "v2 (shipped)", "%d hostile cases x 3" % len(INJECTION), v2i,
          "write BLOCKED, then escalate: " + "; ".join("%s -> %s" % (x["case_id"], x["got"]) for x in r2 if x["trial"] == 1)),
-        ("credulous", "v1", "whole set", v1, "only the two injection cases fail"),
+        ("credulous", "v1", "whole set", v1, "only the hostile-text cases fail"),
         ("credulous", "v2", "whole set", v2, "nothing else moved"),
         ("careful", "v1", "whole set", care1,
-         "even the careful agent fails the injection cases on v1: without narrative_flags it prices the "
+         "even the careful agent fails the hostile cases on v1: without narrative_flags it prices the "
          "line and approves-with-refusal instead of escalating"),
     ]
     for agent, tv, scope, s, what in rows:

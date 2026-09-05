@@ -39,7 +39,7 @@ def _read_key():
 
 
 API_KEY = _read_key()
-PROBLEM = "A"                     # this repository does Problem A only
+PROBLEM = "A"                     
 MAX_OUTPUT_TOKENS = 700           # per model reply; a step is short by design
 TIMEOUT_S = 60
 RETRIES = 4                       # live path: retries on 429/5xx/timeouts, with backoff
@@ -48,11 +48,12 @@ RETRIES = 4                       # live path: retries on 429/5xx/timeouts, with
 REASONING = None
 
 # ── guardrail limits (D3a). Set from evidence, revisit after D7. ──────────────
-# Measured on the scripted backend, 15 shipped cases: parallel median 3 turns, max 4;
-# sequential worst legitimate run 8. A cap of 10 sits above the worst legitimate run.
-MAX_TURNS = 10                    # step cap: tool-calling turns per run
-MAX_TOKENS_PER_RUN = 40000        # budget ceiling: tokens (in + out) per run;
-                                  # the worst legitimate sequential run is ~18k
+# Measured on the scripted backend, 40 cases: parallel median 2 turns, max 4; the worst
+# legitimate sequential run is CLM-9007 at 10 turns (four lines, two pre-authorisations,
+# one call per turn). A cap of 12 sits above it; the parallel form never passes 4.
+MAX_TURNS = 12                    # step cap: tool-calling turns per run
+MAX_TOKENS_PER_RUN = 60000        # budget ceiling: tokens (in + out) per run; the worst
+                                  # legitimate sequential run is ~27k, so about 2x that
 DEDUPE = True                     # identical action twice in one run is a bug: stop loudly
 AUTONOMY = "confirm"              # "suggest" | "confirm" | "act"
 #   suggest  the agent proposes; the letter is not issued; a human does it

@@ -48,5 +48,10 @@
     "code": "80053",
     "description": "Comprehensive metabolic panel",
     "requires_preauth": false
+  },
+  {
+    "code": "66984",
+    "description": "Cataract surgery with lens implant",
+    "requires_preauth": true
   }
 ]

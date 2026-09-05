@@ -19,5 +19,26 @@
     "procedure_code": "27447",
     "valid_from": "2026-07-01",
     "valid_to": "2026-12-31"
+  },
+  {
+    "preauth_id": "PA-9001",
+    "member_id": "M-7004",
+    "procedure_code": "62480",
+    "valid_from": "2026-08-15",
+    "valid_to": "2026-11-15"
+  },
+  {
+    "preauth_id": "PA-9002",
+    "member_id": "M-7004",
+    "procedure_code": "27447",
+    "valid_from": "2026-06-01",
+    "valid_to": "2026-09-19"
+  },
+  {
+    "preauth_id": "PA-9004",
+    "member_id": "M-7004",
+    "procedure_code": "66984",
+    "valid_from": "2026-09-01",
+    "valid_to": "2026-12-31"
   }
 ]

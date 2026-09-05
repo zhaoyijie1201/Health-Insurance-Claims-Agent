@@ -236,7 +236,7 @@ def decide(cid, obs, policy="careful", version="v2", mode="parallel"):
              else "Hospital %s NON-PANEL: member paid, reimbursement basis" % hospital)
     if asks:
         return final("Something specific is missing; name it and stop.",
-                     {"claim_id": cid, "decision": "request_document", "missing": asks[0], "lines": disp,
+                     {"claim_id": cid, "decision": "request_document", "missing": "; ".join(asks), "lines": disp,
                       "reason": "Policy %s active to %s. %s. Cannot assess until received: %s. Lines "
                                 "resolved so far: %s." % (pol["policy_id"], pol["end_date"], basis,
                                                           "; ".join(asks), "; ".join(disp))})

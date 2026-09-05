@@ -36,8 +36,9 @@ data/
     make_fixtures_A.py      the generator: edit ONLY the EXTRA_* lists at the bottom, then re-run
     check_my_data.py        run after every data change
     data_A/                 the eight generated tables
-    expected_outcomes_A.json  the answer key: 15 shipped labels + one row per case we add (by hand)
+    expected_outcomes_A.json  the answer key: 15 shipped labels + 25 of ours, written by hand from Appendix A
 docs/GOOD_RUN.md        D0(c): what a good run looks like, five testable statements
+docs/EVALUATION_SET.md  D4: the 40 cases by family, what each is for, which check grades it
 results/                result tables, failed-run transcripts, D3(b)/D7 write-ups (committed); decisions.jsonl (ignored)
 ```
 
@@ -57,7 +58,7 @@ An escalation (flagged narrative, duplicate, lapsed, dates, limit) fires as soon
 arrives and nothing further is queried. Turns count tool-calling turns, as Appendix A does:
 CLM-8842 is 4 turns for 8 calls; CLM-8925 escalates in 2.
 
-Guardrails are code (`guardrails.py`): step cap 10, budget 40,000 tokens, action de-duplication,
+Guardrails are code (`guardrails.py`): step cap 12, budget 60,000 tokens, action de-duplication,
 autonomy `confirm` with the gate in front of the one write. Poka-yoke in the tool layer: `decision`
 is a closed set of three, an escalation needs one trigger, a request needs the named item, a claim
 whose narrative was flagged by the code-side scan can only be escalated, and an approve cannot be
@@ -96,12 +97,12 @@ otherwise the tier price (`--tier cheap|mid|frontier`) is used.
 
 - [x] Rebuilt on the scaffold's module structure; standard library only, scripted default
 - [x] Six tools (v2) + seven-tool v1 baseline, six-field descriptors for both, prompt audit
-- [x] Multi-call turns, dependency rule, sequential vs parallel measured (33/33 both; 27% fewer input tokens)
+- [x] Multi-call turns, dependency rule, sequential vs parallel measured (82/82 both; 31% fewer input tokens)
 - [x] Guardrail layer in code; D3(b) checklist 11/11 with 3 hostile-text cases
 - [x] D7 failure 1 (loop, de-duplication deleted) and failure 2 (tool interface, v1) with before/after tables
 - [x] Live path verified once (gpt-4o-mini, CLM-8842: 4 turns, 8 calls, measured tokens)
+- [x] D4 evaluation set: 40 cases, 21 negative, 4 hostile narratives, labels from the routing table; one case (CLM-9013) changed the scan
 - [ ] D0 written (ladder, two tests, `s = P^(1/T)`); `docs/GOOD_RUN.md` is D0(c)
-- [ ] 25 more cases + labels, including a third hostile narrative and the boundary cases
 - [ ] Judgement check (`judge.py` with a named second model, or a human review sheet)
 - [ ] D2(b) v1 vs v2 measured on one cheap live model; D5(b) battery, one model per member
 - [ ] D6 cost model from measured numbers

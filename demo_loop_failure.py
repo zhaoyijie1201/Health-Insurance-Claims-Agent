@@ -12,7 +12,8 @@ PE6201 · A2 · Problem A — D7 FAILURE 1: the loop-control failure
                     with no memory of its own actions. Nothing crashes.
     the fix         action de-duplication, in the CODE layer (guardrails.py).
                     Delete it (`--no-dedupe`) and the same agent runs to the
-                    step cap on 24 of 33 trials at 2.3x the set's tokens (4.5x on the case).
+                    step cap on every trial that needs the policy row twice, at
+                    several times the tokens. The numbers are in the table it writes.
 
 Four things reported, as the brief asks: the instrumentation that found it, the
 turn distribution across the whole set, which guard caught it and why the other
@@ -45,7 +46,8 @@ def main():
     print("  minus memory AND de-duplication  ", one("CLM-8842", policy="repeats", dedupe=False))
 
     print("\nTHE WHOLE SET, the same three ways (33 trials each)")
-    base, _, _ = run_set(policy="sequential", quiet=True, label="d7_before_sequential")
+    base, base_runs, _ = run_set(policy="sequential", quiet=True, label="d7_before_sequential")
+    worst = max(base_runs, key=lambda x: x["turns"])
     caught, _, _ = run_set(policy="repeats", quiet=True, label="d7_repeats_dedupe_on")
     runaway, _, _ = run_set(policy="repeats", dedupe=False, quiet=True, label="d7_repeats_dedupe_off")
     par, _, _ = run_set(policy="careful", quiet=True, label="d7_after_parallel")
@@ -71,15 +73,16 @@ def main():
                                                config.MAX_TURNS, runaway["tok_in_total"] / base["tok_in_total"]),
               "",
               "## 2 · The turn distribution",
-              "Working agent: median %s, worst legitimate run %s (CLM-8960, four lines, sequential). Runaway: median %s, "
+              "Working agent: median %s, worst legitimate run %s (%s, %s, sequential). Runaway: median %s, "
               "max %s, %d trials at the cap. Caught: median %s, every looping trial stopped at turn 3."
-              % (base["turns_median"], base["turns_max"], runaway["turns_median"], runaway["turns_max"],
+              % (base["turns_median"], base["turns_max"], worst["case_id"], worst["family"],
+                 runaway["turns_median"], runaway["turns_max"],
                  runaway["halted"].get("step_cap", 0), caught["turns_median"]),
               "",
               "## 3 · The fix, in the code layer, and why the other two guards were the wrong place",
               "Action de-duplication caught it at turn 3, the first repeat, and named the cause "
               "(`duplicate_action: lookup_policy called again with identical arguments`). The step cap only fires at "
-              "turn %d, seven turns and about four times the tokens later, and says nothing about why. The budget "
+              "turn %d, many turns and several times the tokens later, and says nothing about why. The budget "
               "ceiling (%d tokens) never fired: the runaway peaked below it, so a ceiling set from the legitimate "
               "worst case bounds the damage but does not detect the fault. A prompt fix cannot be relied on: the model "
               "is the thing that forgot; only the code layer remembers." % (config.MAX_TURNS, config.MAX_TOKENS_PER_RUN),
