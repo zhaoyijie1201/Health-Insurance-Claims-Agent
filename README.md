@@ -48,6 +48,32 @@ results/                result tables, failed-run transcripts, D3(b)/D7 write-up
 
 ## How a run works
 
+One claim id goes in. The agent asks tools for facts, one turn at a time, and stops with one of
+three outcomes. The number of turns is decided by the claim, not by us.
+
+```mermaid
+flowchart TD
+    A([claim id]) --> T1["turn 1 · get_claim<br/>lines, member, hospital, duplicate_of, narrative_flags"]
+    T1 --> Q1{narrative flagged<br/>or duplicate?}
+    Q1 -->|yes| ESC["ESCALATE<br/>one trigger, no letter"]
+    Q1 -->|no| T2["turn 2 · lookup_policy ‖ lookup_hospital ‖ check_coverage per line<br/>independent, so one turn"]
+    T2 --> Q2{lapsed · outside dates<br/>· total > remaining?}
+    Q2 -->|yes| ESC
+    Q2 -->|no| Q3{any line needs<br/>pre-authorisation?}
+    Q3 -->|yes| T3["turn 3 · get_preauthorisation<br/>only for those lines"]
+    Q3 -->|no| Q4
+    T3 --> Q4{every line resolved:<br/>covered or excluded?}
+    Q4 -->|"missing pre-auth or document"| REQ["REQUEST_DOCUMENT<br/>names the item and the line"]
+    Q4 -->|yes| GATE{"autonomy gate<br/>(human confirms)"}
+    GATE -->|approved| W["issue_decision_letter<br/>validated, totals computed, ONE record appended"]
+    GATE -->|declined| HALT["stopped: gate_held"]
+    W --> ACT["APPROVE_IN_PRINCIPLE<br/>every line disposed, refused lines named"]
+```
+
+Around every turn sit the code guardrails: a step cap, a budget ceiling, action de-duplication,
+and the gate in front of the only write. Any of them stopping the run is loud: no decision, the
+guard named.
+
 ```
 turn 1   get_claim(claim_id)                                   alone: everything else needs its output
 turn 2   lookup_policy ‖ lookup_hospital ‖ check_coverage × N   one per line, all independent
