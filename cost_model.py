@@ -155,9 +155,18 @@ def main():
     lines += ["## 3 · Break-even success rate", ""]
     pairs = []
     if len(live) >= 2:
-        cheap = min(live, key=lambda r: r["layer1"])
-        exp = max(live, key=lambda r: r["layer1"])
-        pairs.append(break_even(cheap, exp))
+        # every cheaper model against the best-scoring model, and against the mid-tier one
+        best = max(live, key=lambda r: (r["pass_rate"], -r["layer1"]))
+        mids = [r for r in live if r is not best and 1.0 <= r["price_in"] < best["price_in"]]
+        targets = [best] + mids[:1]
+        for exp in targets:
+            for cheap in sorted(live, key=lambda r: r["layer1"]):
+                if cheap is exp or cheap["layer1"] >= exp["layer1"] or cheap["tools"] != "v2":
+                    continue
+                pairs.append(break_even(cheap, exp))
+        lines.append("Measured pairs from the live battery (v2 tools, %d trials each). E is the expensive model's "
+                     "tokens plus its own measured failures; C is the cheap model's tokens only." % best["trials"])
+        lines.append("")
     elif final:
         # until the battery lands: the shipped agent's token shape priced at the three tiers, with the
         # brief's illustrative mid-tier success of 92% as the expensive side
