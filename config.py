@@ -26,15 +26,19 @@ BASE_URL = os.environ.get("A2_BASE_URL", "https://openrouter.ai/api/v1")
 
 def _read_key():
     """Env var first; then the untracked key file in the repo root (gitignored).
-    The key is never printed and never committed."""
+    The file may hold several lines of the form "Name: sk-or-..." (one member, one
+    key); the FIRST key is used unless OPENROUTER_API_KEY is set. Never printed,
+    never committed."""
     k = os.environ.get("OPENROUTER_API_KEY", "").strip()
     if k:
         return k
     f = os.path.join(HERE, "OpenRouter_api.txt")
     if os.path.exists(f):
         with open(f, encoding="utf-8") as fh:
-            lines = [l.strip() for l in fh.read().splitlines() if l.strip()]
-        return lines[-1] if lines else ""
+            for line in fh.read().splitlines():
+                for tok in line.replace(",", " ").split():
+                    if tok.startswith("sk-"):
+                        return tok.strip()
     return ""
 
 

@@ -70,7 +70,11 @@ def run_case(case_id, policy="careful", version="v2", mode=None, approve=None, v
     be = make_backend(case_id, system_prompt, policy, version, mode, script, backend)
     model_label = config.MODEL if be.name == "live" else "scripted:%s" % policy
 
-    transcript, evidence, tool_log = [], [], []
+    # The task line: the ONE thing the model is told about this run. Everything else it
+    # must fetch. (Its absence sent every live model to the descriptor's example id.)
+    transcript = [{"role": "user", "content": "Task: decide claim %s and record the first response. "
+                                              "Start with get_claim(\"%s\")." % (case_id, case_id)}]
+    evidence, tool_log = [], []
     turns = model_calls = tokens_in = tokens_out = 0
     stopped_by, record = None, None
     ctx = {"evidence": evidence, "autonomy": autonomy, "write": write, "backend": be.name,
@@ -114,6 +118,14 @@ def run_case(case_id, policy="careful", version="v2", mode=None, approve=None, v
                 fin = dict(move.get("final") or {})
                 fin.setdefault("claim_id", case_id)
                 decision = fin.get("decision")
+                if fin["claim_id"] != case_id and decision is not None:
+                    obs = {"error": "this run decides %s, not %s" % (case_id, fin["claim_id"])}
+                    guards.fired.append({"guardrail": "final_refused", "detail": obs["error"]})
+                    transcript.append({"role": "assistant", "content": json.dumps(move, ensure_ascii=False)})
+                    transcript.append({"role": "user", "content": json.dumps([{"tool": None, "args": {}, "observation": obs}])})
+                    if verbose:
+                        print("       refused -> %s" % _short(obs))
+                    continue
                 if decision is None:
                     record = {"case_id": case_id, "decision": None, "reason": fin.get("reason", ""),
                               "gate": "no decision - nothing recorded"}
@@ -147,6 +159,8 @@ def run_case(case_id, policy="careful", version="v2", mode=None, approve=None, v
                 if name == tools.GATED_ACTION:
                     # validation BEFORE the gate: a human is never asked to approve an invalid record
                     problem = tools.validate_decision(args, ctx["narrative_guard"], ctx["compute_totals"])
+                    if not problem and args.get("claim_id") != case_id:
+                        problem = "this run decides %s, not %s" % (case_id, args.get("claim_id"))
                     if problem:
                         result = {"error": problem}
                     elif ctx["decided"]:

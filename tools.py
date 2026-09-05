@@ -244,7 +244,8 @@ def parse_lines(lines):
     status None so the validator can name them."""
     if lines is None:
         return []
-    items = lines if isinstance(lines, list) else [s for s in str(lines).split(";")]
+    items = lines if isinstance(lines, list) else [lines]
+    items = [s for item in items for s in str(item).split(";")]
     out = []
     for s in items:
         s = str(s).strip()
@@ -330,8 +331,9 @@ def build_record(args, ctx):
     escalate / request records concluded without the write."""
     decision = args.get("decision")
     lines = args.get("lines")
-    if isinstance(lines, str):
-        lines = [s.strip() for s in lines.split(";") if s.strip()]
+    if lines is not None:
+        items = lines if isinstance(lines, list) else [lines]
+        lines = [s.strip() for item in items for s in str(item).split(";") if s.strip()]
     approved, refused = _int_or_none(args.get("approved_total")), _int_or_none(args.get("refused_total"))
     totals_note = None
     if ctx.get("compute_totals") and decision == "approve_in_principle":
