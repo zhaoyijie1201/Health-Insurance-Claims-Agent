@@ -192,7 +192,7 @@ def summarise(runs, label, backend, policy, version, mode, autonomy, dedupe, max
         "halted": stops, "cap_hits": sum(stops.values()),
         "tok_in_total": sum(x["tok_in"] for x in runs), "tok_out_total": sum(x["tok_out"] for x in runs),
         "tok_in_per_run": round(sum(x["tok_in"] for x in runs) / total, 1) if total else None,
-        "tokens_measured": all(x["record"].get("tokens_measured") for x in runs) if runs else None,
+        "tokens_measured": all(x["record"].get("tokens_measured") for x in runs if x["tok_in"]) if runs else None,
         "cost_total_usd": round(sum(x["cost_usd"] for x in runs), 6),
         "cost_per_run_usd": round(sum(x["cost_usd"] for x in runs) / total, 6) if total else None,
         "price_in": config.PRICE_IN, "price_out": config.PRICE_OUT,

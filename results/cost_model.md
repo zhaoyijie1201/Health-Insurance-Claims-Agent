@@ -10,6 +10,7 @@ Volume 8000 claims/month. Failure cost US$7.60 per escalated claim (claims asses
 | live_mistralai/mistral-medium-3-5_v2_parallel | mistralai/mistral-medium-3-5 | v2 | parallel | 91 | 95.6% | 8,598 | 393 | 1.50 / 7.50 | 0.01585 | 0.3344 | **0.3502** | 3,002 |
 | live_deepseek/deepseek-chat-v3-0324_v2_parallel | deepseek/deepseek-chat-v3-0324 | v2 | parallel | 91 | 79.1% | 8,486 | 271 | 0.25 / 1.00 | 0.00239 | 1.5869 | **1.5893** | 12,914 |
 | live_google/gemini-2.5-flash-lite_v2_parallel | google/gemini-2.5-flash-lite | v2 | parallel | 91 | 76.9% | 9,213 | 603 | 0.10 / 0.40 | 0.00116 | 1.7541 | **1.7552** | 14,242 |
+| live_meta-llama/llama-3.3-70b-instruct_v2_parallel | meta-llama/llama-3.3-70b-instruct | v2 | parallel | 91 | 75.8% | 8,203 | 255 | 0.10 / 0.32 | 0.00090 | 1.8377 | **1.8386** | 14,909 |
 | live_openai/gpt-4o-mini_v2_parallel | openai/gpt-4o-mini | v2 | parallel | 91 | 62.6% | 8,576 | 274 | 0.15 / 0.60 | 0.00145 | 2.8394 | **2.8408** | 22,926 |
 | live_openai/gpt-4o-mini_v1_parallel | openai/gpt-4o-mini | v1 | parallel | 91 | 33.0% | 6,570 | 302 | 0.15 / 0.60 | 0.00117 | 5.0943 | **5.0954** | 40,964 |
 | scripted_careful_v2_parallel | scripted:careful | v2 | parallel | 91 | 100.0% | 8,158 (est.) | 245 | 0.10 / 0.40 | 0.00091 | 0.0000 | **0.0009** | 207 |
@@ -40,10 +41,12 @@ Measured pairs from the live battery (v2 tools, 91 trials each). E is the expens
 
 | cheap | expensive | E = expensive per successful task | C = cheap tokens only | failures the cheap model can afford | break-even success | cheap measured | clears? |
 |---|---|---|---|---|---|---|---|
+| live_meta-llama/llama-3.3-70b-instruct_v2_parallel | live_anthropic/claude-sonnet-4.5_v2_parallel | 0.1996 | 0.0009 | 2.6% | **97.4%** | 75.8% | no |
 | live_google/gemini-2.5-flash-lite_v2_parallel | live_anthropic/claude-sonnet-4.5_v2_parallel | 0.1996 | 0.0012 | 2.6% | **97.4%** | 76.9% | no |
 | live_openai/gpt-4o-mini_v2_parallel | live_anthropic/claude-sonnet-4.5_v2_parallel | 0.1996 | 0.0015 | 2.6% | **97.4%** | 62.6% | no |
 | live_deepseek/deepseek-chat-v3-0324_v2_parallel | live_anthropic/claude-sonnet-4.5_v2_parallel | 0.1996 | 0.0024 | 2.6% | **97.4%** | 79.1% | no |
 | live_mistralai/mistral-medium-3-5_v2_parallel | live_anthropic/claude-sonnet-4.5_v2_parallel | 0.1996 | 0.0158 | 2.4% | **97.6%** | 95.6% | no |
+| live_meta-llama/llama-3.3-70b-instruct_v2_parallel | live_mistralai/mistral-medium-3-5_v2_parallel | 0.3502 | 0.0009 | 4.6% | **95.4%** | 75.8% | no |
 | live_google/gemini-2.5-flash-lite_v2_parallel | live_mistralai/mistral-medium-3-5_v2_parallel | 0.3502 | 0.0012 | 4.6% | **95.4%** | 76.9% | no |
 | live_openai/gpt-4o-mini_v2_parallel | live_mistralai/mistral-medium-3-5_v2_parallel | 0.3502 | 0.0015 | 4.6% | **95.4%** | 62.6% | no |
 | live_deepseek/deepseek-chat-v3-0324_v2_parallel | live_mistralai/mistral-medium-3-5_v2_parallel | 0.3502 | 0.0024 | 4.6% | **95.4%** | 79.1% | no |

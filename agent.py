@@ -153,7 +153,21 @@ def run_case(case_id, policy="careful", version="v2", mode=None, approve=None, v
             guards.check_turns(turns + 1)          # the cap is on turns, not on this one
             turns += 1
             observations, concluded = [], False
-            for name, args in move["calls"]:
+            for entry in move["calls"]:
+                # a call is ["tool", {args}]; anything else is the model's mistake, reported back
+                # as an observation rather than crashing the run (llama-3.3 once sent a 3-item list)
+                if isinstance(entry, dict) and "tool" in entry:
+                    entry = [entry.get("tool"), entry.get("args") or {}]
+                if not (isinstance(entry, (list, tuple)) and len(entry) == 2 and isinstance(entry[0], str)
+                        and isinstance(entry[1], dict)):
+                    result = {"error": "each call must be [\"tool_name\", {\"arg\": \"value\"}]; got %s"
+                                       % json.dumps(entry, ensure_ascii=False, default=str)[:120]}
+                    guards.fired.append({"guardrail": "call_refused", "detail": result["error"][:80]})
+                    observations.append({"tool": None, "args": {}, "observation": result})
+                    if verbose:
+                        print("       refused -> %s" % _short(result))
+                    continue
+                name, args = entry
                 args = dict(args or {})
                 guards.check_duplicate(name, args)
                 if name == tools.GATED_ACTION:

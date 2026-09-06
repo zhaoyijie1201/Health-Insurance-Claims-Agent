@@ -63,6 +63,26 @@
    "turns_median": 3,
    "turns_max": 4
   },
+  "live_meta-llama_llama-3.3-70b-instruct_v2_parallel": {
+   "label": "live_meta-llama/llama-3.3-70b-instruct_v2_parallel",
+   "backend": "live",
+   "model": "meta-llama/llama-3.3-70b-instruct",
+   "tools": "v2",
+   "mode": "parallel",
+   "trials": 91,
+   "pass_rate": 0.7582,
+   "tokens_in": 8203,
+   "tokens_out": 255,
+   "measured": true,
+   "price_in": 0.1,
+   "price_out": 0.32,
+   "layer1": 0.0009019217582417583,
+   "layer2": 1.83768,
+   "per_task": 1.8385819217582418,
+   "monthly": 14908.655374065935,
+   "turns_median": 3,
+   "turns_max": 4
+  },
   "live_mistralai_mistral-medium-3-5_v2_parallel": {
    "label": "live_mistralai/mistral-medium-3-5_v2_parallel",
    "backend": "live",
@@ -298,6 +318,16 @@
  ],
  "break_even": [
   {
+   "cheap": "live_meta-llama/llama-3.3-70b-instruct_v2_parallel",
+   "expensive": "live_anthropic/claude-sonnet-4.5_v2_parallel",
+   "E": 0.1995666703296705,
+   "C": 0.0009019217582417583,
+   "failures_affordable": 0.026140098496240625,
+   "break_even_success": 0.9738599015037593,
+   "cheap_measured_success": 0.7582,
+   "clears": false
+  },
+  {
    "cheap": "live_google/gemini-2.5-flash-lite_v2_parallel",
    "expensive": "live_anthropic/claude-sonnet-4.5_v2_parallel",
    "E": 0.1995666703296705,
@@ -335,6 +365,16 @@
    "failures_affordable": 0.024173650954308873,
    "break_even_success": 0.9758263490456911,
    "cheap_measured_success": 0.956,
+   "clears": false
+  },
+  {
+   "cheap": "live_meta-llama/llama-3.3-70b-instruct_v2_parallel",
+   "expensive": "live_mistralai/mistral-medium-3-5_v2_parallel",
+   "E": 0.3502469230769234,
+   "C": 0.0009019217582417583,
+   "failures_affordable": 0.04596644754193179,
+   "break_even_success": 0.9540335524580682,
+   "cheap_measured_success": 0.7582,
    "clears": false
   },
   {

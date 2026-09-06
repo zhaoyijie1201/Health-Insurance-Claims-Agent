@@ -1,0 +1,11 @@
+case CLM-9010 trial 1 · decision None · stopped_by exception
+
+[error]
+Traceback (most recent call last):
+  File "E:\NTU\Tri1\PE6201-EMERGING AI TECHNOLOGIES\A2\Health-Insurance-Claims-Agent\harness.py", line 120, in run_set
+    r = run_case(cid, policy, version, mode, approve=approve, verbose=verbose, write=write,
+  File "E:\NTU\Tri1\PE6201-EMERGING AI TECHNOLOGIES\A2\Health-Insurance-Claims-Agent\agent.py", line 156, in run_case
+    for name, args in move["calls"]:
+ValueError: too many values to unpack (expected 2)
+
+

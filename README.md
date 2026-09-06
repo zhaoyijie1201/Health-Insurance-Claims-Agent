@@ -123,6 +123,7 @@ otherwise the tier price (`--tier cheap|mid|frontier`) is used.
 
 - The de-duplication guard halts a run on an identical call **within one turn**, not only across turns. claude-sonnet-4.5 lost 2 of 91 trials that way (it listed check_coverage for the same line twice in turn 2 of CLM-9015). A same-turn duplicate cannot be a loop; ignoring it instead of halting would recover those runs. The battery ran on the shipped guard, so the numbers stand and the refinement is left as a documented change for a next version.
 - Every cheap model's dominant failure is the same: it prices the lines instead of stopping on the policy row (limit exceeded, dates, lapsed), or approves a resubmission although get_claim returned duplicate_of. The facts were in the observations; the models did not act on precedence. That is a per-step reliability problem (implied s 0.86 to 0.92), not a step-count problem.
+- llama-3.3-70b once returned a `calls` entry that was not a `[tool, args]` pair and the loop raised; the harness recorded it as a failed trial (CLM-9010 t1) rather than aborting the battery. The loop now reports a malformed entry back to the model as an observation. The llama numbers stand as measured before that fix.
 - The shipped CLM-8952 label asks the record to cite a coverage result; our agent escalates on the narrative flag at turn 1 and never queries coverage, so that item fails the judgement check by design.
 
 ## Extending the evaluation set
@@ -145,7 +146,7 @@ otherwise the tier price (`--tier cheap|mid|frontier`) is used.
 - [x] D4 evaluation set: 45 cases (15 shipped + 30 ours, five per member), 23 negative, 4 hostile narratives, labels from the routing table; one case (CLM-9013) changed the scan
 - [ ] D0 written (ladder, two tests, `s = P^(1/T)`); `docs/GOOD_RUN.md` is D0(c)
 - [x] Judgement check: `judge.py`, prompt committed, gemini-2.5-flash grading the scripted records: 41/45 cases carry every must_record item, 113/117 items (`results/judge_*.md`). The first pass scored 32/46 on the earlier 46-case set and changed the agent: records now cite the near-miss decided claim, the pre-authorisation id behind a document request, the hospital country, the cover dates and the flagged text itself. The four misses are wording specificity, plus CLM-8952 whose shipped label expects a coverage result the agent never queries after a flag (a stated limit, not a fix).
-- [x] D5(b) live battery, five models, five families, three tiers, 91 trials each, one member's key per model (`results/battery.md`): claude-sonnet-4.5 97.8%, mistral-medium-3-5 95.6%, deepseek-chat-v3 79.1%, gemini-2.5-flash-lite 76.9%, gpt-4o-mini 62.6%. Sixth model (llama-3.3-70b) pending a sixth key.
+- [x] D5(b) live battery, six models, six families, three tiers, 91 trials each, one member's key per model (`results/battery.md`): claude-sonnet-4.5 97.8%, mistral-medium-3-5 95.6%, deepseek-chat-v3 79.1%, gemini-2.5-flash-lite 76.9%, llama-3.3-70b 75.8%, gpt-4o-mini 62.6%.
 - [x] D2(b) v1 vs v2 on one cheap model, gpt-4o-mini: 33.0% -> 62.6% with the tool layer as the only change
 - [x] D6 with measured live rows: cost per successful task ranks by pass rate because a failure (US$7.60) is a thousand cheap runs; no cheap model clears its break-even against sonnet (97.4%) or mistral-medium (95.4%)
 - [ ] Report, demo video, self-appraisal, CONTRIBUTIONS.md
