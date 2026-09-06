@@ -29,7 +29,7 @@ agent.py                run_case(): the ReAct loop, multi-call turns, instrument
 guardrails.py           step cap · budget ceiling · action de-duplication · autonomy gate (code, not prompt)
 harness.py              code check against the answer key, judgement queue, trials, result tables
 run_eval.py             the entry point (D4, D5)            <- what a marker runs
-run_guardrails.py       D3(b): 13 guardrail cases + 1 control      -> results/guardrails.md
+run_guardrails.py       D3(b): 14 guardrail cases, each on v2 and v1 -> results/guardrails.md
 demo_loop_failure.py    D7 failure 1, loop control                 -> results/d7_loop_failure.md
 demo_tool_failure.py    D7 failure 2, tool interface               -> results/d7_tool_failure.md
 judge.py                D4 judgement check: a named second model (or a person) rules on must_record -> results/judge_*.md
@@ -44,6 +44,7 @@ docs/GOOD_RUN.md        D0(c): what a good run looks like, five testable stateme
 docs/EVALUATION_SET.md  D4: the 45 cases by family, what each is for, which check grades it
 docs/JUDGE_PROMPT.md    the exact prompt judge.py sends; the judge is a described instrument
 docs/CASES.md           every case in full: the claim, the facts the tools find, the label and why it is there
+docs/TOOLS.md           D2(a): every tool against the three questions, the tool we removed, the poka-yoke moves, v1 vs v2
 results/                result tables, failed-run transcripts, D3(b)/D7 write-ups (committed); decisions.jsonl (ignored)
 ```
 
@@ -140,7 +141,8 @@ otherwise the tier price (`--tier cheap|mid|frontier`) is used.
 - [x] Rebuilt on the scaffold's module structure; standard library only, scripted default
 - [x] Six tools (v2) + seven-tool v1 baseline, six-field descriptors for both, prompt audit
 - [x] Multi-call turns, dependency rule, sequential vs parallel measured (91/91 both; 30% fewer input tokens)
-- [x] Guardrail layer in code; D3(b) checklist 13/13 with 3 hostile-text cases
+- [x] Guardrail layer in code; D3(b) checklist 14/14 on v2 and 10/14 on v1 (the four v1 misses are the tool layer's moves), 3 hostile-text cases
+- [x] D2(a) tool table in `docs/TOOLS.md`: three questions per tool, the removed check_duplicate_claim and the observation that removed it, four tools we tried not adding
 - [x] D7 failure 1 (loop, de-duplication deleted) and failure 2 (tool interface, v1) with before/after tables
 - [x] Live path verified once (gpt-4o-mini, CLM-8842: 4 turns, 8 calls, measured tokens)
 - [x] D4 evaluation set: 45 cases (15 shipped + 30 ours, five per member), 23 negative, 4 hostile narratives, labels from the routing table; one case (CLM-9013) changed the scan
@@ -149,4 +151,5 @@ otherwise the tier price (`--tier cheap|mid|frontier`) is used.
 - [x] D5(b) live battery, six models, six families, three tiers, 91 trials each, one member's key per model (`results/battery.md`): claude-sonnet-4.5 97.8%, mistral-medium-3-5 95.6%, deepseek-chat-v3 79.1%, gemini-2.5-flash-lite 76.9%, llama-3.3-70b 75.8%, gpt-4o-mini 62.6%.
 - [x] D2(b) v1 vs v2 on one cheap model, gpt-4o-mini: 33.0% -> 62.6% with the tool layer as the only change
 - [x] D6 with measured live rows: cost per successful task ranks by pass rate because a failure (US$7.60) is a thousand cheap runs; no cheap model clears its break-even against sonnet (97.4%) or mistral-medium (95.4%)
-- [ ] Report, demo video, self-appraisal, CONTRIBUTIONS.md
+- [x] CONTRIBUTIONS.md per the team declaration: strands, cases and live model per member
+- [ ] Report, demo video, self-appraisal, NTULearn copy
