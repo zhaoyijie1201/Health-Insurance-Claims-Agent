@@ -45,6 +45,7 @@ docs/EVALUATION_SET.md  D4: the 45 cases by family, what each is for, which chec
 docs/JUDGE_PROMPT.md    the exact prompt judge.py sends; the judge is a described instrument
 docs/CASES.md           every case in full: the claim, the facts the tools find, the label and why it is there
 docs/TOOLS.md           D2(a): every tool against the three questions, the tool we removed, the poka-yoke moves, v1 vs v2
+docs/REPORT.md          the team report, six sections, every number from results/
 results/                result tables, failed-run transcripts, D3(b)/D7 write-ups (committed); decisions.jsonl (ignored)
 ```
 
@@ -152,4 +153,5 @@ otherwise the tier price (`--tier cheap|mid|frontier`) is used.
 - [x] D2(b) v1 vs v2 on one cheap model, gpt-4o-mini: 33.0% -> 62.6% with the tool layer as the only change
 - [x] D6 with measured live rows: cost per successful task ranks by pass rate because a failure (US$7.60) is a thousand cheap runs; no cheap model clears its break-even against sonnet (97.4%) or mistral-medium (95.4%)
 - [x] CONTRIBUTIONS.md per the team declaration: strands, cases and live model per member
-- [ ] Report, demo video, self-appraisal, NTULearn copy
+- [x] Report draft 1 in `docs/REPORT.md` (six sections, under 2,000 words of prose)
+- [ ] Demo video, self-appraisal, NTULearn copy
