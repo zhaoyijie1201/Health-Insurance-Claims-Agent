@@ -47,6 +47,22 @@ Failed trials by case family (three trials per negative case, so 3 means the mod
 | two_preauth_both_absent |  |  |  |  |  |  | 2 |
 | two_preauth_one_expired | 2 |  | 1 |  |  | 1 | 3 |
 
+## The turn before the wrong conclusion (D0b)
+
+For every failed trial that was not halted by a guardrail: which turn's observations the model had just read when it concluded wrongly, and what the routing table says it should have done. "Should have stopped on the policy row" is an expected escalation for a lapsed policy, a date outside cover or an exceeded limit: the facts were in the turn-2 observation and the model went on.
+
+| model | failed, not halted | should have stopped at turn 1 (duplicate) | should have stopped on the policy row (turn 2) | of those, went on to chase a pre-authorisation | wrong on a request | wrong on an approve |
+|---|---|---|---|---|---|---|
+| anthropic/claude-sonnet-4.5 | 0 | 0 | 0 | 0 | 0 | 0 |
+| mistralai/mistral-medium-3-5 | 4 | 0 | 4 | 3 | 0 | 0 |
+| deepseek/deepseek-chat-v3-0324 | 17 | 0 | 11 | 4 | 6 | 0 |
+| google/gemini-2.5-flash-lite | 21 | 0 | 18 | 3 | 3 | 0 |
+| meta-llama/llama-3.3-70b-instruct | 21 | 0 | 17 | 3 | 4 | 0 |
+| openai/gpt-4o-mini | 34 | 9 | 13 | 6 | 9 | 3 |
+
+Across the v2 battery 72 of 97 failed trials were claims the first or second turn had already decided (a duplicate flag, or a policy row saying lapsed, out of cover or over the limit); 19 of those went on to query a pre-authorisation for lines they should never have priced. The weak step is the same one in every model: acting on precedence after the policy row arrives. That is a per-step reliability problem, not a step-count problem.
+
+
 ## What the wrong answers were
 
 - **anthropic/claude-sonnet-4.5**: expected request_document, got HALTED: x2. Format slips: 3 replies refused as non-JSON, 0 finals refused.

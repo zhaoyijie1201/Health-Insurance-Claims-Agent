@@ -68,6 +68,35 @@ def main():
     lines += [hdr, "|---|" + "---|" * len(rows)]
     for fam in allfams:
         lines.append("| %s | %s |" % (fam, " | ".join(str(r["fams"].get(fam, "")) for r in rows)))
+    # ---- D0(b): group the failing runs by where the wrong conclusion was formed --------------
+    lines += ["", "## The turn before the wrong conclusion (D0b)", "",
+              "For every failed trial that was not halted by a guardrail: which turn's observations the model had "
+              "just read when it concluded wrongly, and what the routing table says it should have done. "
+              "\"Should have stopped on the policy row\" is an expected escalation for a lapsed policy, a date outside "
+              "cover or an exceeded limit: the facts were in the turn-2 observation and the model went on.", "",
+              "| model | failed, not halted | should have stopped at turn 1 (duplicate) | should have stopped on the policy row (turn 2) | of those, went on to chase a pre-authorisation | wrong on a request | wrong on an approve |",
+              "|---|---|---|---|---|---|---|"]
+    POLICY_ROW = ("policy_lapsed", "outside_policy_dates", "annual_limit_exceeded")
+    for r in rows:
+        if r["tools"] != "v2":
+            continue
+        d = json.load(open(os.path.join(config.RESULTS_DIR, "eval_%s.json" % r["stem"]), encoding="utf-8"))
+        fails = [x for x in d["runs"] if not x["pass"] and not x["stopped_by"]]
+        dup = [x for x in fails if x["expected_trigger"] == "duplicate_claim"]
+        pol = [x for x in fails if x["expected_trigger"] in POLICY_ROW]
+        chased = [x for x in pol if "get_preauthorisation" in (x["evidence"] or [])]
+        req = [x for x in fails if x["expected"] == "request_document"]
+        app = [x for x in fails if x["expected"] == "approve_in_principle"]
+        r["d0b"] = (len(fails), len(dup), len(pol), len(chased), len(req), len(app))
+        lines.append("| %s | %d | %d | %d | %d | %d | %d |" % (r["model"], len(fails), len(dup), len(pol), len(chased), len(req), len(app)))
+    v2rows = [r for r in rows if r["tools"] == "v2" and r.get("d0b")]
+    tf = sum(r["d0b"][0] for r in v2rows); tp = sum(r["d0b"][1] + r["d0b"][2] for r in v2rows); tc = sum(r["d0b"][3] for r in v2rows)
+    lines += ["", "Across the v2 battery %d of %d failed trials were claims the first or second turn had already decided "
+              "(a duplicate flag, or a policy row saying lapsed, out of cover or over the limit); %d of those went on to "
+              "query a pre-authorisation for lines they should never have priced. The weak step is the same one in every "
+              "model: acting on precedence after the policy row arrives. That is a per-step reliability problem, not a "
+              "step-count problem." % (tp, tf, tc), ""]
+
     lines += ["", "## What the wrong answers were", ""]
     for r in rows:
         if not r["wrong"]:

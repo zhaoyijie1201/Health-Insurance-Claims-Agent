@@ -27,9 +27,10 @@ the decided-claims history, contradict the model in milliseconds, and the code c
 into pass or fail in seconds. Test 2 we
 ran on measured numbers. With P the pass rate and T the median turns, s = P^(1/T):
 claude-sonnet-4.5 scores 0.978 over 2 turns, s = 0.989; gpt-4o-mini scores 0.626 over 3, s =
-0.856. The spread at the same T says our problem is step quality, not step count, and the trace
-logs name the weak step: the turn after the policy row arrives, where the model must stop on
-precedence instead of pricing lines. Way 1, raise per-step reliability, is what the tool rewrite
+0.856. The spread at the same T says our problem is step quality, not step count, and grouping
+the failed live trials by the turn before the wrong conclusion names the weak step: 72 of 97 were
+claims turn 1 or 2 had already decided, a duplicate flag or a policy row, and the model read it
+and went on (`results/battery.md`). Way 1, raise per-step reliability, is what the tool rewrite
 did; way 2, cut turns, is what the dependency rule did, and it moved cost, not correctness.
 
 What good looks like was committed before the agent (`docs/GOOD_RUN.md`, first commit): the real
