@@ -1,6 +1,6 @@
 # Checks used, case by case · scripted_careful_v2_parallel
 
-backend scripted · model careful · tools v2 · 2026-09-06 · 91 trials. CODE = harness.code_check against the answer key (decision, trigger, named line, approved_total, gated action once). JUDGEMENT = model: google/gemini-2.5-flash ruling on every must_record item with the prompt in docs/JUDGE_PROMPT.md.
+backend scripted · model careful · tools v2 · 2026-09-07 · 91 trials. CODE = harness.code_check against the answer key (decision, trigger, named line, approved_total, gated action once). JUDGEMENT = model: google/gemini-2.5-flash ruling on every must_record item with the prompt in docs/JUDGE_PROMPT.md.
 
 | case | family | expected | checks used | code check (trials passed) | code fields checked | judgement (items met) | judgement misses |
 |---|---|---|---|---|---|---|---|

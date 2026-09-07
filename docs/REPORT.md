@@ -64,7 +64,7 @@ The dependency rule: a pair of calls may share a turn only when neither needs th
 only on the claim, so they share turn 2, which is why `check_coverage` takes `member_id` and not a
 policy id from the previous call. `get_preauthorisation` cannot join them: which lines need one is
 known only after coverage answers. The write goes last, alone. Measured both ways on the scripted
-backend: sequential is 91/91, median 4 turns, worst 10, 11,592 input tokens per run; parallel is
+backend: sequential is 91/91, median 4 turns, worst 10, 11,695 input tokens per run; parallel is
 91/91, median 2, worst 4, 8,158 tokens, a 30% saving with correctness unmoved. Two limits are
 visible in the traces. Parallel calls raise cost when a call proves unnecessary: a claim that
 escalates on the policy row has already paid for the hospital lookup and every coverage check.
@@ -131,7 +131,7 @@ cheap model clears that either. On this problem the token price decides nothing 
 are within a point of each other.
 
 The four levers, before and after: lever 1, the tool block, 595 to 1,550 tokens, went the wrong
-way by design; lever 2, turns, 11,592 to 8,158 input tokens per run, the largest token saving;
+way by design; lever 2, turns, 11,695 to 8,158 input tokens per run, the largest token saving;
 lever 3, `get_claim` observations, 72 to 106 tokens, also larger by design; lever 4, the success
 rate, 33.0% to 62.6% on the same model, which turned US$5.10 per successful task into US$2.84.
 Lever 4 dominated: the entire v2 token premium is a fraction of a cent per run and buys back
@@ -145,7 +145,7 @@ claimed; neither was used.
 Failure 1, loop control, is the working sequential agent minus its memory that the policy row
 already arrived: it asks for it again every turn. Nothing crashes. The per-run turn and token log
 found it. With de-duplication deleted, 70 of 91 trials ran to the step
-cap of 12 turns and the set cost 2.6× the working agent's tokens (`results/d7_loop_failure.md`).
+cap of 12 turns and the set cost 2.7× the working agent's tokens (`results/d7_loop_failure.md`).
 With it restored, the same 70 trials stop at turn 3, the first repeat, and the halt names the cause.
 The step cap would have caught it nine turns later without naming it; the budget ceiling never
 fired, the runaway peaking at 39,000 tokens under a 60,000 ceiling set from legitimate runs. A prompt cannot fix it: the model is the thing that forgot. Restoring the

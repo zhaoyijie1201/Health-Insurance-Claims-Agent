@@ -1,5 +1,8 @@
 case CLM-9024 trial 1 · decision approve_in_principle · stopped_by None
 
+[user]
+Task: decide claim CLM-9024 and record the first response. Start with get_claim("CLM-9024").
+
 [assistant]
 {"thought": "Read the claim first; everything else depends on what it returns.", "calls": [["get_claim", {"claim_id": "CLM-9024"}]]}
 

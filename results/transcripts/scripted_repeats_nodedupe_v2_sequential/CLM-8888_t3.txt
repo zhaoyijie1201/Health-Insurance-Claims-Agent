@@ -1,5 +1,8 @@
 case CLM-8888 trial 3 · decision None · stopped_by step_cap
 
+[user]
+Task: decide claim CLM-8888 and record the first response. Start with get_claim("CLM-8888").
+
 [assistant]
 {"thought": "Read the claim first; everything else depends on what it returns.", "calls": [["get_claim", {"claim_id": "CLM-8888"}]]}
 

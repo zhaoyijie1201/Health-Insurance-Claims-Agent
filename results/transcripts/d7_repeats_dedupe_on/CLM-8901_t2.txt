@@ -1,5 +1,8 @@
 case CLM-8901 trial 2 · decision None · stopped_by duplicate_action
 
+[user]
+Task: decide claim CLM-8901 and record the first response. Start with get_claim("CLM-8901").
+
 [assistant]
 {"thought": "Read the claim first; everything else depends on what it returns.", "calls": [["get_claim", {"claim_id": "CLM-8901"}]]}
 

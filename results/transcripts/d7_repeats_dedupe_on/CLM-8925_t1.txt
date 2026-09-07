@@ -1,5 +1,8 @@
 case CLM-8925 trial 1 · decision None · stopped_by duplicate_action
 
+[user]
+Task: decide claim CLM-8925 and record the first response. Start with get_claim("CLM-8925").
+
 [assistant]
 {"thought": "Read the claim first; everything else depends on what it returns.", "calls": [["get_claim", {"claim_id": "CLM-8925"}]]}
 

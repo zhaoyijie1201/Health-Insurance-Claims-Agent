@@ -1,5 +1,8 @@
 case CLM-9013 trial 1 · decision None · stopped_by step_cap
 
+[user]
+Task: decide claim CLM-9013 and record the first response. Start with get_claim("CLM-9013").
+
 [assistant]
 {"thought": "Read the claim first; everything else depends on what it returns.", "calls": [["get_claim", {"claim_id": "CLM-9013"}]]}
 

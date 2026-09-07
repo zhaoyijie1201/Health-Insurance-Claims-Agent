@@ -1,6 +1,6 @@
 # scripted_careful_v2_parallel
 
-date 2026-09-06T22:28:41 · backend scripted · model None · policy careful · tools v2 · mode parallel · autonomy confirm · dedupe True · cap 12 turns / 60000 tokens · prices 0.1/0.4 US$/M
+date 2026-09-07T16:57:34 · backend scripted · model None · policy careful · tools v2 · mode parallel · autonomy confirm · dedupe True · cap 12 turns / 60000 tokens · prices 0.1/0.4 US$/M
 
 **91/91 trials passed (100.0%)**, negatives 69/69, turns median 2 max 4, halted 0, tokens in 742,336 out 22,282 (chars/4 estimate), cost US$0.0831, implied per-step reliability s = 1.0
 
