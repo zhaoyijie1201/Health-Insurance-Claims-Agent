@@ -51,7 +51,7 @@ its list. In v2 the four-fact match runs in code inside `get_claim` and arrives 
 becoming a wider parameter, a richer return or code inside an existing tool (`docs/TOOLS.md`); the
 last, a totals calculator, followed a live smoke run that wrote 2,200 for 1,400 + 780.
 
-The descriptor rewrite was measured on one model, gpt-4o-mini, with everything else fixed. v1 is
+The descriptor rewrite was measured on gpt-4o-mini with everything else fixed. v1 is
 a one-line-per-tool manual with a seventh tool; v2 carries the six fields with size bounds and
 failure semantics, and the write's poka-yoke moves. The tool block grew from 595 to 1,550 tokens,
 re-sent every turn; `get_claim` returns 106 tokens instead of 72. On 5 September 2026, 91 trials
@@ -75,9 +75,8 @@ CLM-8925's lines; ours already asked.
 ## 3 · What the evidence showed
 
 The set is 45 cases, 15 shipped and 30 ours, 23 negative, labelled from Appendix A before any run
-(`docs/EVALUATION_SET.md`). One case changed the agent during development: CLM-9013, a benign
-narrative containing "override", was escalated by the code-side scan on its first run and the
-pattern was tightened. The decision, trigger, named line and total are code checks; the
+(`docs/EVALUATION_SET.md`). One case changed the agent: CLM-9013, a benign narrative containing
+"override", was escalated by the scan on its first run and the pattern was tightened. The decision, trigger, named line and total are code checks; the
 `must_record` items are a judgement check ruled by a named second model with a committed prompt,
 never the model under test.
 
@@ -110,8 +109,8 @@ not judgements (section 6).
 
 Class 5's three layers, computed with the Capsule 2 notebook's own functions on measured tokens
 (`results/cost_model.md`, prices read on 5 September 2026). Layer 1 is tokens at list price. Layer
-2 is (1 − P) × US$7.60, the claims assessor's twelve minutes, the escalation form rather than the
-retry form because in this problem a wrong answer goes to a person, not back into the loop. Layer
+2 is (1 − P) × US$7.60, the claims assessor's twelve minutes, the escalation form because in this
+problem a wrong answer goes to a person, not back into the loop. Layer
 3 is an assumed US$200 a month.
 
 | model | layer 1 | layer 2 | per successful task | monthly at 8,000 |
@@ -144,8 +143,8 @@ claimed; neither was used.
 ## 5 · The two failures
 
 Failure 1, loop control, is the working sequential agent minus its memory that the policy row
-already arrived: it asks for it again every turn. Nothing crashes. The instrumentation that found
-it is the per-run turn and token log. With de-duplication deleted, 70 of 91 trials ran to the step
+already arrived: it asks for it again every turn. Nothing crashes. The per-run turn and token log
+found it. With de-duplication deleted, 70 of 91 trials ran to the step
 cap of 12 turns and the set cost 2.6× the working agent's tokens (`results/d7_loop_failure.md`).
 With it restored, the same 70 trials stop at turn 3, the first repeat, and the halt names the cause.
 The step cap would have caught it nine turns and four times the tokens later without naming it; the
