@@ -18,8 +18,8 @@ policy that must stop after one lookup and a claim that must chase a pre-authori
 learns about after coverage answers. A single call (rung 1) would need all eight tables in the
 prompt; a prompt chain or router (rungs 2 and 3) would price the lines of a claim it should have
 escalated, the failure the cheap models show in section 3; parallelisation (rung 4) is used
-inside turn 2 but cannot decide which calls turn 3 needs. Rung 7 is the first rung on which the
-claim, not the designer, chooses the sequence. Its cost is the governance cliff at the first
+inside turn 2 but cannot decide which calls turn 3 needs. Rung 7 is the first on which the claim,
+not the designer, chooses the sequence. Its cost is the governance cliff at the first
 write; our agent has exactly one, `issue_decision_letter`, gated.
 
 Both Capsule 1 tests pass. Test 1, ground truth: eight systems of record, from the policy row to
@@ -35,8 +35,7 @@ did; way 2, cut turns, is what the dependency rule did, and it moved cost, not c
 
 What good looks like was committed before the agent (`docs/GOOD_RUN.md`, first commit): the real
 reason traceable to a record, the routing table's outcome and only that one, the gated action at
-most once and only after the facts, "I don't know" as a named request rather than an invention,
-and an early stop that costs less than a person. Statements 3 and 4 are what the guardrail
+most once, "I don't know" as a named request, and an early stop that costs less than a person. Statements 3 and 4 are what the guardrail
 checklist and the negative cases exist to catch.
 
 ## 2 · The tool layer
@@ -80,9 +79,9 @@ The set is 45 cases, 15 shipped and 30 ours, 23 negative, labelled from Appendix
 `must_record` items are a judgement check ruled by a named second model with a committed prompt,
 never the model under test.
 
-The scripted run reproduces 91/91. The live battery ran six models, six families, three tiers, on
-5 and 6 September 2026 against the same commit and the same v2 prompt; each pass rate is out of 91
-trials, one per ordinary case and three per negative.
+The scripted run reproduces 91/91. The live battery, 5 and 6 September 2026, ran six models, six
+families, three tiers, on one commit and one v2 prompt; each pass rate is out of 91 trials, one
+per ordinary case and three per negative.
 
 | model | tier | pass (91 trials, v2, Sep 2026) | negatives | judgement | US$ per run |
 |---|---|---|---|---|---|
@@ -103,7 +102,8 @@ limit and the service on the policy's first day, but only sonnet escalated the c
 over in all three trials. The cheap models were not miscalculating; they were not comparing at all,
 and went on to price the lines. gpt-4o-mini approved all nine duplicate trials with `duplicate_of`
 in front of it. Sonnet's two failures were the de-duplication guard halting a same-turn repeat,
-not judgements (section 6).
+not judgements (section 6). The judgement column is the half a pass rate hides: gemini decided 38
+of 45 cases correctly but stated every required fact on only 27 (`results/checks_*.md`).
 
 ## 4 · What it costs
 
@@ -124,7 +124,7 @@ problem a wrong answer goes to a person, not back into the loop. Layer
 
 The most expensive model per run is the cheapest per successful task, by a factor of nine over the
 cheap tier. Sensitivity: ten points of success on sonnet are worth about US$6,000 a month against a
-token bill of US$260; the conclusion survives the whole range. Break-even: against sonnet, E = 0.200 and a cheap model's C is 0.001 to 0.002, so it may
+US$260 token bill; the conclusion survives the whole range. Break-even: against sonnet, E = 0.200 and a cheap model's C is 0.001 to 0.002, so it may
 fail 2.6% of claims and must succeed 97.4% of the time. The best cheap model measured 79.1%. Even
 mistral at 95.6% falls short of its 97.6% break-even. Against mistral the bar is 95.4%, and no
 cheap model clears that either. On this problem the token price decides nothing until two models
@@ -147,9 +147,8 @@ already arrived: it asks for it again every turn. Nothing crashes. The per-run t
 found it. With de-duplication deleted, 70 of 91 trials ran to the step
 cap of 12 turns and the set cost 2.6× the working agent's tokens (`results/d7_loop_failure.md`).
 With it restored, the same 70 trials stop at turn 3, the first repeat, and the halt names the cause.
-The step cap would have caught it nine turns and four times the tokens later without naming it; the
-budget ceiling never fired, because the runaway peaked at 39,000 tokens under a 60,000 ceiling set
-from legitimate runs. A prompt cannot fix it: the model is the thing that forgot. Restoring the
+The step cap would have caught it nine turns later without naming it; the budget ceiling never
+fired, the runaway peaking at 39,000 tokens under a 60,000 ceiling set from legitimate runs. A prompt cannot fix it: the model is the thing that forgot. Restoring the
 guard truncated no legitimate run: 91/91 on both forms.
 
 Failure 2 is in the tool interface. The credulous agent believes tool-shaped text inside the
@@ -166,8 +165,8 @@ within one turn, not only across turns; sonnet lost two trials that way, and a s
 cannot be a loop, so the next version ignores it instead. The cheap models' dominant failure is
 skipping precedence on the policy row, so the deployable configuration is mistral or sonnet with
 `confirm` at the gate; the asymmetry that shaped that setting is that a wrong approval is a letter
-the insurer cannot easily take back. And one shipped label, CLM-8952, expects a coverage result
-our agent never queries after a narrative flag.
+the insurer cannot easily take back. One shipped label, CLM-8952, expects a coverage result our
+agent never queries after a narrative flag.
 
 The architecture we did not build is a second, reviewing agent reading each record before the
 letter goes out. It would have caught the cheap models' limit and date misses at roughly one more
