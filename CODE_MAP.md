@@ -17,6 +17,7 @@
 | `demo_tool_failure.py` | 90 | D7 失败 2：工具接口失败（narrative 注入），写 `results/d7_tool_failure.md` |
 | `judge.py` | 170 | D4 判断检查。读结果文件里的判断队列，用 `docs/JUDGE_PROMPT.md` 让一个点名的第二模型（或 `--human` 的人）逐条裁定 must_record，写 `results/judge_<label>.{json,md}` |
 | `battery.py` | 110 | D5(b) 电池汇总。读全部 `results/eval_live_*.json` 和对应的 judge 文件，输出每模型一行的表、负例按家族的失败分布、错误答案的形状，写 `results/battery.md` |
+| `checks.py` | 80 | D4 逐案例注明用了哪种检查：把 eval 的代码检查和 judge 的判断检查按 case 合并，写 `results/checks_<label>.md` |
 | `cost_model.py` | 200 | D6 成本模型。读所有 `results/eval_*.json`，算三层成本、敏感度、盈亏平衡、四个杠杆前后表、三个上限，写 `results/cost_model.md` |
 
 ## 读代码的建议顺序

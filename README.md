@@ -35,6 +35,7 @@ demo_tool_failure.py    D7 failure 2, tool interface               -> results/d7
 judge.py                D4 judgement check: a named second model (or a person) rules on must_record -> results/judge_*.md
 cost_model.py           D6 three-layer cost model from the measured result files -> results/cost_model.md
 battery.py              D5(b) the live battery summarised, one table per model -> results/battery.md
+checks.py               D4 which check graded each case: code, judgement, both -> results/checks_*.md
 data/
     make_fixtures_A.py      the generator: edit ONLY the EXTRA_* lists at the bottom, then re-run
     check_my_data.py        run after every data change
@@ -113,6 +114,7 @@ smuggled through a `final`. Every stop is loud: a halted run has no decision and
 | D4 judgement check, a person | `python judge.py --human --grader "Name"` |
 | D6 cost model | `python cost_model.py` |
 | D5(b) battery summary | `python battery.py` |
+| D4 checks used, case by case | `python checks.py` |
 | one live battery (D5b) | `python run_eval.py --backend live --model openai/gpt-4o-mini` |
 | the v1 pass, same model (D2b) | `python run_eval.py --backend live --model openai/gpt-4o-mini --tools v1` |
 
