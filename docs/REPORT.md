@@ -41,8 +41,8 @@ checklist and the negative cases exist to catch.
 
 ## 2 · The tool layer
 
-Six tools ship, scored against the three questions in `docs/TOOLS.md`. Five are reads and one is
-the write. We removed one the scaffold shipped: `check_duplicate_claim`. It fails question 1
+Six tools ship, five reads and one write, scored against the three questions in `docs/TOOLS.md`.
+We removed one the scaffold shipped: `check_duplicate_claim`. It fails question 1
 because nothing in a claim tells the model *whether* to call it, and the observation that removed
 it was reproducible: on the scripted backend an agent that forgets it approves CLM-8933, and in the
 live v1 pass gpt-4o-mini approved all three resubmissions in nine of nine trials with the tool in
@@ -170,7 +170,7 @@ the insurer cannot easily take back. And one shipped label, CLM-8952, expects a 
 our agent never queries after a narrative flag.
 
 The architecture we did not build is a second, reviewing agent reading each record before the
-letter goes out. It would have caught the limit and date misses in the cheap models, at roughly
-one more model call per claim, about US$0.003 on the cheap tier. We stayed single-agent because a
+letter goes out. It would have caught the cheap models' limit and date misses at roughly one more
+call per claim, about US$0.003. We stayed single-agent because a
 reviewer that reads the same observations makes the same precedence error; the measured fix was
 fields computed in code, and Cognition's own finding is that the writes stay single-threaded.
