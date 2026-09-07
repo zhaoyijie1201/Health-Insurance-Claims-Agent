@@ -19,8 +19,8 @@ learns about after coverage answers. A single call (rung 1) would need all eight
 prompt; a prompt chain or router (rungs 2 and 3) would price the lines of a claim it should have
 escalated, the failure the cheap models show in section 3; parallelisation (rung 4) is used
 inside turn 2 but cannot decide which calls turn 3 needs. Rung 7 is the first rung on which the
-claim, not the designer, chooses the sequence. Its cost is specific: the governance cliff sits at
-the first write, and our agent has exactly one, `issue_decision_letter`, gated.
+claim, not the designer, chooses the sequence. Its cost is the governance cliff at the first
+write; our agent has exactly one, `issue_decision_letter`, gated.
 
 Both Capsule 1 tests pass. Test 1, ground truth: eight systems of record, from the policy row to
 the decided-claims history, contradict the model in milliseconds, and the code check turns a run
@@ -57,7 +57,7 @@ re-sent every turn; `get_claim` returns 106 tokens instead of 72. On 5 September
 each, the pass rate went from 30/91 (33.0%) to 57/91 (62.6%), the negative cases from 14/69 to
 38/69, and the hostile-text cases from 2/12 to 12/12. The same fourteen guardrail cases pass 10/14 on v1 and 14/14 on v2
 (`results/guardrails.md`); the four that v1 fails are the write's guards, which is where they
-live. So v2 is not smaller. It is safer, and section 4 prices the trade.
+live. v2 is not smaller; it is safer, and section 4 prices the trade.
 
 The dependency rule: a pair of calls may share a turn only when neither needs the other's output.
 `get_claim` runs alone. `lookup_policy`, `lookup_hospital` and one `check_coverage` per line depend
@@ -138,8 +138,8 @@ rate, 33.0% to 62.6% on the same model, which turned US$5.10 per successful task
 Lever 4 dominated: the entire v2 token premium is a fraction of a cent per run and buys back
 dollars of failures. Caps: 12 turns, from a worst legitimate run of 10; 60,000 tokens a run, twice
 the worst legitimate 27,000 and below the 39,000 the D7 runaway peaked at, so the step cap fires
-first; a monthly token alarm at 1.5× the expected bill. Neither caching nor a reasoning model was
-used, so neither adjustment is claimed.
+first; a monthly token alarm at 1.5× the expected bill. No caching or reasoning adjustment is
+claimed; neither was used.
 
 ## 5 · The two failures
 
@@ -162,7 +162,7 @@ belongs where the fact is computed and where the write happens.
 
 ## 6 · What we would not deploy
 
-Three limits, all found by measurement. The de-duplication guard halts on an identical call
+Three measured limits. The de-duplication guard halts on an identical call
 within one turn, not only across turns; sonnet lost two trials that way, and a same-turn duplicate
 cannot be a loop, so the next version ignores it instead. The cheap models' dominant failure is
 skipping precedence on the policy row, so the deployable configuration is mistral or sonnet with
