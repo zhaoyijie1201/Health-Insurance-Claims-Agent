@@ -124,8 +124,7 @@ retry form because in this problem a wrong answer goes to a person, not back int
 
 The most expensive model per run is the cheapest per successful task, by a factor of nine over the
 cheap tier. Sensitivity: ten points of success on sonnet are worth about US$6,000 a month against a
-token bill of US$260; the conclusion survives the whole range. Break-even, the question that
-decides what ships: against sonnet, E = 0.200 and a cheap model's C is 0.001 to 0.002, so it may
+token bill of US$260; the conclusion survives the whole range. Break-even: against sonnet, E = 0.200 and a cheap model's C is 0.001 to 0.002, so it may
 fail 2.6% of claims and must succeed 97.4% of the time. The best cheap model measured 79.1%. Even
 mistral at 95.6% falls short of its 97.6% break-even. Against mistral the bar is 95.4%, and no
 cheap model clears that either. On this problem the token price decides nothing until two models
