@@ -22,9 +22,9 @@ inside turn 2 but cannot decide which calls turn 3 needs. Rung 7 is the first ru
 claim, not the designer, chooses the sequence. Its cost is specific: the governance cliff sits at
 the first write, and our agent has exactly one, `issue_decision_letter`, gated.
 
-Both Capsule 1 tests pass. Test 1, ground truth: eight systems of record (claims, members,
-policies, hospitals, procedures, pre-authorisations, decided claims, required documents) contradict
-the model in milliseconds, and the code check turns a run into pass or fail in seconds. Test 2 we
+Both Capsule 1 tests pass. Test 1, ground truth: eight systems of record, from the policy row to
+the decided-claims history, contradict the model in milliseconds, and the code check turns a run
+into pass or fail in seconds. Test 2 we
 ran on measured numbers. With P the pass rate and T the median turns, s = P^(1/T):
 claude-sonnet-4.5 scores 0.978 over 2 turns, s = 0.989; gpt-4o-mini scores 0.626 over 3, s =
 0.856. The spread at the same T says our problem is step quality, not step count, and the trace
@@ -46,18 +46,16 @@ because nothing in a claim tells the model *whether* to call it, and the observa
 it was reproducible: on the scripted backend an agent that forgets it approves CLM-8933, and in the
 live v1 pass gpt-4o-mini approved all three resubmissions in nine of nine trials with the tool in
 its list. In v2 the four-fact match runs in code inside `get_claim` and arrives as a field,
-`duplicate_of`, whether or not the model asks. Four other tools were tried and not added: a member
-lookup (`lookup_policy` takes `member_id` and does both hops), a document-rules lookup (returned
-from `check_coverage`), a narrative scanner (run in code, returned as `narrative_flags`), and a
-totals calculator (the write computes totals from the line dispositions, after a live smoke run
-wrote 2,200 for 1,400 + 780).
+`duplicate_of`, whether or not the model asks. Four other tools were tried and not added, each
+becoming a wider parameter, a richer return or code inside an existing tool (`docs/TOOLS.md`); the
+last, a totals calculator, followed a live smoke run that wrote 2,200 for 1,400 + 780.
 
 The descriptor rewrite was measured on one model, gpt-4o-mini, with everything else fixed. v1 is
 a one-line-per-tool manual with a seventh tool; v2 carries the six fields with size bounds and
 failure semantics, and the write's poka-yoke moves. The tool block grew from 595 to 1,550 tokens,
-re-sent every turn; `get_claim` returns 106 tokens instead of 72. The pass rate went from 30/91
-(33.0%) to 57/91 (62.6%), the negative cases from 14/69 to 38/69, and the hostile-text cases from
-2/12 to 12/12. The same fourteen guardrail cases pass 10/14 on v1 and 14/14 on v2
+re-sent every turn; `get_claim` returns 106 tokens instead of 72. On 5 September 2026, 91 trials
+each, the pass rate went from 30/91 (33.0%) to 57/91 (62.6%), the negative cases from 14/69 to
+38/69, and the hostile-text cases from 2/12 to 12/12. The same fourteen guardrail cases pass 10/14 on v1 and 14/14 on v2
 (`results/guardrails.md`); the four that v1 fails are the write's guards, which is where they
 live. So v2 is not smaller. It is safer, and section 4 prices the trade.
 
@@ -83,9 +81,10 @@ pattern was tightened. The decision, trigger, named line and total are code chec
 never the model under test.
 
 The scripted run reproduces 91/91. The live battery ran six models, six families, three tiers, on
-the same commit; each pass rate is out of 91 trials, one per ordinary case and three per negative.
+5 and 6 September 2026 against the same commit and the same v2 prompt; each pass rate is out of 91
+trials, one per ordinary case and three per negative.
 
-| model | tier | pass | negatives | judgement | US$ per run |
+| model | tier | pass (91 trials, v2, Sep 2026) | negatives | judgement | US$ per run |
 |---|---|---|---|---|---|
 | claude-sonnet-4.5 | frontier | 89/91 (97.8%) | 67/69 | 38/45 | 0.0324 |
 | mistral-medium-3-5 | mid | 87/91 (95.6%) | 65/69 | 28/45 | 0.0158 |
@@ -103,14 +102,16 @@ boundary pairs make the mechanism visible: every model approved the claim exactl
 limit and the service on the policy's first day, but only sonnet escalated the claim one dollar
 over in all three trials. The cheap models were not miscalculating; they were not comparing at all,
 and went on to price the lines. gpt-4o-mini approved all nine duplicate trials with `duplicate_of`
-in front of it. Sonnet's two failures were not judgements: it listed the same coverage call twice
-in one turn and the de-duplication guard halted the run (section 6).
+in front of it. Sonnet's two failures were the de-duplication guard halting a same-turn repeat,
+not judgements (section 6).
 
 ## 4 · What it costs
 
-Class 5's three layers on measured tokens (`results/cost_model.md`). Layer 1 is tokens at list
-price. Layer 2 is (1 − P) × US$7.60, the claims assessor's twelve minutes, because in this problem
-a wrong answer goes to a person, not back into the loop. Layer 3 is an assumed US$200 a month.
+Class 5's three layers, computed with the Capsule 2 notebook's own functions on measured tokens
+(`results/cost_model.md`, prices read on 5 September 2026). Layer 1 is tokens at list price. Layer
+2 is (1 − P) × US$7.60, the claims assessor's twelve minutes, the escalation form rather than the
+retry form because in this problem a wrong answer goes to a person, not back into the loop. Layer
+3 is an assumed US$200 a month.
 
 | model | layer 1 | layer 2 | per successful task | monthly at 8,000 |
 |---|---|---|---|---|
