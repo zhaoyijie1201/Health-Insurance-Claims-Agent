@@ -15,6 +15,12 @@ MAKE THE STOP LOUD. A cap that silently returns an empty answer is worse than
 the loop it prevented. Every stop records WHY, and a halted run has NO
 decision - it never masquerades as an escalation.
 ====================================================================
+Wang Hao, 2026-09-15: these four guardrails are mine. None of them look at what the
+model said; step cap counts turns, the budget ceiling counts tokens, de-duplication
+compares the exact arguments of a call against every call already made this run, and
+the autonomy gate sits only in front of issue_decision_letter, never in front of the
+agent as a whole. That placement is deliberate: gating the whole agent would make it
+a form, not an agent.
 """
 import json
 
