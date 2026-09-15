@@ -20,6 +20,12 @@ run proves the guardrail fires when the agent ATTEMPTS the bad action; whether
 a live model is talked into attempting it is a D5 observation, not a guardrail
 case.
 ====================================================================
+Wang Hao, 2026-09-15: this checklist runs all 14 guardrail cases on both the v2 and
+v1 tool sets. Ten pass on v1 because they are enforced by the loop itself (step cap,
+budget, de-duplication, the confirm gate); the other four -- G9, G10, G12, G13 --
+only pass on v2, because they are the write's own poka-yoke checks (the narrative
+guard, the per-line disposition requirement, and the computed totals), which v1
+never had.
 """
 import json
 import os
