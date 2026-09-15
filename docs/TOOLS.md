@@ -49,3 +49,10 @@ Six tools, 1550 descriptor tokens in total for v2 against 595 for v1's seven. Th
 | live pass rate, gpt-4o-mini | 30/91 (33.0%) | 57/91 (62.6%) |
 | live tokens in per run | 6,569.9 | 8,576.3 |
 | guardrail cases passed | see `results/guardrails.md`, v1 column | see `results/guardrails.md`, v2 column |
+-- Ding Xiangfeng, 2026-09-15: I own this table. Six tools, each scored against the
+three questions from Class 4 -- does a task fail without it, could the model confuse
+it with a neighbour, what does it cost when it is never called. The tool we removed,
+check_duplicate_claim, failed the first question: nothing in a claim tells the model
+whether to call it, so a model that forgets approves a resubmission (CLM-8933).
+Moving that check into get_claim's own code, as duplicate_of, made the omission
+impossible rather than merely documented.
