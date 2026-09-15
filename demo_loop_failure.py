@@ -20,6 +20,12 @@ turn distribution across the whole set, which guard caught it and why the other
 two would not have, and the before/after table. Everything here is scripted,
 free, and reproduces for a marker.
 ====================================================================
+Trixie Grace Mok, 2026-09-15: this is D7 failure 1, built as a deletion from the
+working agent -- its memory that the policy row already arrived. With that memory
+gone the agent asks for the same fact every turn; nothing crashes, it just burns
+turns and tokens. De-duplication catches it at the first repeat and names the
+cause; the step cap would have caught it too, many turns and several times the
+tokens later, without saying why.
 """
 import os
 
