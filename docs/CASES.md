@@ -634,3 +634,7 @@ Generated from `data/data_A/*.json` and `data/expected_outcomes_A.json`. For eve
 - History CLM-9000 (H-207, 2026-09-20, approve_in_principle; 99213:210): 3 of 4 facts match, a near-miss, not a duplicate
 - must_record: NOT a duplicate of CLM-9000: same member, date and lines, different hospital (H-114 vs H-207); approved_total 210
 - Note: The fifth near-miss, on the one fact the others do not vary: the hospital. Matching on member + date + lines wrongly escalates it.
+-- Trixie Grace Mok, 2026-09-15: I generated these 45 records from the answer key
+and the fixture data. Every label above was written from the routing table in
+Appendix A before the agent ever ran on the case -- that ordering is what makes the
+set a real test rather than a description of what the agent already does.
