@@ -17,6 +17,11 @@ that produced the record.
 Output: results/judge_<stem>.json and .md - one row per case, one verdict per item,
 the grader named on every row, the judge's own token spend at the bottom.
 ====================================================================
+Fu Shuyi, 2026-09-15: the judgement check lives here. A code check can only compare
+values from a fixed list; it cannot tell whether a stated reason actually carries
+the facts the routing table requires. So a named second model -- never the model
+being graded -- reads the record against docs/JUDGE_PROMPT.md and rules on every
+must_record item. --human lets a person do the same ruling instead.
 """
 import argparse
 import json
