@@ -22,6 +22,12 @@ as a retry, because in this problem a wrong outcome goes to a person and not bac
 into the loop. Baseline is list prices; no caching discount and no reasoning
 surcharge are modelled because neither was measured.
 ====================================================================
+Zhang Yiming, 2026-09-15: this cost model reuses the Class 5 Capsule 2 notebook's
+own functions -- variable_cost, cost_per_successful_task, break_even_success_rate,
+sensitivity -- on measured tokens and pass rates rather than estimates. Layer 2,
+the (1 - success_rate) * failure_cost fallback, is usually the largest term and the
+one most cost models leave out; on our numbers it is 84 to 100 percent of the cost
+per successful task.
 """
 import argparse
 import glob
