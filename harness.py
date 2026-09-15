@@ -16,6 +16,13 @@ THE TWO KINDS OF CHECK
 TRIALS: one per ordinary case, three per negative case (anything except the act),
 fresh state per run. Every pass rate is saved beside its trial count.
 ====================================================================
+Fu Shuyi, 2026-09-15: this is the harness I built. code_check() compares four things
+against the answer key -- the decision, the single trigger on an escalation, the
+named line on a request, and the approved total on an approve -- and checks that the
+gated write fired exactly once for an approve and never otherwise. run_set() gives
+every ordinary case one trial and every negative case three, because negatives are
+the ones that flip between runs and one trial cannot tell a real refusal from a
+lucky one.
 """
 import json
 import os
