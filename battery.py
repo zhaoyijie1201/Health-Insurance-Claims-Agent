@@ -9,6 +9,11 @@ present) and writes one table per model plus where the negative cases separated
 them. Relative performance is the point, not a ranking: which model does OUR
 job, at what cost, and where it diverges.
 ====================================================================
+Zhang Yiming, 2026-09-15: this script turns six separate eval files into one
+comparison table, plus the D0(b) grouping that names the weak step -- which turn's
+observations the model had already read when it reached the wrong conclusion. Most
+failures, across every cheap model, were claims the policy row had already decided;
+the model read the fact and priced the lines anyway.
 """
 import collections
 import glob
