@@ -139,21 +139,4 @@ otherwise the tier price (`--tier cheap|mid|frontier`) is used.
 4. `python check_my_data.py` again, then `python run_eval.py`. Every labelled case runs; no per-case
    script is needed (the scripted backend is a policy, not a replay).
 
-## Status (2026-09-05)
 
-- [x] Rebuilt on the scaffold's module structure; standard library only, scripted default
-- [x] Six tools (v2) + seven-tool v1 baseline, six-field descriptors for both, prompt audit
-- [x] Multi-call turns, dependency rule, sequential vs parallel measured (91/91 both; 30% fewer input tokens)
-- [x] Guardrail layer in code; D3(b) checklist 14/14 on v2 and 10/14 on v1 (the four v1 misses are the tool layer's moves), 3 hostile-text cases
-- [x] D2(a) tool table in `docs/TOOLS.md`: three questions per tool, the removed check_duplicate_claim and the observation that removed it, four tools we tried not adding
-- [x] D7 failure 1 (loop, de-duplication deleted) and failure 2 (tool interface, v1) with before/after tables
-- [x] Live path verified once (gpt-4o-mini, CLM-8842: 4 turns, 8 calls, measured tokens)
-- [x] D4 evaluation set: 45 cases (15 shipped + 30 ours, five per member), 23 negative, 4 hostile narratives, labels from the routing table; one case (CLM-9013) changed the scan
-- [ ] D0 written (ladder, two tests, `s = P^(1/T)`); `docs/GOOD_RUN.md` is D0(c)
-- [x] Judgement check: `judge.py`, prompt committed, gemini-2.5-flash grading the scripted records: 41/45 cases carry every must_record item, 113/117 items (`results/judge_*.md`). The first pass scored 32/46 on the earlier 46-case set and changed the agent: records now cite the near-miss decided claim, the pre-authorisation id behind a document request, the hospital country, the cover dates and the flagged text itself. The four misses are wording specificity, plus CLM-8952 whose shipped label expects a coverage result the agent never queries after a flag (a stated limit, not a fix).
-- [x] D5(b) live battery, six models, six families, three tiers, 91 trials each, one member's key per model (`results/battery.md`): claude-sonnet-4.5 97.8%, mistral-medium-3-5 95.6%, deepseek-chat-v3 79.1%, gemini-2.5-flash-lite 76.9%, llama-3.3-70b 75.8%, gpt-4o-mini 62.6%.
-- [x] D2(b) v1 vs v2 on one cheap model, gpt-4o-mini: 33.0% -> 62.6% with the tool layer as the only change
-- [x] D6 with measured live rows: cost per successful task ranks by pass rate because a failure (US$7.60) is a thousand cheap runs; no cheap model clears its break-even against sonnet (97.4%) or mistral-medium (95.4%)
-- [x] CONTRIBUTIONS.md per the team declaration: strands, cases and live model per member
-- [x] Report draft 1 in `docs/REPORT.md` (six sections, under 2,000 words of prose)
-- [ ] Demo video, self-appraisal, NTULearn copy
